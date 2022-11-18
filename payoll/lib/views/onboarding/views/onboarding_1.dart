@@ -74,8 +74,14 @@ class Onboarding1 extends StatelessWidget {
               ),
               OnboradingButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Onboarding2()),);
-                  Navigator.pushNamed(context, Onboarding2.routeName, );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Onboarding2()),
+                  );
+                  Navigator.pushNamed(
+                    context,
+                    Onboarding2.routeName,
+                  );
                 },
               ),
               SizedBox(
