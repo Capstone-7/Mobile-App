@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OnboradingButton extends StatelessWidget {
-  const OnboradingButton({super.key, required this.onPressed});
+class OnboardingButton extends StatelessWidget {
+  const OnboardingButton({super.key, required this.onPressed});
 
   final VoidCallback onPressed;
 

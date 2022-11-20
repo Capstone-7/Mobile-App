@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
+import 'onboarding3_screen.dart';
 
-class Onboarding5 extends StatelessWidget {
-  static const String routeName = 'onboarding-5';
+class Onboarding2 extends StatelessWidget {
+  static const String routeName = 'onboarding-2';
 
-  const Onboarding5({Key? key}) : super(key: key);
+  const Onboarding2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -25,24 +25,29 @@ class Onboarding5 extends StatelessWidget {
               SizedBox(
                   height: size.height * 0.4,
                   width: size.width * 0.8,
-                  child: Image.asset('assets/images/onboarding-5.png')),
+                  child: Image.asset(
+                    'assets/images/onboarding/onboarding-2.png',
+                  )),
               SizedBox(
                 height: size.height * 0.03,
               ),
               const Text(
-                'Self Reward',
+                'Pas Dikantong',
                 style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  'Nikmatin Reward dan Voucher harta karun dari kita yang haqiqi tanpa ada bayaran apapun ',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 17.0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  child: const Text(
+                    'Buat kamu yang spesial nya melebihi martabak, Nikmati produk dengan harga terbaik dan promo - promo yang menarik perhatian kantong kamu',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
                   ),
                 ),
               ),
@@ -54,27 +59,27 @@ class Onboarding5 extends StatelessWidget {
                   SizedBox(
                     width: size.width * 0.03,
                   ),
-                  PointerBar(size: size, active: false),
-                  SizedBox(
-                    width: size.width * 0.03,
-                  ),
-                  PointerBar(size: size, active: false),
-                  SizedBox(
-                    width: size.width * 0.03,
-                  ),
-                  PointerBar(size: size, active: false),
-                  SizedBox(
-                    width: size.width * 0.03,
-                  ),
                   PointerBar(size: size, active: true),
+                  SizedBox(
+                    width: size.width * 0.03,
+                  ),
+                  PointerBar(size: size, active: false),
+                  SizedBox(
+                    width: size.width * 0.03,
+                  ),
+                  PointerBar(size: size, active: false),
+                  SizedBox(
+                    width: size.width * 0.03,
+                  ),
+                  PointerBar(size: size, active: false),
                 ],
               ),
               SizedBox(
                 height: size.height * 0.03,
               ),
-              OnboradingButton(
+              OnboardingButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, Onboarding3.routeName);
+                  Navigator.pushNamed(context, Onboarding3.routeName);
                 },
               ),
               SizedBox(

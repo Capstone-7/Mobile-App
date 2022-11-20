@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
-import 'onboarding_2.dart';
+import 'onboarding2_screen.dart';
 
 class Onboarding1 extends StatelessWidget {
   static const String routeName = 'onboarding-1';
@@ -25,7 +25,9 @@ class Onboarding1 extends StatelessWidget {
               SizedBox(
                   height: size.height * 0.4,
                   width: size.width * 0.8,
-                  child: Image.asset('assets/images/onboarding-1.png')),
+                  child: Image.asset(
+                    'assets/images/onboarding/onboarding-1.png',
+                  )),
               SizedBox(
                 height: size.height * 0.03,
               ),
@@ -36,13 +38,16 @@ class Onboarding1 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  'Don’t worry be happy, Transaksi pulsa, paket data, bayar tagihan, dan lainnya jadi gampang pake banget',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 17.0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  child: const Text(
+                    'Don’t worry be happy, Transaksi pulsa, paket data, bayar tagihan, dan lainnya jadi gampang pake banget',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
                   ),
                 ),
               ),
@@ -72,10 +77,16 @@ class Onboarding1 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              OnboradingButton(
+              OnboardingButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Onboarding2()),);
-                  Navigator.pushNamed(context, Onboarding2.routeName, );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Onboarding2()),
+                  );
+                  Navigator.pushNamed(
+                    context,
+                    Onboarding2.routeName,
+                  );
                 },
               ),
               SizedBox(
