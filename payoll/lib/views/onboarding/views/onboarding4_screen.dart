@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
-import 'onboarding_4.dart';
+import 'onboarding5_screen.dart';
 
-class Onboarding3 extends StatelessWidget {
-  static const String routeName = 'onboarding-3';
+class Onboarding4 extends StatelessWidget {
+  static const String routeName = 'onboarding-4';
 
-  const Onboarding3({Key? key}) : super(key: key);
+  const Onboarding4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,24 +26,29 @@ class Onboarding3 extends StatelessWidget {
               SizedBox(
                   height: size.height * 0.4,
                   width: size.width * 0.8,
-                  child: Image.asset('assets/images/onboarding-3.png')),
+                  child: Image.asset(
+                    'assets/images/onboarding/onboarding-4.png',
+                  )),
               SizedBox(
                 height: size.height * 0.03,
               ),
               const Text(
-                'Perlindungan Extra',
+                'Anti Admin Club',
                 style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  'Sepenting itu kamu buat kita, selama proses pembayaran kamu kita pantau 7x24 jam dengan keamanan sistem kelas dunia ',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 17.0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  child: const Text(
+                    'Gak ada biaya tambahan buat kamu yang lagi bayar tagihan.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
                   ),
                 ),
               ),
@@ -59,11 +64,11 @@ class Onboarding3 extends StatelessWidget {
                   SizedBox(
                     width: size.width * 0.03,
                   ),
-                  PointerBar(size: size, active: true),
+                  PointerBar(size: size, active: false),
                   SizedBox(
                     width: size.width * 0.03,
                   ),
-                  PointerBar(size: size, active: false),
+                  PointerBar(size: size, active: true),
                   SizedBox(
                     width: size.width * 0.03,
                   ),
@@ -73,9 +78,9 @@ class Onboarding3 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              OnboradingButton(
+              OnboardingButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Onboarding4.routeName);
+                  Navigator.pushNamed(context, Onboarding5.routeName);
                 },
               ),
               SizedBox(

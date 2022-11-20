@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/onboarding/views/onboarding_1.dart';
-import 'package:payoll/views/onboarding/views/onboarding_2.dart';
-import 'package:payoll/views/onboarding/views/onboarding_3.dart';
-import 'package:payoll/views/onboarding/views/onboarding_4.dart';
-import 'package:payoll/views/onboarding/views/onboarding_5.dart';
+import 'package:payoll/views/onboarding/views/onboarding2_screen.dart';
+import 'package:payoll/views/onboarding/views/onboarding3_screen.dart';
+import 'package:payoll/views/onboarding/views/onboarding4_screen.dart';
+import 'package:payoll/views/onboarding/views/onboarding5_screen.dart';
+import 'package:payoll/views/onboarding/views/onboarding1_screen.dart';
 
 void main() {
   runApp(const MyApp());
