@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:payoll/views/login/widgets/login_button_google.dart';
-import 'package:payoll/views/login/widgets/login_button.dart';
-import 'package:payoll/views/register/views/register_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String routeName = 'loginscreen';
-  const LoginScreen({super.key});
+import '../widgets/register_button.dart';
+import '../widgets/register_button_google.dart';
+
+class RegisterScreen extends StatefulWidget {
+  static const String routeName = 'registerscreen';
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey formKey = GlobalKey<FormState>();
+class _RegisterScreenState extends State<RegisterScreen> {
+    final GlobalKey formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool checkBox = false;
@@ -23,7 +25,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
@@ -178,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: size.height * 0.018,
                       ),
-                      LoginButton(
+                      RegisterButton(
                         onPressed: () {},
                       ),
                       SizedBox(
@@ -207,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: size.height * 0.030,
                       ),
-                      LoginGoogle(
+                      RegisterGoogle(
                         onPressed: () {},
                       )
                     ],
