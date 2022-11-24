@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:payoll/views/login/views/login_screen.dart';
 
 import '../widgets/onboarding_button.dart';
@@ -32,9 +33,9 @@ class Onboarding5 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              const Text(
+               Text(
                 'Self Reward',
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
+                style: GoogleFonts.poppins(fontSize: 28.0, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -43,10 +44,10 @@ class Onboarding5 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: SizedBox(
                   height: size.height * 0.05,
-                  child: const Text(
+                  child: Text(
                     'Nikmatin Reward dan Voucher harta karun dari kita yang haqiqi tanpa ada bayaran apapun ',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 17.0,
                     ),
                   ),
@@ -90,9 +91,9 @@ class Onboarding5 extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                 },
-                child: const Text(
+                child: Text(
                   'Lewati',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Color(
                         0xff396EB0,
                       ),

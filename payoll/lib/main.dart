@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         Onboarding3.routeName: (context) => const Onboarding3(),
         Onboarding4.routeName: (context) => const Onboarding4(),
         Onboarding5.routeName: (context) => const Onboarding5(),
-        LoginScreen.routeName: (context) =>  LoginScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
       },
     );
   }
