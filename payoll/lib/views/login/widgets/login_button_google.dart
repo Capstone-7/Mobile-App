@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class LoginGoogle extends StatelessWidget {
   const LoginGoogle({super.key, required this.onPressed});
@@ -11,7 +10,7 @@ class LoginGoogle extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.all(12.0),
-            side: BorderSide(color: HexColor('#CFCFCF')),
+            side: BorderSide(color: Color(0xFFCFCFCF)),
             backgroundColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
