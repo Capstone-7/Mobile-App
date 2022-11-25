@@ -33,9 +33,10 @@ class Onboarding5 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.03,
               ),
-               Text(
+              Text(
                 'Self Reward',
-                style: GoogleFonts.poppins(fontSize: 28.0, fontWeight: FontWeight.w700),
+                style: GoogleFonts.poppins(
+                    fontSize: 28.0, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -89,7 +90,8 @@ class Onboarding5 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                  Navigator.pushReplacementNamed(
+                      context, LoginScreen.routeName);
                 },
                 child: Text(
                   'Lewati',
