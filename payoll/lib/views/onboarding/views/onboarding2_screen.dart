@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../login/views/login_screen.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
 import 'onboarding3_screen.dart';
@@ -32,9 +33,10 @@ class Onboarding2 extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.03,
               ),
-               Text(
+              Text(
                 'Pas Dikantong',
-                style: GoogleFonts.poppins(fontSize: 28.0, fontWeight: FontWeight.w700),
+                style: GoogleFonts.poppins(
+                    fontSize: 28.0, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -43,7 +45,7 @@ class Onboarding2 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: SizedBox(
                   height: size.height * 0.05,
-                  child:  Text(
+                  child: Text(
                     'Buat kamu yang spesial nya melebihi martabak, Nikmati produk dengan harga terbaik dan promo - promo yang menarik perhatian kantong kamu',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
@@ -87,7 +89,10 @@ class Onboarding2 extends StatelessWidget {
                 height: size.height * 0.03,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(
+                      context, LoginScreen.routeName);
+                },
                 child: Text(
                   'Lewati',
                   style: GoogleFonts.poppins(

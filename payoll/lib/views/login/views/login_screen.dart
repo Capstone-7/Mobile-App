@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:payoll/views/login/widgets/login_button_google.dart';
 import 'package:payoll/views/login/widgets/login_button.dart';
 import 'package:payoll/views/register/views/register_screen.dart';
@@ -62,15 +61,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: emailController,
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: HexColor('#F7F7F7'),
+                            fillColor: Color(0xFFF7F7F7),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: HexColor('#E9EBEF'))),
+                                    BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: 'mail@mail.com',
                             hintStyle: GoogleFonts.poppins(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: HexColor('#E9EBEF'))),
+                                    BorderSide(color: Color(0xFFE9EBEF))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
@@ -101,42 +100,42 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: size.height * 0.018,
                       ),
                       TextFormField(
-                          obscureText: _showHidePass,
-                          decoration: InputDecoration(
-                              suffixIcon: IconButton(
-                                icon: _showHidePass
-                                    ? Icon(Icons.visibility_off)
-                                    : Icon(Icons.visibility),
-                                onPressed: () => {
-                                  setState(
-                                    () {
-                                      _showHidePass = !_showHidePass;
-                                    },
-                                  )
-                                },
-                              ),
-                              filled: true,
-                              fillColor: HexColor('#F7F7F7'),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: HexColor('#E9EBEF'))),
-                              hintText: '1234********',
-                              hintStyle: GoogleFonts.poppins(),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: HexColor('#E9EBEF'))),
-                              contentPadding: EdgeInsets.all(12.0),
-                              border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)))),
-                          // validator: (String? value) {
-                          //   if (value!.isEmpty) {
-                          //     return 'Please, fill password field!';
-                          //   } else {
-                          //     return null;
-                          //   }
-                          // }
-                          ),
+                        obscureText: _showHidePass,
+                        decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: _showHidePass
+                                  ? Icon(Icons.visibility_off)
+                                  : Icon(Icons.visibility),
+                              onPressed: () => {
+                                setState(
+                                  () {
+                                    _showHidePass = !_showHidePass;
+                                  },
+                                )
+                              },
+                            ),
+                            filled: true,
+                            fillColor: Color(0xFFF7F7F7),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xFFE9EBEF))),
+                            hintText: '1234********',
+                            hintStyle: GoogleFonts.poppins(),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xFFE9EBEF))),
+                            contentPadding: EdgeInsets.all(12.0),
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8)))),
+                        // validator: (String? value) {
+                        //   if (value!.isEmpty) {
+                        //     return 'Please, fill password field!';
+                        //   } else {
+                        //     return null;
+                        //   }
+                        // }
+                      ),
                       SizedBox(
                         height: size.height * 0.018,
                       ),
@@ -148,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Checkbox(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5.0)),
-                                side: BorderSide(color: HexColor('#C5C5C5')),
+                                side: BorderSide(color: Color(0xFFC5C5C5)),
                                 value: checkBox,
                                 onChanged: (bool? value) {
                                   setState(() {
@@ -168,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Text(
                                     'Lupa Kata Sandi?',
                                     style: GoogleFonts.poppins(
-                                        color: HexColor('#396EB0'),
+                                        color: Color(0xFF396EB0),
                                         fontWeight: FontWeight.w500),
                                   ))
                             ],
@@ -190,7 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: HexColor('#A9A9A9'),
+                            color: Color(0xFFA9A9A9),
                           ),
                           Text(
                             'atau',
@@ -200,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: HexColor('#A9A9A9'),
+                            color: Color(0xFFA9A9A9),
                           ),
                         ],
                       ),
@@ -221,12 +220,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, RegisterScreen.routeName);
+                      Navigator.pushReplacementNamed(
+                          context, RegisterScreen.routeName);
                     },
                     child: Text('Daftar',
                         style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
-                            color: HexColor('#396EB0'))))
+                            color: Color(0xFF396EB0))))
               ],
             ),
           ],
