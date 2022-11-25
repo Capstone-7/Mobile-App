@@ -15,7 +15,7 @@ class RegisterButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: () {},
         child: Text(
-          'Masuk',
+          'Daftar',
           style: GoogleFonts.poppins(),
         ));
   }
