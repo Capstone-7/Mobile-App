@@ -8,6 +8,7 @@ import 'package:payoll/views/onboarding_screen/views/onboarding2_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding3_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding4_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding5_screen.dart';
+import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
 
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         AllProductsScreen.routeName: (context) => const AllProductsScreen(),
         PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
-
+        PaymentScreen.routeName: (context) => PaymentScreen(),
       },
     );
   }
