@@ -110,7 +110,8 @@ class TransactionOnProcessCard extends StatelessWidget {
               ),
               const Text(
                 'Xtra Hotrod special 6.5GB, 7hr',
-                style: TextStyle(fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -126,7 +127,7 @@ class TransactionOnProcessCard extends StatelessWidget {
                       child: Center(
                           child: Text(
                         'PULSA & DATA',
-                        style: TextStyle(fontSize: 10.0),
+                        style: TextStyle(fontSize: Constant.fontExtraSmall),
                       )),
                     ),
                   ),
@@ -161,7 +162,8 @@ class TransactionOnProcessCard extends StatelessWidget {
               ),
               const Text(
                 'Detail Transaksi',
-                style: TextStyle(fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.014,

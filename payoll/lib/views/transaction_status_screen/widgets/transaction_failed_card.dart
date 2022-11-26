@@ -24,9 +24,8 @@ class TransactionFailedCard extends StatelessWidget {
                   color: Color(0x29292914),
                   blurRadius: 15.0,
                   blurStyle: BlurStyle.normal,
-                  offset: Offset(
-                      0.0, 0.75) // shadow direction: bottom right
-              )
+                  offset: Offset(0.0, 0.75) // shadow direction: bottom right
+                  )
             ]),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
@@ -95,8 +94,7 @@ class TransactionFailedCard extends StatelessWidget {
                   SizedBox(
                     height: size.width * 0.04,
                     width: size.width * 0.04,
-                    child:
-                    Image.asset('assets/icons/failed-icon.png'),
+                    child: Image.asset('assets/icons/failed-icon.png'),
                   ),
                   SizedBox(width: size.width * 0.02),
                   const Text(
@@ -123,11 +121,14 @@ class TransactionFailedCard extends StatelessWidget {
                   Container(
                     decoration: const BoxDecoration(
                         color: Color(0xFFEDEDED),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(7.0))),
+                        borderRadius: BorderRadius.all(Radius.circular(7.0))),
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: Center(child: Text('PULSA & DATA', style: TextStyle(fontSize: 10.0),)),
+                      child: Center(
+                          child: Text(
+                        'PULSA & DATA',
+                        style: TextStyle(fontSize: Constant.fontExtraSmall),
+                      )),
                     ),
                   ),
                   SizedBox(
@@ -142,8 +143,7 @@ class TransactionFailedCard extends StatelessWidget {
                         border: Border.all(
                             color: const Color(0xFFFF4129), width: 2)),
                     child: const Padding(
-                      padding:
-                      EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 8.0),
+                      padding: EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 8.0),
                       child: Center(
                         child: Text(
                           'Gagal',
@@ -176,14 +176,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Id Transaksi',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: const Text(
                           'PLS02931739DGL',
                           textAlign: TextAlign.end,
@@ -202,14 +202,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Nama Produk',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: Text(
                           dataOfferings[1].offering,
                           textAlign: TextAlign.end,
@@ -228,14 +228,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Nomor Handphone',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: const Text(
                           '087123456789',
                           textAlign: TextAlign.end,
@@ -254,14 +254,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Metode pembayaran',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: const Text(
                           'Gopay',
                           textAlign: TextAlign.end,
@@ -280,14 +280,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Kode Promosi',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: const Text(
                           '-',
                           textAlign: TextAlign.end,
@@ -306,14 +306,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Harga',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: Text(
                           dataOfferings[1].finalPrice.toString(),
                           textAlign: TextAlign.end,
@@ -332,14 +332,14 @@ class TransactionFailedCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: size.width * 0.34,
+                        width: size.width * 0.45,
                         child: const Text(
                           'Biaya Admin',
                           style: TextStyle(fontSize: Constant.fontRegular),
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.45,
+                        width: size.width * 0.35,
                         child: const Text(
                           'Gratis!',
                           textAlign: TextAlign.end,
@@ -362,8 +362,7 @@ class TransactionFailedCard extends StatelessWidget {
                           child: const Text(
                             'Total',
                             style: TextStyle(
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.w500),
+                                fontSize: 17.0, fontWeight: FontWeight.w500),
                           ),
                         ),
                         SizedBox(
@@ -372,8 +371,7 @@ class TransactionFailedCard extends StatelessWidget {
                             'Rp${dataOfferings[1].finalPrice.toString()}',
                             textAlign: TextAlign.end,
                             style: const TextStyle(
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.w500),
+                                fontSize: 17.0, fontWeight: FontWeight.w500),
                           ),
                         ),
                       ])

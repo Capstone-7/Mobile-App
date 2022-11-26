@@ -44,7 +44,8 @@ class DataContentWidget extends StatelessWidget {
                       Text(
                         dataOfferings[index].offering,
                         style: const TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.09,
@@ -54,7 +55,8 @@ class DataContentWidget extends StatelessWidget {
                           children: [
                             const Text(
                               'Harga',
-                              style: TextStyle(fontSize: Constant.fontSemiSmall),
+                              style:
+                                  TextStyle(fontSize: Constant.fontSemiSmall),
                             ),
                             Text(
                               'Rp${dataOfferings[index].finalPrice}',
@@ -97,7 +99,8 @@ class DataContentWidget extends StatelessWidget {
                                                 Text(
                                                   dataOfferings[index].offering,
                                                   style: const TextStyle(
-                                                      fontSize: Constant.fontBig,
+                                                      fontSize:
+                                                          Constant.fontBig,
                                                       fontWeight:
                                                           FontWeight.w700),
                                                 ),
@@ -108,7 +111,8 @@ class DataContentWidget extends StatelessWidget {
                                                   dataOfferings[index]
                                                       .description,
                                                   style: const TextStyle(
-                                                    fontSize: Constant.fontRegular,
+                                                    fontSize:
+                                                        Constant.fontRegular,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -167,7 +171,8 @@ class DataContentWidget extends StatelessWidget {
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
-                                                              fontSize: Constant.fontSemiBig,
+                                                              fontSize: Constant
+                                                                  .fontSemiBig,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500),
@@ -183,10 +188,13 @@ class DataContentWidget extends StatelessWidget {
                                       );
                                     });
                               },
-                              child: const Text(
-                                'Lihat selengkapnya',
-                                style: TextStyle(
-                                    fontSize: Constant.fontSmall, color: Color(0xFF396EB0)),
+                              child: const Expanded(
+                                child: Text(
+                                  'Lihat selengkapnya',
+                                  style: TextStyle(
+                                      fontSize: Constant.fontSmall,
+                                      color: Color(0xFF396EB0)),
+                                ),
                               ),
                             )
                           ],

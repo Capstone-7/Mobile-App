@@ -89,10 +89,8 @@ class Onboarding2 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    HomeScreen.routeName,
-                  );
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, HomeScreen.routeName, (route) => false);
                 },
                 child: const Text(
                   'Lewati',

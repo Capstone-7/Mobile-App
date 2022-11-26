@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/transaction_status_screen/widgets/transaction_success_card.dart';
 import '../../../utils/constant.dart';
+import '../../home_screen/views/home_screen.dart';
 import '../widgets/transaction_failed_card.dart';
 import '../widgets/transaction_onprocess_card.dart';
 
@@ -11,7 +12,7 @@ class TransactionStatusScreen extends StatelessWidget {
 
   TransactionStatusScreen({Key? key}) : super(key: key);
 
-  var transactionStatus = Status.onProcess;
+  var transactionStatus = Status.success;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class TransactionStatusScreen extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                height: size.height * 0.38,
+                height: size.height * 0.35,
               ),
               Expanded(
                 child: Container(
@@ -46,7 +47,8 @@ class TransactionStatusScreen extends StatelessWidget {
                                           borderRadius: const BorderRadius.all(
                                               Radius.circular(8.0)),
                                           border: Border.all(
-                                              color: const Color(Constant.mainColor))),
+                                              color: const Color(
+                                                  Constant.mainColor))),
                                       child: const Center(
                                           child: Padding(
                                         padding: EdgeInsets.symmetric(
@@ -115,14 +117,23 @@ class TransactionStatusScreen extends StatelessWidget {
                                         )
                                       ],
                                     ),
-                              const Text(
-                                'Kembali ke Beranda',
-                                style: TextStyle(
-                                    color: Color(
-                                      0xFF396EB0,
-                                    ),
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: Constant.fontRegular),
+                              Expanded(
+                                child: TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamedAndRemoveUntil(
+                                          context,
+                                          HomeScreen.routeName,
+                                          (route) => false);
+                                    },
+                                    child: const Text(
+                                      'Kembali ke Beranda',
+                                      style: TextStyle(
+                                          color: Color(
+                                            0xFF396EB0,
+                                          ),
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: Constant.fontRegular),
+                                    )),
                               )
                             ],
                           ),

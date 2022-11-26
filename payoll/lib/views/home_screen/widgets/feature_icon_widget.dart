@@ -41,7 +41,7 @@ class FeatureIconWidget extends StatelessWidget {
         ),
         SizedBox(
             height: 50.0,
-            width: 70.0,
+            width: 80.0,
             child: Text(
               text,
               textAlign: TextAlign.center,

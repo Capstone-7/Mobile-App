@@ -83,10 +83,8 @@ class Onboarding5 extends StatelessWidget {
               ),
               OnboardingButton(
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    HomeScreen.routeName,
-                  );
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, HomeScreen.routeName, (route) => false);
                 },
               ),
               SizedBox(
@@ -94,10 +92,8 @@ class Onboarding5 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    HomeScreen.routeName,
-                  );
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, HomeScreen.routeName, (route) => false);
                 },
                 child: const Text(
                   'Lewati',

@@ -13,9 +13,12 @@ class PaymentMethodsScreen extends StatelessWidget {
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 30.0,
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 30.0,
+          ),
         ),
         title: const Text(
           'Metode Pembayaran',
@@ -29,7 +32,7 @@ class PaymentMethodsScreen extends StatelessWidget {
                 TransactionStatusScreen.routeName,
               );
             },
-            icon: Icon(Icons.navigate_next),
+            icon: const Icon(Icons.navigate_next),
           )
         ],
       ),

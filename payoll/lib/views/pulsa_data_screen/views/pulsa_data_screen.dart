@@ -18,9 +18,12 @@ class PulsaDataScreen extends StatelessWidget {
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 30.0,
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 30.0,
+          ),
         ),
         title: const Text(
           'Pulsa & Data',

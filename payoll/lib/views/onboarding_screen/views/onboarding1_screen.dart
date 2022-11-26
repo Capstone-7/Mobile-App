@@ -35,7 +35,9 @@ class Onboarding1 extends StatelessWidget {
               ),
               const Text(
                 'Easy Peasy',
-                style: TextStyle(fontSize: Constant.fontExtraBig, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontExtraBig,
+                    fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -92,10 +94,8 @@ class Onboarding1 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    HomeScreen.routeName,
-                  );
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, HomeScreen.routeName, (route) => false);
                 },
                 child: const Text(
                   'Lewati',
