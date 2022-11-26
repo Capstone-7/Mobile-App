@@ -12,6 +12,7 @@ import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
+import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
 
 import 'views/register/views/register_screen.dart';
 
@@ -47,6 +48,8 @@ class MyApp extends StatelessWidget {
         PaymentScreen.routeName: (context) => PaymentScreen(),
         PaymentMethodsScreen.routeName: (context) =>
             const PaymentMethodsScreen(),
+        TransactionStatusScreen.routeName: (context) =>
+            TransactionStatusScreen(),
       },
     );
   }
