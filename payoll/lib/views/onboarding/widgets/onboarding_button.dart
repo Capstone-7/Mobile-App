@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:payoll/utils/constant.dart';
 
 class OnboardingButton extends StatelessWidget {
   const OnboardingButton({super.key, required this.onPressed});
@@ -16,8 +16,8 @@ class OnboardingButton extends StatelessWidget {
           onPressed: onPressed,
           style: const ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll<Color>(Color(0xff396EB0))),
-          child:  Text('Lanjutkan', style: GoogleFonts.poppins(fontSize: 20.0),)),
+                  MaterialStatePropertyAll<Color>(Color(Constant.mainColor))),
+          child:  Text('Lanjutkan', style: TextStyle(fontSize: Constant.semiBig),)),
     );
   }
 }
