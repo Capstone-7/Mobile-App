@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
+import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
 import 'package:payoll/views/login/views/login_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding1_screen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         StatusBerhasilRegister.routeName: (context) =>
             const StatusBerhasilRegister(),
         HomeScreen.routeName: (context) => const HomeScreen(),
+        AllProductsScreen.routeName: (context) => const AllProductsScreen(),
       },
     );
   }
