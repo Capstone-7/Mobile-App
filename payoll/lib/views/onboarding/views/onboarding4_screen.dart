@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:payoll/utils/constant.dart';
 
 import '../../login/views/login_screen.dart';
 import '../widgets/onboarding_button.dart';
@@ -36,8 +36,8 @@ class Onboarding4 extends StatelessWidget {
               ),
               Text(
                 'Anti Admin Club',
-                style: GoogleFonts.poppins(
-                    fontSize: 28.0, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontExtraBig, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -49,8 +49,8 @@ class Onboarding4 extends StatelessWidget {
                   child: Text(
                     'Gak ada biaya tambahan buat kamu yang lagi bayar tagihan.',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      fontSize: 17.0,
+                    style: TextStyle(
+                      fontSize: Constant.fontTitleOnboarding,
                     ),
                   ),
                 ),
@@ -96,11 +96,11 @@ class Onboarding4 extends StatelessWidget {
                 },
                 child: Text(
                   'Lewati',
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                       color: Color(
                         0xff396EB0,
                       ),
-                      fontSize: 20.0,
+                      fontSize: Constant.semiBig,
                       fontWeight: FontWeight.w500),
                 ),
               )

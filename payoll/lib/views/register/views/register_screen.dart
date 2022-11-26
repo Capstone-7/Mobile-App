@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:payoll/utils/constant.dart';
+import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
 
 import '../../login/views/login_screen.dart';
 import '../widgets/register_button.dart';
@@ -34,12 +35,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Center(
                 child: Text(
               'Daftar',
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold, fontSize: 23.0),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: Constant.fontRegularBig),
             )),
             Center(
                 child: Text('Silahkan mendaftarkan akun anda disini',
-                    style: GoogleFonts.poppins(fontSize: 15.0))),
+                    style: TextStyle(fontSize: Constant.fontRegularSmall))),
             SizedBox(
               height: size.height * 0.025,
             ),
@@ -51,8 +52,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       Text(
                         'Nama Lengkap',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -66,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: 'George lee',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -93,8 +94,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Text(
                         'Email',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -108,7 +109,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: 'mail@mail.com',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -135,8 +136,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Text(
                         'Kata Sandi',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -162,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: '1234********',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -183,8 +184,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Text(
                         'Konfirmasi Kata Sandi',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -211,7 +212,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: '1234********',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -231,7 +232,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: size.height * 0.030,
                       ),
                       RegisterButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, StatusBerhasilRegister.routeName);
+                        },
                       ),
                       SizedBox(
                         height: size.height * 0.020,
@@ -239,7 +242,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Center(
                           child: Text(
                         'Dengan mendaftar, saya telah menyetujui',
-                        style: GoogleFonts.poppins(fontSize: 13.0),
+                        style: TextStyle(fontSize: Constant.fontSmall),
                       )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -249,20 +252,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               TextButton(
                                   onPressed: () {},
                                   child: Text('Ketentuan Layanan',
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 13.0,
+                                      style: TextStyle(
+                                          fontSize: Constant.fontSmall,
                                           color: Color(0xFF0000A3))))
                             ],
                           ),
                           Text('dan',
-                              style: GoogleFonts.poppins(fontSize: 13.0)),
+                              style: TextStyle(fontSize: Constant.fontSmall)),
                           Row(
                             children: [
                               TextButton(
                                   onPressed: () {},
                                   child: Text('Kebijakan Kami',
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 13.0,
+                                      style: TextStyle(
+                                          fontSize: Constant.fontSmall,
                                           color: Color(0xFF0000A3))))
                             ],
                           ),
@@ -281,8 +284,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Text(
                             'atau',
-                            style: GoogleFonts.poppins(
-                                fontSize: 15.0, fontWeight: FontWeight.w400),
+                            style: TextStyle(
+                                fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w400),
                           ),
                           Container(
                             height: size.height * 0.001,
@@ -306,7 +309,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Text(
                   'Sudah punya akun?',
-                  style: GoogleFonts.poppins(fontSize: 15.0),
+                  style: TextStyle(fontSize: Constant.fontRegularSmall),
                 ),
                 TextButton(
                     onPressed: () {
@@ -314,10 +317,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           context, LoginScreen.routeName);
                     },
                     child: Text('Masuk',
-                        style: GoogleFonts.poppins(
+                        style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF396EB0),
-                          fontSize: 15.0,
+                          fontSize: Constant.fontRegularSmall,
                         )))
               ],
             ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:payoll/views/login/widgets/login_button_google.dart';
 import 'package:payoll/views/login/widgets/login_button.dart';
 import 'package:payoll/views/register/views/register_screen.dart';
+
+import '../../../utils/constant.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = 'loginscreen';
@@ -29,17 +30,17 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: size.height * 0.040,
+              height: size.height * 0.050,
             ),
             Center(
                 child: Text(
               'Selamat Datang',
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold, fontSize: 23),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: Constant.fontRegularBig),
             )),
             Center(
                 child: Text('Silahkan masuk dengan akun anda',
-                    style: GoogleFonts.poppins(fontSize: 15))),
+                    style: TextStyle(fontSize: Constant.fontRegularSmall))),
             SizedBox(
               height: size.height * 0.018,
             ),
@@ -51,8 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         'Email',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: 'mail@mail.com',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -93,8 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Text(
                         'Password',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -120,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
                             hintText: '1234********',
-                            hintStyle: GoogleFonts.poppins(),
+                            hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFFE9EBEF))),
@@ -156,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                               ),
                               Text('Ingat saya',
-                                  style: GoogleFonts.poppins(
+                                  style: TextStyle(
                                       fontWeight: FontWeight.w500)),
                             ],
                           ),
@@ -166,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onPressed: () {},
                                   child: Text(
                                     'Lupa Kata Sandi?',
-                                    style: GoogleFonts.poppins(
+                                    style: TextStyle(
                                         color: Color(0xFF396EB0),
                                         fontWeight: FontWeight.w500),
                                   ))
@@ -193,8 +194,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Text(
                             'atau',
-                            style: GoogleFonts.poppins(
-                                fontSize: 15.0, fontWeight: FontWeight.w400),
+                            style: TextStyle(
+                                fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w400),
                           ),
                           Container(
                             height: size.height * 0.001,
@@ -216,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Text(
                   'Belum punya akun?',
-                  style: GoogleFonts.poppins(),
+                  style: TextStyle(),
                 ),
                 TextButton(
                     onPressed: () {
@@ -224,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           context, RegisterScreen.routeName);
                     },
                     child: Text('Daftar',
-                        style: GoogleFonts.poppins(
+                        style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF396EB0))))
               ],
