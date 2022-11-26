@@ -36,11 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
               'Selamat Datang',
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: Constant.fontRegularBig),
+                  fontWeight: FontWeight.bold, fontSize: 23.0),
             )),
             Center(
                 child: Text('Silahkan masuk dengan akun anda',
-                    style: TextStyle(fontSize: Constant.fontRegularSmall))),
+                    style: TextStyle(fontSize: Constant.fontRegular))),
             SizedBox(
               height: size.height * 0.018,
             ),
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Email',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Password',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(
                             'atau',
                             style: TextStyle(
-                                fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w400),
+                                fontSize: Constant.fontRegular, fontWeight: FontWeight.w400),
                           ),
                           Container(
                             height: size.height * 0.001,

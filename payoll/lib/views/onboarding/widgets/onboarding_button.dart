@@ -17,7 +17,10 @@ class OnboardingButton extends StatelessWidget {
           style: const ButtonStyle(
               backgroundColor:
                   MaterialStatePropertyAll<Color>(Color(Constant.mainColor))),
-          child:  Text('Lanjutkan', style: TextStyle(fontSize: Constant.semiBig),)),
+          child: Text(
+            'Lanjutkan',
+            style: TextStyle(fontSize: Constant.fontBig),
+          )),
     );
   }
 }
