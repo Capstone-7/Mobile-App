@@ -7,6 +7,8 @@ static const double fontBig = 18.0;
 static const double semiBig = 20.0;
 static const double fontRegularBig = 23.0;
 static const double fontExtraBig = 28.0;
+static const double fontTitleOnboarding = 17.0;
+
 
 
 static const int mainColor = 0xFF396EB0;
