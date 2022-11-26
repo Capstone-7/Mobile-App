@@ -58,7 +58,7 @@ class _StatusBerhasilRegisterState extends State<StatusBerhasilRegister>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LottieBuilder.asset(
-                'assets/images/check.json',
+                'assets/animation/check.json',
                 height: size.height * 0.300,
                 controller: checkLottieController,
                 onLoaded: (composition) {
