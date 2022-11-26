@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RegisterGoogle extends StatelessWidget {
   const RegisterGoogle({super.key, required this.onPressed});
@@ -26,7 +25,7 @@ class RegisterGoogle extends StatelessWidget {
                 )),
             Text(
               ' GOOGLE',
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
             )
           ],
