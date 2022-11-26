@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key, required this.onPressed});
@@ -12,10 +11,9 @@ class LoginButton extends StatelessWidget {
             backgroundColor: Color(0xFF396EB0),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           'Masuk',
-          style: GoogleFonts.poppins(),
         ));
   }
 }

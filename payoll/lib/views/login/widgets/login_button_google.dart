@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginGoogle extends StatelessWidget {
   const LoginGoogle({super.key, required this.onPressed});
@@ -14,7 +13,7 @@ class LoginGoogle extends StatelessWidget {
             backgroundColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -26,7 +25,7 @@ class LoginGoogle extends StatelessWidget {
                 )),
             Text(
               ' GOOGLE',
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
             )
           ],
