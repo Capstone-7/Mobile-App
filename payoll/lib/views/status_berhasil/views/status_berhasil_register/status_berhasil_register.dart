@@ -67,7 +67,7 @@ class _StatusBerhasilRegisterState extends State<StatusBerhasilRegister>
               ),
               Text('Berhasil',
                   style: TextStyle(
-                      fontSize: Constant.fontRegularBig,
+                      fontSize: 23.0,
                       fontWeight: FontWeight.w600)),
               SizedBox(
                 height: size.height * 0.012,
@@ -76,7 +76,7 @@ class _StatusBerhasilRegisterState extends State<StatusBerhasilRegister>
                   'Selamat anda telah menjadi pengguna PayOll, Happy transaksi',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: Constant.fontRegularSmall,
+                    fontSize: Constant.fontRegular,
                   )),
             ],
           ),

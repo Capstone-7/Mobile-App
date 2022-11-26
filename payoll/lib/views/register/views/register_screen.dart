@@ -36,11 +36,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Text(
               'Daftar',
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: Constant.fontRegularBig),
+                  fontWeight: FontWeight.bold, fontSize: 23.0),
             )),
             Center(
                 child: Text('Silahkan mendaftarkan akun anda disini',
-                    style: TextStyle(fontSize: Constant.fontRegularSmall))),
+                    style: TextStyle(fontSize: Constant.fontRegular))),
             SizedBox(
               height: size.height * 0.025,
             ),
@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Nama Lengkap',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -95,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Email',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Kata Sandi',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -185,7 +185,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Konfirmasi Kata Sandi',
                         style: TextStyle(
-                            fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -285,7 +285,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Text(
                             'atau',
                             style: TextStyle(
-                                fontSize: Constant.fontRegularSmall, fontWeight: FontWeight.w400),
+                                fontSize: Constant.fontRegular, fontWeight: FontWeight.w400),
                           ),
                           Container(
                             height: size.height * 0.001,
@@ -309,7 +309,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 Text(
                   'Sudah punya akun?',
-                  style: TextStyle(fontSize: Constant.fontRegularSmall),
+                  style: TextStyle(fontSize: Constant.fontRegular),
                 ),
                 TextButton(
                     onPressed: () {
@@ -320,7 +320,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF396EB0),
-                          fontSize: Constant.fontRegularSmall,
+                          fontSize: Constant.fontRegular,
                         )))
               ],
             ),
