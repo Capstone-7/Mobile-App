@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/payment_method_screen/views/payment_method_screen.dart';
 import 'package:payoll/views/payment_screen/widgets/payment_detail_card.dart';
-
 import '../../../models/data_offering_model.dart';
 import '../../../utils/constant.dart';
+import '../../payment_methods_screen/views/payment_methods_screen.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String routeName = 'payment_screen';
@@ -77,7 +76,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(
-                              context, PaymentMethodScreen.routeName);
+                              context, PaymentMethodsScreen.routeName);
                         },
                         child: Container(
                           decoration: const BoxDecoration(
