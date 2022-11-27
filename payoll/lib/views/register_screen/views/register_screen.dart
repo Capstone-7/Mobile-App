@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
 
-import '../../login/views/login_screen.dart';
+import '../../login_screen/views/login_screen.dart';
 import '../widgets/register_button.dart';
 import '../widgets/register_button_google.dart';
 

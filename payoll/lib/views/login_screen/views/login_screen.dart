@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/login/widgets/login_button_google.dart';
-import 'package:payoll/views/login/widgets/login_button.dart';
-import 'package:payoll/views/register/views/register_screen.dart';
+import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
+import 'package:payoll/views/login_screen/widgets/login_button.dart';
+import 'package:payoll/views/register_screen/views/register_screen.dart';
 
 import '../../../utils/constant.dart';
 

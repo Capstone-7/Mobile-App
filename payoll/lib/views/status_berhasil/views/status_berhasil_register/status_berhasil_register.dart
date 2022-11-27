@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:payoll/views/login/views/login_screen.dart';
 
 import '../../../../utils/constant.dart';
+import '../../../../widgets/bottom_nav_bar.dart';
 
 class StatusBerhasilRegister extends StatefulWidget {
   static String routeName = 'statusberhasilregister';
@@ -39,11 +39,13 @@ class _StatusBerhasilRegisterState extends State<StatusBerhasilRegister>
   openStatusBerhasilRegister() async {
     var durasiStatusBerhasil = const Duration(seconds: 6);
     return Timer(durasiStatusBerhasil, () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => LoginScreen(),
-          ));
+     Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BottomNavBar(
+                            pageIndex: 0,
+                          )),
+                          (route) => false);
     });
   }
 
