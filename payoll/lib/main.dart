@@ -3,7 +3,7 @@ import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
-import 'package:payoll/views/login/views/login_screen.dart';
+import 'package:payoll/views/login_screen/views/login_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding1_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding2_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding3_screen.dart';
@@ -18,7 +18,7 @@ import 'package:payoll/views/transaction_status_screen/views/transaction_status_
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
-import 'views/register/views/register_screen.dart';
+import 'views/register_screen/views/register_screen.dart';
 
 void main() {
   runApp(const MyApp());
