@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:payoll/views/login/views/login_screen.dart';
+import 'package:payoll/views/login_screen/views/login_screen.dart';
 
 import '../../../../utils/constant.dart';
 
