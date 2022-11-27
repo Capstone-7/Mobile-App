@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
-
-import '../../home_screen/views/home_screen.dart';
+import '../../../widgets/bottom_nav_bar.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
 import 'onboarding5_screen.dart';
@@ -36,7 +35,9 @@ class Onboarding4 extends StatelessWidget {
               ),
               const Text(
                 'Anti Admin Club',
-                style: TextStyle(fontSize: Constant.fontExtraBig, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontExtraBig,
+                    fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -90,8 +91,13 @@ class Onboarding4 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, HomeScreen.routeName, (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BottomNavBar(
+                                pageIndex: 0,
+                              )),
+                      (route) => false);
                 },
                 child: const Text(
                   'Lewati',
