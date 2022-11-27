@@ -5,8 +5,6 @@ import '../widgets/home_screen_carousel.dart';
 import '../widgets/transaction_history_section.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const String routeName = 'home_screen';
-
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -64,7 +62,8 @@ class HomeScreen extends StatelessWidget {
                             const Text(
                               'Belanja Makin Hemat!!!',
                               style: TextStyle(
-                                  fontSize: Constant.fontSemiBig, fontWeight: FontWeight.w700),
+                                  fontSize: Constant.fontSemiBig,
+                                  fontWeight: FontWeight.w700),
                             ),
                             SizedBox(
                               height: size.height * 0.015,

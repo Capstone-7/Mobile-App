@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/transaction_status_screen/widgets/transaction_success_card.dart';
 import '../../../utils/constant.dart';
-import '../../home_screen/views/home_screen.dart';
+import '../../../widgets/bottom_nav_bar.dart';
 import '../widgets/transaction_failed_card.dart';
 import '../widgets/transaction_onprocess_card.dart';
 
@@ -12,7 +12,7 @@ class TransactionStatusScreen extends StatelessWidget {
 
   TransactionStatusScreen({Key? key}) : super(key: key);
 
-  var transactionStatus = Status.success;
+  var transactionStatus = Status.onProcess;
 
   @override
   Widget build(BuildContext context) {
@@ -120,9 +120,13 @@ class TransactionStatusScreen extends StatelessWidget {
                               Expanded(
                                 child: TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamedAndRemoveUntil(
+                                      Navigator.pushAndRemoveUntil(
                                           context,
-                                          HomeScreen.routeName,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const BottomNavBar(
+                                                    pageIndex: 0,
+                                                  )),
                                           (route) => false);
                                     },
                                     child: const Text(

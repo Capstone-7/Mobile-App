@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/constant.dart';
-import '../../home_screen/views/home_screen.dart';
+import '../../../widgets/bottom_nav_bar.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
 import 'onboarding3_screen.dart';
@@ -89,8 +89,13 @@ class Onboarding2 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, HomeScreen.routeName, (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BottomNavBar(
+                            pageIndex: 0,
+                          )),
+                          (route) => false);
                 },
                 child: const Text(
                   'Lewati',
