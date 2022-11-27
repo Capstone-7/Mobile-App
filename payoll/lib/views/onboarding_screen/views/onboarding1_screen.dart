@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
-import 'package:payoll/views/login/views/login_screen.dart';
+import 'package:payoll/views/login_screen/views/login_screen.dart';
 import '../../../widgets/bottom_nav_bar.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
