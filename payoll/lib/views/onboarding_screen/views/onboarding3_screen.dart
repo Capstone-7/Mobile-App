@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 
 import '../../../widgets/bottom_nav_bar.dart';
+import '../../login/views/login_screen.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/pointer_bar.dart';
 import 'onboarding4_screen.dart';
@@ -90,13 +91,14 @@ class Onboarding3 extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const BottomNavBar(
-                            pageIndex: 0,
-                          )),
-                          (route) => false);
+                  Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                  // Navigator.pushAndRemoveUntil(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const BottomNavBar(
+                  //           pageIndex: 0,
+                  //         )),
+                  //         (route) => false);
                 },
                 child: const Text(
                   'Lewati',
