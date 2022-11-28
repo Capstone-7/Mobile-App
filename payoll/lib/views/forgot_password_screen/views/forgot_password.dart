@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/forgot_password_screen/widgets/app_bar.dart';
+import 'package:payoll/views/forgot_password_screen/widgets/forgot_password_app_bar.dart';
 
 import '../../../utils/constant.dart';
 import '../../login_screen/views/login_screen.dart';
-import '../widgets/send_button.dart';
+import '../widgets/forgot_password_send_button.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   static const String routeName = 'forgot-password-screen';
@@ -23,7 +23,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context),
+      appBar: forgotPasswordAppBar(context),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -76,7 +76,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       SizedBox(
                         height: size.height * 0.036,
                       ),
-                      SendButton(
+                      ForgotPasswordSendButton(
                         onPressed: () {},
                       ),
                     ],
