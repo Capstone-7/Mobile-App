@@ -19,6 +19,7 @@ import 'package:payoll/views/transaction_status_screen/views/transaction_status_
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
+import 'views/otp_screen/views/otp_screen.dart';
 import 'views/register_screen/views/register_screen.dart';
 
 void main() {
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.routeName: (context) => const LoginScreen(),
           RegisterScreen.routeName: (context) => const RegisterScreen(),
           ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
+          OtpScreen.routeName: (context) => const OtpScreen(),
           StatusBerhasilRegister.routeName: (context) =>
               const StatusBerhasilRegister(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
