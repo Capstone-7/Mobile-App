@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/login_screen/widgets/login_button.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
@@ -164,7 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           Row(
                             children: [
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
+                                  },
                                   child: Text(
                                     'Lupa Kata Sandi?',
                                     style: TextStyle(
