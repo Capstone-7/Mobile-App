@@ -62,15 +62,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: emailController,
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFFF7F7F7),
+                            fillColor: Color(Constant.greyTextFieldLoginRegister),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             hintText: 'George lee',
                             hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
@@ -104,15 +104,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: emailController,
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFFF7F7F7),
+                            fillColor: Color(Constant.greyTextFieldLoginRegister),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             hintText: 'mail@mail.com',
                             hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
@@ -158,15 +158,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                             ),
                             filled: true,
-                            fillColor: Color(0xFFF7F7F7),
+                            fillColor: Color(Constant.greyTextFieldLoginRegister),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             hintText: '1234********',
                             hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
@@ -207,15 +207,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                             ),
                             filled: true,
-                            fillColor: Color(0xFFF7F7F7),
+                            fillColor: Color(Constant.greyTextFieldLoginRegister),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             hintText: '1234********',
                             hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
+                                    BorderSide(color: Color(Constant.greyTextField))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
@@ -254,7 +254,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   child: Text('Ketentuan Layanan',
                                       style: TextStyle(
                                           fontSize: Constant.fontSmall,
-                                          color: Color(0xFF0000A3))))
+                                          color: Color(Constant.policyPrivacy))))
                             ],
                           ),
                           Text('dan',
@@ -266,7 +266,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   child: Text('Kebijakan Kami',
                                       style: TextStyle(
                                           fontSize: Constant.fontSmall,
-                                          color: Color(0xFF0000A3))))
+                                          color: Color(Constant.policyPrivacy))))
                             ],
                           ),
                         ],
@@ -280,7 +280,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: Color(0xFFA9A9A9),
+                            color: Color(Constant.lineOr),
                           ),
                           Text(
                             'atau',
@@ -290,7 +290,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: Color(0xFFA9A9A9),
+                            color: Color(Constant.lineOr),
                           ),
                         ],
                       ),
@@ -319,7 +319,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: Text('Masuk',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF396EB0),
+                          color: Color(Constant.mainColor),
                           fontSize: Constant.fontRegular,
                         )))
               ],

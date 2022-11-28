@@ -12,6 +12,11 @@ class Constant {
 
   static const int mainColor = 0xFF396EB0;
   static const int whiteBackground = 0xFFFAFAFA;
+  static const int policyPrivacy = 0xFF0000A3;
+  static const int greyTextFieldLoginRegister = 0xFFF7F7F7;
   static const int greyTextField = 0xFFF6F6F6;
+  static const int greyOutlineBorderTextField = 0xFFE9EBEF;
+  static const int lineOr = 0xFFA9A9A9;
+  
   
 }
