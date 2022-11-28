@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/utils/constant.dart';
 
-PreferredSizeWidget appBar (BuildContext context){
-  String routeName = 'app-bar';
+PreferredSizeWidget forgotPasswordAppBar (BuildContext context){
+  String routeName = 'forgot-password-app-bar';
   return AppBar(
     backgroundColor: Colors.transparent,
     elevation: 0,
