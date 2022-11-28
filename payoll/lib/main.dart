@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
+import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
 import 'package:payoll/views/login_screen/views/login_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding1_screen.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           Onboarding5.routeName: (context) => const Onboarding5(),
           LoginScreen.routeName: (context) => const LoginScreen(),
           RegisterScreen.routeName: (context) => const RegisterScreen(),
+          ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
           StatusBerhasilRegister.routeName: (context) =>
               const StatusBerhasilRegister(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
