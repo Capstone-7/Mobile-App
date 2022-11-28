@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/otp_screen/widgets/otp_input.dart';
 import '../../../utils/constant.dart';
+import '../../change_password_screen/views/change_password_screen.dart';
 import '../../login_screen/views/login_screen.dart';
 import '../widgets/otp_app_bar.dart';
 import '../widgets/otp_send_button.dart';
@@ -54,7 +55,9 @@ class _OtpScreenState extends State<OtpScreen> {
               ],
             ),
                       OtpVerificationButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, ChangePasswordScreen.routeName);
+                        },
                       ),
           ],
         ),
