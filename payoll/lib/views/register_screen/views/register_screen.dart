@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
-import 'package:payoll/views/status_success/status_success_register_screen/views/status_success_register_screen.dart';
+import 'package:payoll/views/status_success_screen/status_success_register_screen/views/status_success_register_screen.dart';
 
 import '../../login_screen/views/login_screen.dart';
 import '../widgets/register_button.dart';
