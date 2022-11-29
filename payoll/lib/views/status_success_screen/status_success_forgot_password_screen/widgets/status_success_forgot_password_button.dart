@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ChangePasswordButton extends StatelessWidget {
-  const ChangePasswordButton({super.key, required this.onPressed});
+class StatusSuccessForgotPasswordButton extends StatelessWidget {
+  const StatusSuccessForgotPasswordButton({super.key, required this.onPressed});
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,8 @@ class ChangePasswordButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
         child: Text(
-          'Ubah'.toUpperCase(),
+          'Kembali Ke Masuk'.toUpperCase(),
+          style: TextStyle(fontWeight: FontWeight.w500),
         ));
   }
 }

@@ -13,7 +13,7 @@ class RegisterButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
         child: Text(
-          'Daftar',
+          'Daftar'.toUpperCase(),
           style: TextStyle(fontWeight: FontWeight.w500),
         ));
   }

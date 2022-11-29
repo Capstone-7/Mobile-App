@@ -14,7 +14,6 @@ import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/splash_screen/views/splash_screen.dart';
-import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
 import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +21,8 @@ import 'package:provider/provider.dart';
 import 'views/change_password_screen/views/change_password_screen.dart';
 import 'views/otp_screen/views/otp_screen.dart';
 import 'views/register_screen/views/register_screen.dart';
+import 'views/status_success_screen/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
+import 'views/status_success_screen/status_success_register_screen/views/status_success_register_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,8 +58,8 @@ class MyApp extends StatelessWidget {
           ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
           OtpScreen.routeName: (context) => const OtpScreen(),
           ChangePasswordScreen.routeName: (context) => const ChangePasswordScreen(),
-          StatusBerhasilRegister.routeName: (context) =>
-              const StatusBerhasilRegister(),
+          StatusSuccessRegisterScreen.routeName: (context) => const StatusSuccessRegisterScreen(),
+          StatusSuccessForgotPasswordScreen.routeName: (context) => const StatusSuccessForgotPasswordScreen(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
           PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
           PaymentScreen.routeName: (context) => PaymentScreen(),

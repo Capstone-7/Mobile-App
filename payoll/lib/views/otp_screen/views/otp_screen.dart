@@ -51,7 +51,7 @@ class _OtpScreenState extends State<OtpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Tidak mendapat kode?'),
-                TextButton(onPressed: (){}, child: Text('Kirim Ulang'))
+                TextButton(onPressed: (){}, child: Text('Kirim Ulang', style: TextStyle(color: Color(Constant.mainColor)),)),
               ],
             ),
                       OtpVerificationButton(
