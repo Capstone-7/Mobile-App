@@ -13,7 +13,7 @@ class LoginButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
         child: Text(
-          'Masuk',
+          'Masuk'.toUpperCase(),
         ));
   }
 }
