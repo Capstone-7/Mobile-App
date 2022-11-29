@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
-import 'package:payoll/views/status_berhasil/views/status_berhasil_register/status_berhasil_register.dart';
+import 'package:payoll/views/status_berhasil/status_success_register_screen/views/status_success_register_screen.dart';
 
 import '../../login_screen/views/login_screen.dart';
 import '../widgets/register_button.dart';
@@ -233,7 +233,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       RegisterButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, StatusBerhasilRegister.routeName);
+                          Navigator.pushReplacementNamed(context, StatusSuccessRegisterScreen.routeName);
                         },
                       ),
                       SizedBox(
