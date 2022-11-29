@@ -13,7 +13,7 @@ class ChangePasswordButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
         child: Text(
-          'Ubah',
+          'Ubah'.toUpperCase(),
         ));
   }
 }

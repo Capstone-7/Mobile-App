@@ -3,6 +3,7 @@ import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/login_screen/widgets/login_button.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
+import 'package:payoll/views/status_berhasil/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
 
 import '../../../utils/constant.dart';
 import '../../login_screen/views/login_screen.dart';
@@ -156,7 +157,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         height: size.height * 0.018,
                       ),
                       ChangePasswordButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, StatusSuccessForgotPasswordScreen.routeName);
+                        },
                       ),
                       SizedBox(
                         height: size.height * 0.020,
