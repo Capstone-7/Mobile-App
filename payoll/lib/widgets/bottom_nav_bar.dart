@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
+import 'package:payoll/views/profile_screen/views/profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -17,7 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List screens = [
     const HomeScreen(),
     const Center(child: Text('Riwayat')),
-    const Center(child: Text('Profil')),
+    const ProfileScreen(),
   ];
 
   @override
