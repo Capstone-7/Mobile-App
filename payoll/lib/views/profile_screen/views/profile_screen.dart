@@ -5,6 +5,7 @@ import 'package:payoll/views/profile_screen/widgets/account_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/app_bar_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/list_info.dart';
 import 'package:payoll/views/profile_screen/widgets/list_menu.dart';
+import 'package:payoll/views/profile_screen/widgets/profile_logout_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -21,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         appBar: appBarProfile(context),
         body: ListView(padding: const EdgeInsets.all(24.0), children: [
           AccountProfile(),
-           SizedBox(
+          SizedBox(
             height: size.height * 0.025,
           ),
           Text(
@@ -53,6 +54,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onTapInfo2: () {},
             onTapInfo3: () {},
           ),
+          SizedBox(
+            height: size.height * 0.035,
+          ),
+          ProfileLogoutButton(
+            onPressed: () {},
+          )
         ]));
   }
 }
