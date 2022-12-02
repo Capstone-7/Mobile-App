@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/utils/constant.dart';
+import 'package:payoll/views/edit_account_screen/views/edit_account_screen.dart';
 import 'package:payoll/views/profile_screen/widgets/account_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/app_bar_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/list_info.dart';
@@ -34,7 +35,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: size.height * 0.025,
           ),
           ListMenu(
-            onTapMenu1: () {},
+            onTapMenu1: () {
+              Navigator.pushNamed(context, EditAccountScreen.routeName);
+            },
             onTapMenu2: () {},
             onTapMenu3: () {},
           ),

@@ -19,6 +19,7 @@ import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 import 'views/change_password_screen/views/change_password_screen.dart';
+import 'views/edit_account_screen/views/edit_account_screen.dart';
 import 'views/otp_screen/views/otp_screen.dart';
 import 'views/register_screen/views/register_screen.dart';
 import 'views/status_success_screen/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
@@ -67,6 +68,8 @@ class MyApp extends StatelessWidget {
               const PaymentMethodsScreen(),
           TransactionStatusScreen.routeName: (context) =>
               TransactionStatusScreen(),
+          EditAccountScreen.routeName: (context) => const EditAccountScreen(),
+          
         },
       ),
     );
