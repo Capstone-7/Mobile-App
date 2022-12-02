@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/utils/constant.dart';
+import 'package:payoll/views/change_password_screen/for_after_login_register/views/change_password_after_login_register_screen.dart';
 import 'package:payoll/views/edit_account_screen/views/edit_account_screen.dart';
 import 'package:payoll/views/profile_screen/widgets/account_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/app_bar_profile.dart';
@@ -38,7 +39,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onTapMenu1: () {
               Navigator.pushNamed(context, EditAccountScreen.routeName);
             },
-            onTapMenu2: () {},
+            onTapMenu2: () {
+              Navigator.pushNamed(context, ChangePasswordAfterLoginRegisterScreen.routeName);
+            },
             onTapMenu3: () {},
           ),
           SizedBox(
