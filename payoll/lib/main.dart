@@ -18,6 +18,7 @@ import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/splash_screen/views/splash_screen.dart';
+import 'package:payoll/views/status_success_screen/status_success_change_password_after_login_register_screen/views/status_success_change_password_after_login_register_screen.dart';
 import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
 import 'package:provider/provider.dart';
 import 'views/edit_account_screen/views/edit_account_screen.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
           ChangePasswordAfterLoginRegisterScreen.routeName: (context) => const ChangePasswordAfterLoginRegisterScreen(),
           StatusSuccessRegisterScreen.routeName: (context) => const StatusSuccessRegisterScreen(),
           StatusSuccessForgotPasswordScreen.routeName: (context) => const StatusSuccessForgotPasswordScreen(),
+          StatusSuccessChangePasswordAfterLoginRegisterScreen.routeName: (context) => const StatusSuccessChangePasswordAfterLoginRegisterScreen(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
           PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
           PaymentScreen.routeName: (context) => PaymentScreen(),
