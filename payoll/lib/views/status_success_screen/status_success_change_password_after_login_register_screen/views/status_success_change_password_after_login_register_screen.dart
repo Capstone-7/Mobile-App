@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:payoll/views/profile_screen/views/profile_screen.dart';
+import 'package:payoll/widgets/bottom_nav_bar.dart';
 
 import '../../../../../utils/constant.dart';
 
@@ -42,7 +43,7 @@ class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<St
      Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ProfileScreen(),
+                          builder: (context) => const BottomNavBar(pageIndex: 2,),
                           ),
                           (route) => false);
     });
