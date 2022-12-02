@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
+import 'package:payoll/views/change_password_screen/for_after_login_register/views/change_password_after_login_register_screen.dart';
+import 'package:payoll/views/change_password_screen/for_forgot_password/views/change_password_forgot_password_screen.dart';
 import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
 import 'package:payoll/views/login_screen/views/login_screen.dart';
@@ -17,8 +19,6 @@ import 'package:payoll/views/splash_screen/views/splash_screen.dart';
 import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
-
-import 'views/change_password_screen/views/change_password_screen.dart';
 import 'views/edit_account_screen/views/edit_account_screen.dart';
 import 'views/otp_screen/views/otp_screen.dart';
 import 'views/register_screen/views/register_screen.dart';
@@ -58,7 +58,8 @@ class MyApp extends StatelessWidget {
           RegisterScreen.routeName: (context) => const RegisterScreen(),
           ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
           OtpScreen.routeName: (context) => const OtpScreen(),
-          ChangePasswordScreen.routeName: (context) => const ChangePasswordScreen(),
+          ChangePasswordForgotPasswordScreen.routeName: (context) => const ChangePasswordForgotPasswordScreen(),
+          ChangePasswordAfterLoginRegisterScreen.routeName: (context) => const ChangePasswordAfterLoginRegisterScreen(),
           StatusSuccessRegisterScreen.routeName: (context) => const StatusSuccessRegisterScreen(),
           StatusSuccessForgotPasswordScreen.routeName: (context) => const StatusSuccessForgotPasswordScreen(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
