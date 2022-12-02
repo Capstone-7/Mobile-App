@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payoll/utils/constant.dart';
 
 class StatusSuccessForgotPasswordButton extends StatelessWidget {
   const StatusSuccessForgotPasswordButton({super.key, required this.onPressed});
@@ -8,7 +9,7 @@ class StatusSuccessForgotPasswordButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.all(12.0),
-            backgroundColor: Color(0xFF396EB0),
+            backgroundColor: Color(Constant.mainColor),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,

@@ -2,25 +2,25 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:payoll/views/profile_screen/views/profile_screen.dart';
 
 import '../../../../../utils/constant.dart';
-import '../../../../../widgets/bottom_nav_bar.dart';
 
-class StatusSuccessRegisterScreen extends StatefulWidget {
-  static String routeName = 'status-success-register-';
-  const StatusSuccessRegisterScreen({super.key});
+class StatusSuccessChangePasswordAfterLoginRegisterScreen extends StatefulWidget {
+  static String routeName = 'status-success-change-password-after-login-register';
+  const StatusSuccessChangePasswordAfterLoginRegisterScreen({super.key});
 
   @override
-  State<StatusSuccessRegisterScreen> createState() => _StatusSuccessRegisterScreenState();
+  State<StatusSuccessChangePasswordAfterLoginRegisterScreen> createState() => _StatusSuccessChangePasswordAfterLoginRegisterScreenState();
 }
 
-class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScreen>
+class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<StatusSuccessChangePasswordAfterLoginRegisterScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController checkLottieController;
 
   @override
   void initState() {
-    openStatusBerhasilRegister();
+    openStatusSuccessAfterLoginRegister();
 
     checkLottieController = AnimationController(
       duration: Duration(seconds: 4),
@@ -36,15 +36,14 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
     super.dispose();
   }
 
-  openStatusBerhasilRegister() async {
+  openStatusSuccessAfterLoginRegister() async {
     var durasiStatusBerhasil = const Duration(seconds: 6);
     return Timer(durasiStatusBerhasil, () {
      Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BottomNavBar(
-                            pageIndex: 0,
-                          )),
+                          builder: (context) => const ProfileScreen(),
+                          ),
                           (route) => false);
     });
   }
@@ -57,6 +56,7 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
         padding: const EdgeInsets.all(24.0),
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LottieBuilder.asset(
@@ -68,6 +68,7 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
                 },
               ),
               Text('Berhasil',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: Constant.fontExtraBig,
                       fontWeight: FontWeight.w600)),
@@ -75,11 +76,16 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
                 height: size.height * 0.012,
               ),
               Text(
-                  'Selamat anda telah menjadi pengguna PayOll, Happy transaksi',
+                  'Selamat Kata sandi berhasil di perbaharui',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Constant.fontSemiBig,
                   )),
+                  SizedBox(
+                height: size.height * 0.040,
+              ),
+                 
+                  
             ],
           ),
         ),
