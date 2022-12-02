@@ -3,7 +3,7 @@ import 'package:payoll/views/change_password_screen/for_after_login_register/wid
 import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/login_screen/widgets/login_button.dart';
-import 'package:payoll/views/otp_screen/for_after_login_register2/views/otp_after_login_register_screen.dart';
+import 'package:payoll/views/otp_screen/for_after_login_register/views/otp_after_login_register_screen.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
 import 'package:payoll/views/status_success_screen/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
 
