@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 
-class OtpInput extends StatelessWidget {
+class OtpInputAfterLoginRegister extends StatelessWidget {
   final TextEditingController? controller;
   final bool? autofocus;
-  const OtpInput({super.key, this.controller, this.autofocus});
+  const OtpInputAfterLoginRegister({super.key, this.controller, this.autofocus});
 
   @override
   Widget build(BuildContext context) {
