@@ -12,15 +12,15 @@ import 'package:payoll/views/onboarding_screen/views/onboarding2_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding3_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding4_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding5_screen.dart';
+import 'package:payoll/views/otp_screen/for_after_login_register2/views/otp_after_login_register_screen.dart';
+import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_password_screen.dart';
 import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen.dart';
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/splash_screen/views/splash_screen.dart';
 import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
-import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'views/edit_account_screen/views/edit_account_screen.dart';
-import 'views/otp_screen/views/otp_screen.dart';
 import 'views/register_screen/views/register_screen.dart';
 import 'views/status_success_screen/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
 import 'views/status_success_screen/status_success_register_screen/views/status_success_register_screen.dart';
@@ -57,7 +57,8 @@ class MyApp extends StatelessWidget {
           LoginScreen.routeName: (context) => const LoginScreen(),
           RegisterScreen.routeName: (context) => const RegisterScreen(),
           ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
-          OtpScreen.routeName: (context) => const OtpScreen(),
+          OtpForgotPasswordScreen.routeName: (context) => const OtpForgotPasswordScreen(),
+          OtpAfterLoginRegisterScreen.routeName: (context) => const OtpAfterLoginRegisterScreen(),
           ChangePasswordForgotPasswordScreen.routeName: (context) => const ChangePasswordForgotPasswordScreen(),
           ChangePasswordAfterLoginRegisterScreen.routeName: (context) => const ChangePasswordAfterLoginRegisterScreen(),
           StatusSuccessRegisterScreen.routeName: (context) => const StatusSuccessRegisterScreen(),
