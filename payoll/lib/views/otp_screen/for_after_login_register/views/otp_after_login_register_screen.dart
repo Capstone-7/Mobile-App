@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/change_password_screen/for_forgot_password/views/change_password_forgot_password_screen.dart';
+import 'package:payoll/views/status_success_screen/status_success_change_password_after_login_register_screen/views/status_success_change_password_after_login_register_screen.dart';
 import '../../../../utils/constant.dart';
 import '../widgets/otp_app_bar_after_login_register.dart';
 import '../widgets/otp_input_after_login_register.dart';
@@ -67,7 +68,7 @@ class _OtpAfterLoginRegisterScreenState
             ),
             OtpVerificationAfterLoginRegisterButton(
               onPressed: () {
-                // Navigator.pushReplacementNamed(context, ChangePasswordForgotPasswordScreen.routeName);
+                Navigator.pushReplacementNamed(context, StatusSuccessChangePasswordAfterLoginRegisterScreen.routeName);
               },
             ),
           ],
