@@ -78,7 +78,7 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
                   'Selamat anda telah menjadi pengguna PayOll, Happy transaksi',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: Constant.fontBig,
+                    fontSize: Constant.fontSemiBig,
                   )),
             ],
           ),
