@@ -12,7 +12,7 @@ import 'package:payoll/views/onboarding_screen/views/onboarding2_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding3_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding4_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding5_screen.dart';
-import 'package:payoll/views/otp_screen/for_after_login_register2/views/otp_after_login_register_screen.dart';
+import 'package:payoll/views/otp_screen/for_after_login_register/views/otp_after_login_register_screen.dart';
 import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_password_screen.dart';
 import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen.dart';
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
