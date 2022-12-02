@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/forgot_password_screen/widgets/forgot_password_app_bar.dart';
-import 'package:payoll/views/otp_screen/views/otp_screen.dart';
+import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_password_screen.dart';
 
 import '../../../utils/constant.dart';
 import '../../login_screen/views/login_screen.dart';
@@ -79,7 +79,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                       ForgotPasswordSendButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, OtpScreen.routeName);
+                          Navigator.pushReplacementNamed(context, OtpForgotPasswordScreen.routeName);
                         },
                       ),
                     ],

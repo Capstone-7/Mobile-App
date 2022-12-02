@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OtpVerificationButton extends StatelessWidget {
-  const OtpVerificationButton({super.key, required this.onPressed});
+class OtpVerificationForgotPasswordButton extends StatelessWidget {
+  const OtpVerificationForgotPasswordButton({super.key, required this.onPressed});
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {

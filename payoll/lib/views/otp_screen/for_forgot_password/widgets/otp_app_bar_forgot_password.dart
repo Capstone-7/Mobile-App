@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/utils/constant.dart';
 
-PreferredSizeWidget otpAppBar (BuildContext context){
+PreferredSizeWidget otpAppBarForgotPassword (BuildContext context){
   String routeName = 'forgot-password-app-bar';
   return AppBar(
     backgroundColor: Colors.transparent,
