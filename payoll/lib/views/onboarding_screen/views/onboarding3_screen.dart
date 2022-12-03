@@ -41,17 +41,11 @@ class Onboarding3 extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.02,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: SizedBox(
-                      height: size.height * 0.07,
-                      child: const Text(
-                        'Sepenting itu kamu buat kita, selama proses pembayaran kamu kita pantau 7x24 jam dengan keamanan sistem kelas dunia ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 17.0,
-                        ),
-                      ),
+                  const Text(
+                    'Sepenting itu kamu buat kita, selama proses pembayaran kamu kita pantau 7x24 jam dengan keamanan sistem kelas dunia ',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
                     ),
                   ),
                 ],
