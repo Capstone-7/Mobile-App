@@ -41,17 +41,11 @@ class Onboarding4 extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.02,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: SizedBox(
-                      height: size.height * 0.07,
-                      child: const Text(
-                        'Gak ada biaya tambahan buat kamu yang lagi bayar tagihan.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 17.0,
-                        ),
-                      ),
+                  const Text(
+                    'Gak ada biaya tambahan buat kamu yang lagi bayar tagihan.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
                     ),
                   ),
                 ],
