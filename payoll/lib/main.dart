@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primaryColor: const Color(Constant.mainColor),
         ),
-        home: const Onboarding1(),
+        home: const HomeScreen(),
         routes: {
           SplashScreen.routeName: (context) => const SplashScreen(),
           Onboarding1.routeName: (context) => const Onboarding1(),

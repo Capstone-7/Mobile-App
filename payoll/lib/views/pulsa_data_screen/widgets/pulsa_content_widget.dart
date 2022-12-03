@@ -16,7 +16,7 @@ class PulsaContentWidget extends StatelessWidget {
           shrinkWrap: true,
           itemCount: pulsaOfferings.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisExtent: size.height * 0.19),
+              crossAxisCount: 2, mainAxisExtent: size.height * 0.17),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
