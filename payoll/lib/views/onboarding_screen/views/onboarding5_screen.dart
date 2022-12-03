@@ -41,17 +41,11 @@ class Onboarding5 extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.02,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: SizedBox(
-                      height: size.height * 0.07,
-                      child: const Text(
-                        'Nikmatin Reward dan Voucher harta karun dari kita yang haqiqi tanpa ada bayaran apapun',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 17.0,
-                        ),
-                      ),
+                  const Text(
+                    'Nikmatin Reward dan Voucher harta karun dari kita yang haqiqi tanpa ada bayaran apapun',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17.0,
                     ),
                   ),
                 ],
