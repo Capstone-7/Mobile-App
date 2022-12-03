@@ -16,7 +16,7 @@ class PulsaContentWidget extends StatelessWidget {
           shrinkWrap: true,
           itemCount: pulsaOfferings.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisExtent: size.height * 0.19),
+              crossAxisCount: 2, mainAxisExtent: size.height * 0.16),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -51,9 +51,6 @@ class PulsaContentWidget extends StatelessWidget {
                             const Text(
                               'Harga',
                               style: TextStyle(fontSize: Constant.fontSemiSmall),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
                             ),
                             Text(
                               'Rp${pulsaOfferings[index].finalPrice}',
