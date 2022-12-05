@@ -8,8 +8,8 @@ class RegisterGoogle extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(12.0),
-            side: BorderSide(color: Color(0xFFCFCFCF)),
+            padding: const EdgeInsets.all(12.0),
+            side: const BorderSide(color: Color(0xFFCFCFCF)),
             backgroundColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
@@ -17,7 +17,7 @@ class RegisterGoogle extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
                 height: 28.0,
                 width: 28.0,
                 child: Image.asset(
@@ -25,7 +25,7 @@ class RegisterGoogle extends StatelessWidget {
                 )),
             Text(
               ' Google'.toUpperCase(),
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
             )
           ],

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
+import 'package:payoll/providers/sign_up_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
 import 'package:payoll/views/change_password_screen/for_after_login_register/views/change_password_after_login_register_screen.dart';
 import 'package:payoll/views/change_password_screen/for_forgot_password/views/change_password_forgot_password_screen.dart';
 import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
-import 'package:payoll/views/home_screen/views/home_screen.dart';
 import 'package:payoll/views/login_screen/views/login_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding1_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding2_screen.dart';
@@ -41,6 +41,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => BottomNavBarProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => SignUpProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -58,14 +61,23 @@ class MyApp extends StatelessWidget {
           Onboarding5.routeName: (context) => const Onboarding5(),
           LoginScreen.routeName: (context) => const LoginScreen(),
           RegisterScreen.routeName: (context) => const RegisterScreen(),
-          ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
-          OtpForgotPasswordScreen.routeName: (context) => const OtpForgotPasswordScreen(),
-          OtpAfterLoginRegisterScreen.routeName: (context) => const OtpAfterLoginRegisterScreen(),
-          ChangePasswordForgotPasswordScreen.routeName: (context) => const ChangePasswordForgotPasswordScreen(),
-          ChangePasswordAfterLoginRegisterScreen.routeName: (context) => const ChangePasswordAfterLoginRegisterScreen(),
-          StatusSuccessRegisterScreen.routeName: (context) => const StatusSuccessRegisterScreen(),
-          StatusSuccessForgotPasswordScreen.routeName: (context) => const StatusSuccessForgotPasswordScreen(),
-          StatusSuccessChangePasswordAfterLoginRegisterScreen.routeName: (context) => const StatusSuccessChangePasswordAfterLoginRegisterScreen(),
+          ForgotPasswordScreen.routeName: (context) =>
+              const ForgotPasswordScreen(),
+          OtpForgotPasswordScreen.routeName: (context) =>
+              const OtpForgotPasswordScreen(),
+          OtpAfterLoginRegisterScreen.routeName: (context) =>
+              const OtpAfterLoginRegisterScreen(),
+          ChangePasswordForgotPasswordScreen.routeName: (context) =>
+              const ChangePasswordForgotPasswordScreen(),
+          ChangePasswordAfterLoginRegisterScreen.routeName: (context) =>
+              const ChangePasswordAfterLoginRegisterScreen(),
+          StatusSuccessRegisterScreen.routeName: (context) =>
+              const StatusSuccessRegisterScreen(),
+          StatusSuccessForgotPasswordScreen.routeName: (context) =>
+              const StatusSuccessForgotPasswordScreen(),
+          StatusSuccessChangePasswordAfterLoginRegisterScreen.routeName:
+              (context) =>
+                  const StatusSuccessChangePasswordAfterLoginRegisterScreen(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
           PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
           PaymentScreen.routeName: (context) => PaymentScreen(),
@@ -74,8 +86,8 @@ class MyApp extends StatelessWidget {
           TransactionStatusScreen.routeName: (context) =>
               TransactionStatusScreen(),
           EditAccountScreen.routeName: (context) => const EditAccountScreen(),
-          RiwayatTransaksiScreen.routeName: (context) => const RiwayatTransaksiScreen(),
-          
+          RiwayatTransaksiScreen.routeName: (context) =>
+              const RiwayatTransaksiScreen(),
         },
       ),
     );
