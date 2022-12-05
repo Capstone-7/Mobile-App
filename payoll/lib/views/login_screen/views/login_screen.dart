@@ -245,15 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           }
                         },
-                        child: Consumer<SignInProvider>(
-                          builder: (context, provider, _) {
-                            if (provider.myState == MyState.loading) {
-                              return const CircularProgressIndicator();
-                            } else {
-                              return const Text('MASUK');
-                            }
-                          },
-                        ),
+                        child: const Text('MASUK')
                       ),
                       SizedBox(
                         height: size.height * 0.020,

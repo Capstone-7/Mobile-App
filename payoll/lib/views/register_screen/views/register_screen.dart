@@ -271,33 +271,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: size.height * 0.030,
                     ),
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.all(12.0),
-                          backgroundColor: const Color(0xFF396EB0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () async {
-                        if (formKey.currentState!.validate() &&
-                            _passwordController.text ==
-                                _confirmPasswordController.text) {
-                          formKey.currentState!.save();
-                          await provider.signUp(
-                            email: _emailController.text,
-                            password: _passwordController.text,
-                            name: _nameController.text,
-                          );
-                        }
-                      },
-                      child: Consumer<SignUpProvider>(
-                        builder: (context, provider, _) {
-                          if (provider.myState == MyState.loading) {
-                            return const CircularProgressIndicator();
-                          } else {
-                            return const Text('DAFTAR');
+                        style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(12.0),
+                            backgroundColor: const Color(0xFF396EB0),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8))),
+                        onPressed: () async {
+                          if (_passwordController.text !=
+                              _confirmPasswordController.text) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Password and Confirm Password does not match',
+                                ),
+                              ),
+                            );
+                          }
+                          else if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            await provider.signUp(
+                              email: _emailController.text,
+                              password: _passwordController.text,
+                              name: _nameController.text,
+                            );
                           }
                         },
-                      ),
-                    ),
+                        child: const Text('DAFTAR')),
                     SizedBox(
                       height: size.height * 0.020,
                     ),
