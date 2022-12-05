@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../models/sign_in_model.dart';
 import '../models/sign_up_model.dart';
 
 class ApiService {
@@ -42,6 +43,24 @@ class ApiService {
       );
 
       return SignUpModel.fromJson(response.data);
+    } on DioError catch (_) {
+      rethrow;
+    }
+  }
+  Future<SignInModel> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final response = await _dio.post(
+        _baseUrl + 'login',
+        data: {
+          'email': email,
+          'password': password,
+        },
+      );
+
+      return SignInModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }

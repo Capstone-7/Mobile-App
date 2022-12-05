@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
+import 'package:payoll/providers/sign_in_provider.dart';
 import 'package:payoll/providers/sign_up_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => SignUpProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SignInProvider(),
         ),
       ],
       child: MaterialApp(

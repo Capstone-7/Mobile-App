@@ -3,11 +3,16 @@ import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/login_screen/widgets/login_button.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
+import 'package:payoll/widgets/bottom_nav_bar.dart';
+import 'package:provider/provider.dart';
 
+import '../../../providers/sign_in_provider.dart';
 import '../../../utils/constant.dart';
+import '../../../utils/state/finite_state.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = 'loginscreen';
+
   const LoginScreen({super.key});
 
   @override
@@ -15,14 +20,52 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool checkBox = false;
   bool _showHidePass = true;
+
+  @override
+  void initState() {
+    final provider = Provider.of<SignInProvider>(context, listen: false);
+    provider.addListener(
+      () {
+        if (provider.myState == MyState.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'User doesn\'t exist!',
+              ),
+            ),
+          );
+        } else if (provider.myState == MyState.loaded) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Logged In',
+              ),
+            ),
+          );
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const BottomNavBar(
+                  pageIndex: 0,
+                ),
+              ),
+              (route) => false);
+        }
+      },
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final provider = Provider.of<SignInProvider>(context, listen: false);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -33,13 +76,12 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: size.height * 0.050,
             ),
-            Center(
+            const Center(
                 child: Text(
               'Selamat Datang',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 23.0),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
             )),
-            Center(
+            const Center(
                 child: Text('Silahkan masuk dengan akun anda',
                     style: TextStyle(fontSize: Constant.fontRegular))),
             SizedBox(
@@ -51,93 +93,97 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(
+                      const Text(
                         'Email',
                         style: TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
                       ),
                       TextFormField(
-                        controller: emailController,
-                        decoration: InputDecoration(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
                             filled: true,
-                            fillColor: Color(Constant.greyTextFieldLoginRegister),
+                            fillColor:
+                                Color(Constant.greyTextFieldLoginRegister),
                             focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
                             hintText: 'mail@mail.com',
                             hintStyle: TextStyle(),
                             enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
                             contentPadding: EdgeInsets.all(12.0),
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   const String expression = "[a-zA-Z0-9+._%-+]{1,256}"
-                        //       "\\@"
-                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
-                        //       "("
-                        //       "\\."
-                        //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
-                        //       ")+";
-                        //   final RegExp regExp = RegExp(expression);
-                        //   return !regExp.hasMatch(value!)
-                        //       ? "Please, input valid email!"
-                        //       : null;
-                        // },
+                        validator: (String? value) {
+                          const String expression = "[a-zA-Z0-9+._%-+]{1,256}"
+                              "\\@"
+                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
+                              "("
+                              "\\."
+                              "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
+                              ")+";
+                          final RegExp regExp = RegExp(expression);
+                          return !regExp.hasMatch(value!)
+                              ? "Please, input valid email!"
+                              : null;
+                        },
                       ),
                       SizedBox(
                         height: size.height * 0.018,
                       ),
-                      Text(
+                      const Text(
                         'Password',
                         style: TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
                       ),
                       TextFormField(
-                        obscureText: _showHidePass,
-                        decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              icon: _showHidePass
-                                  ? Icon(Icons.visibility_off)
-                                  : Icon(Icons.visibility),
-                              onPressed: () => {
-                                setState(
-                                  () {
-                                    _showHidePass = !_showHidePass;
-                                  },
-                                )
-                              },
-                            ),
-                            filled: true,
-                            fillColor: Color(Constant.greyTextFieldLoginRegister),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
-                            hintText: '1234********',
-                            hintStyle: TextStyle(),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFFE9EBEF))),
-                            contentPadding: EdgeInsets.all(12.0),
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // }
-                      ),
+                          controller: _passwordController,
+                          obscureText: _showHidePass,
+                          decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                icon: _showHidePass
+                                    ? const Icon(Icons.visibility_off)
+                                    : const Icon(Icons.visibility),
+                                onPressed: () => {
+                                  setState(
+                                    () {
+                                      _showHidePass = !_showHidePass;
+                                    },
+                                  )
+                                },
+                              ),
+                              filled: true,
+                              fillColor: const Color(
+                                  Constant.greyTextFieldLoginRegister),
+                              focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(Constant.greyTextField))),
+                              hintText: '1234********',
+                              hintStyle: const TextStyle(),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Color(0xFFE9EBEF))),
+                              contentPadding: const EdgeInsets.all(12.0),
+                              border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)))),
+                          validator: (String? value) {
+                            if (value!.isEmpty) {
+                              return 'Please, fill password field!';
+                            } else {
+                              return null;
+                            }
+                          }),
                       SizedBox(
                         height: size.height * 0.018,
                       ),
@@ -149,7 +195,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               Checkbox(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5.0)),
-                                side: BorderSide(color: Color(0xFFC5C5C5)),
+                                side:
+                                    const BorderSide(color: Color(0xFFC5C5C5)),
                                 value: checkBox,
                                 onChanged: (bool? value) {
                                   setState(() {
@@ -157,18 +204,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                   });
                                 },
                               ),
-                              Text('Ingat saya',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500)),
+                              const Text('Ingat saya',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w500)),
                             ],
                           ),
                           Row(
                             children: [
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
+                                    Navigator.pushNamed(context,
+                                        ForgotPasswordScreen.routeName);
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Lupa Kata Sandi?',
                                     style: TextStyle(
                                         color: Color(0xFF396EB0),
@@ -181,8 +229,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: size.height * 0.018,
                       ),
-                      LoginButton(
-                        onPressed: () {},
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(12.0),
+                            backgroundColor: const Color(0xFF396EB0),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8))),
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+
+                            await provider.signIn(
+                              email: _emailController.text,
+                              password: _passwordController.text,
+                            );
+                          }
+                        },
+                        child: Consumer<SignInProvider>(
+                          builder: (context, provider, _) {
+                            if (provider.myState == MyState.loading) {
+                              return const CircularProgressIndicator();
+                            } else {
+                              return const Text('MASUK');
+                            }
+                          },
+                        ),
                       ),
                       SizedBox(
                         height: size.height * 0.020,
@@ -193,17 +264,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: Color(Constant.lineOr),
+                            color: const Color(0xFFA9A9A9),
                           ),
-                          Text(
+                          const Text(
                             'atau',
                             style: TextStyle(
-                                fontSize: Constant.fontRegular, fontWeight: FontWeight.w400),
+                                fontSize: Constant.fontRegular,
+                                fontWeight: FontWeight.w400),
                           ),
                           Container(
                             height: size.height * 0.001,
                             width: 150.0,
-                            color: Color(Constant.lineOr),
+                            color: const Color(0xFFA9A9A9),
                           ),
                         ],
                       ),
@@ -218,7 +290,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Column(
               children: [
-                Text(
+                const Text(
                   'Belum punya akun?',
                   style: TextStyle(),
                 ),
@@ -227,7 +299,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacementNamed(
                           context, RegisterScreen.routeName);
                     },
-                    child: Text('Daftar',
+                    child: const Text('Daftar',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Color(Constant.mainColor))))
