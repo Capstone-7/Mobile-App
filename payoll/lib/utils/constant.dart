@@ -10,11 +10,8 @@ class Constant {
   static const double fontExtraBig = 28.0;
   static const double fontTitleProfile = 23.0;
 
-  
-
   static const int mainColor = 0xFF396EB0;
   static const int whiteBackground = 0xFFFAFAFA;
-  static const int policyPrivacy = 0xFF0000A3;
   static const int greyTextFieldLoginRegister = 0xFFF7F7F7;
   static const int greyTextField = 0xFFF6F6F6;
   static const int greyOutlineBorderTextField = 0xFFE9EBEF;
@@ -22,7 +19,4 @@ class Constant {
   static const int lineBottomSheet = 0xFFC5C5C5;
   static const int buttonResetBottomSheet = 0xFFF7F5FF;
   static const int textFilterPilihTanggal = 0xFF828282;
-
-  
-  
 }
