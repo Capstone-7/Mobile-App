@@ -30,9 +30,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  expand_tap_area: ^1.1.1
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.2.1
+  getwidget: ^3.0.1
+  lottie: ^2.0.0
+  table_calendar: ^3.0.8
   intl:
   lottie: ^2.0.0
   dio: ^4.0.6
