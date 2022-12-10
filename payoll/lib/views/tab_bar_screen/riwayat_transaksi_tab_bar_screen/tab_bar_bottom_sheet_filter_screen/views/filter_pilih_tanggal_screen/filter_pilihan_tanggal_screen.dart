@@ -1,13 +1,7 @@
 import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/components/radio/gf_radio.dart';
-import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/views/filter_pilih_tanggal_screen/filter_pilihan_tanggal_screen.dart';
-import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/widgets/radio_button_filter_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../../../../../../utils/constant.dart';
-import '../../../../../all_products_screen/widgets/product_category_slider_widget.dart';
-import '../../widgets/product_category_slider_widget.dart';
 
 class ChangeDateFilterScreen extends StatefulWidget {
   const ChangeDateFilterScreen({super.key});
@@ -18,16 +12,17 @@ class ChangeDateFilterScreen extends StatefulWidget {
 
 class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
   DateTime today = DateTime.now();
+
   @override
   void initState() {
     DateTime.now();
     super.initState();
   }
-  void _onDaySelected(DateTime day, DateTime focusedDay ){
+
+  void _onDaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
       today = day;
     });
-
   }
 
   @override
@@ -45,7 +40,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(Constant.lineBottomSheet),
+                    color: const Color(Constant.lineBottomSheet),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   height: size.height * 0.004,
@@ -56,7 +51,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            Text(
+            const Text(
               'Filter',
               style: TextStyle(
                   fontSize: Constant.fontSemiBig, fontWeight: FontWeight.w600),
@@ -64,7 +59,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            Text('Pilih Tanggal yang mau ditampilkan',
+            const Text('Pilih Tanggal yang mau ditampilkan',
                 style: TextStyle(
                   color: Color(Constant.textFilterPilihTanggal),
                   fontSize: Constant.fontSemiRegular,
@@ -76,11 +71,11 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               height: size.height * 0.120,
               width: size.width * 0.120,
               decoration: BoxDecoration(
-                border: Border.all(color: Color(Constant.lineOr)),
+                border: Border.all(color: const Color(Constant.lineOr)),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: ExpandTapWidget(
-                tapPadding: EdgeInsets.all(25.0),
+                tapPadding: const EdgeInsets.all(25.0),
                 onTap: () {
                   Navigator.pop(context);
                   setState(() {
@@ -90,22 +85,22 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         context: context,
-                        builder: (context) => ChangeDateFilterScreen());
+                        builder: (context) => const ChangeDateFilterScreen());
                   });
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '${(today.toString().split('')[0])}',
-                      style: TextStyle(
+                      (today.toString().split('')[0]),
+                      style: const TextStyle(
                           fontSize: Constant.fontSemiBig,
                           fontWeight: FontWeight.w500),
                     ),
                     SizedBox(
                       height: size.height * 0.012,
                     ),
-                    Text('Pilih Tanggal',
+                    const Text('Pilih Tanggal',
                         style: TextStyle(
                             fontSize: Constant.fontSemiRegular,
                             fontWeight: FontWeight.w500)),
@@ -118,7 +113,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             ),
             Expanded(
               child: TableCalendar(
-                  headerStyle: HeaderStyle(
+                  headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
                   ),
@@ -137,25 +132,26 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.buttonResetBottomSheet),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor:
+                            const Color(Constant.buttonResetBottomSheet),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side:
-                                BorderSide(color: Color(Constant.mainColor)))),
+                            side: const BorderSide(
+                                color: Color(Constant.mainColor)))),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Reset',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.mainColor),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor: const Color(Constant.mainColor),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
                     onPressed: () {},
-                    child: Text('Terapkan')),
+                    child: const Text('Terapkan')),
               ],
             ),
           ],

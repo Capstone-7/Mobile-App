@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class RegisterGoogle extends StatelessWidget {
   const RegisterGoogle({super.key, required this.onPressed});
+
   final VoidCallback onPressed;
 
   @override

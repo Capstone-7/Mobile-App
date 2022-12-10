@@ -34,7 +34,7 @@ class ApiService {
   }) async {
     try {
       final response = await _dio.post(
-        _baseUrl + 'register',
+        '${_baseUrl}register',
         data: {
           'email': email,
           'password': password,
@@ -53,7 +53,7 @@ class ApiService {
   }) async {
     try {
       final response = await _dio.post(
-        _baseUrl + 'login',
+        '${_baseUrl}login',
         data: {
           'email': email,
           'password': password,

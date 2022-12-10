@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/edit_account_screen/widget/app_bar_edit_account.dart';
-
 import '../../../utils/constant.dart';
-import '../../forgot_password_screen/views/forgot_password.dart';
-import '../../login_screen/widgets/login_button.dart';
-import '../../login_screen/widgets/login_button_google.dart';
-import '../../register_screen/views/register_screen.dart';
 import '../widget/save_edit_account_button.dart';
 
 class EditAccountScreen extends StatefulWidget {
   static String routeName = 'edit-account-screen';
+
   const EditAccountScreen({super.key});
 
   @override
@@ -21,7 +17,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   final TextEditingController namedController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   bool checkBox = false;
-  bool _showHidePass = true;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -32,19 +28,19 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: Color(Constant.mainColor),
+            color: const Color(Constant.mainColor),
             height: size.height * 0.200,
             width: size.width * 200,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/profil.jpg'),
                   radius: 50.0,
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Ubah Foto',
                       style: TextStyle(
                           fontSize: Constant.fontSemiBig, color: Colors.white),
@@ -63,7 +59,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
+                          const Text(
                             'Nama Lengkap',
                             style: TextStyle(
                                 fontSize: Constant.fontSemiRegular,
@@ -73,18 +69,20 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                             height: size.height * 0.018,
                           ),
                           TextFormField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 filled: true,
                                 fillColor:
                                     Color(Constant.greyTextFieldLoginRegister),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
                                 hintText: 'George Lee',
                                 hintStyle: TextStyle(),
                                 enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(Constant.greyOutlineBorderTextField))),
+                                    borderSide: BorderSide(
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
                                 contentPadding: EdgeInsets.all(12.0),
                                 border: OutlineInputBorder(
                                     borderRadius:
@@ -100,7 +98,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                           SizedBox(
                             height: size.height * 0.018,
                           ),
-                          Text(
+                          const Text(
                             'Email',
                             style: TextStyle(
                                 fontSize: Constant.fontSemiRegular,
@@ -111,18 +109,20 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                           ),
                           TextFormField(
                             controller: emailController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 filled: true,
                                 fillColor:
                                     Color(Constant.greyTextFieldLoginRegister),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
                                 hintText: 'Lee.George@mail.com',
                                 hintStyle: TextStyle(),
                                 enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
                                 contentPadding: EdgeInsets.all(12.0),
                                 border: OutlineInputBorder(
                                     borderRadius:
@@ -143,27 +143,25 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                           ),
                         ],
                       )),
-                 
                 ],
               ),
             ),
           ),
-           SaveEditAccountButton(
-                    onPressed: () {},
-                  ),
+          SaveEditAccountButton(
+            onPressed: () {},
+          ),
         ],
       ),
     );
   }
 }
 
-
 // Padding(
 //         padding: const EdgeInsets.all(24.0),
 //         child: Column(
 //           crossAxisAlignment: CrossAxisAlignment.stretch,
 //           children: [
-            
+
 //             Expanded(
 //               child: Form(
 //                   key: formKey,
@@ -244,7 +242,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
 //                         //       : null;
 //                         // },
 //                       ),
-                     
+
 //                     ],
 //                   )),
 //             ),

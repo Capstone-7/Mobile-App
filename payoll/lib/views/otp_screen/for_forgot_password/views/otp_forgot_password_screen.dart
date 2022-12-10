@@ -7,6 +7,7 @@ import '../widgets/otp_send_forgot_password_button.dart';
 
 class OtpForgotPasswordScreen extends StatefulWidget {
   static const String routeName = 'otp-screen-forgot-password';
+
   const OtpForgotPasswordScreen({super.key});
 
   @override
@@ -16,6 +17,7 @@ class OtpForgotPasswordScreen extends StatefulWidget {
 
 class _OtpForgotPasswordScreenState extends State<OtpForgotPasswordScreen> {
   final GlobalKey formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -27,10 +29,10 @@ class _OtpForgotPasswordScreenState extends State<OtpForgotPasswordScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Kode OTP telah kami kirimkan ke',
+            const Text('Kode OTP telah kami kirimkan ke',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: Constant.fontSemiRegular)),
-            Text('F*********@gmail.com',
+            const Text('F*********@gmail.com',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: Constant.fontSemiRegular,
@@ -40,7 +42,7 @@ class _OtpForgotPasswordScreenState extends State<OtpForgotPasswordScreen> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: const [
                 OtpInputForgotPassword(),
                 OtpInputForgotPassword(),
                 OtpInputForgotPassword(),
@@ -55,10 +57,10 @@ class _OtpForgotPasswordScreenState extends State<OtpForgotPasswordScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Tidak mendapat kode?'),
+                const Text('Tidak mendapat kode?'),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Kirim Ulang',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),

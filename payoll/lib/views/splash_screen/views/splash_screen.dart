@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding1_screen.dart';
 
@@ -19,14 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   openSplashScreen() async {
-    var durasiSplashScreen = Duration(seconds: 5);
+    var durasiSplashScreen = const Duration(seconds: 5);
     return Timer(
       durasiSplashScreen,
       () {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => Onboarding1(),
+              builder: (context) => const Onboarding1(),
             ));
       },
     );

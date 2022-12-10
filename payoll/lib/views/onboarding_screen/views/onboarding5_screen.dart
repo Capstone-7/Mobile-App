@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/login_screen/views/login_screen.dart';
-import 'package:payoll/views/onboarding_screen/widgets/lewati_button.dart';
-import '../widgets/lanjutkan_button.dart';
+import 'package:payoll/views/register_screen/views/register_screen.dart';
 import '../widgets/pointer_bar.dart';
 
 class Onboarding5 extends StatelessWidget {
@@ -84,7 +83,7 @@ class Onboarding5 extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          LoginScreen.routeName,
+                          RegisterScreen.routeName,
                         );
                       },
                       style: const ButtonStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/change_password_screen/for_forgot_password/views/change_password_forgot_password_screen.dart';
 import 'package:payoll/views/status_success_screen/status_success_change_password_after_login_register_screen/views/status_success_change_password_after_login_register_screen.dart';
 import '../../../../utils/constant.dart';
 import '../widgets/otp_app_bar_after_login_register.dart';
@@ -8,6 +7,7 @@ import '../widgets/otp_send_after_login_register_button.dart';
 
 class OtpAfterLoginRegisterScreen extends StatefulWidget {
   static const String routeName = 'otp-screen-after-login-register';
+
   const OtpAfterLoginRegisterScreen({super.key});
 
   @override
@@ -18,6 +18,7 @@ class OtpAfterLoginRegisterScreen extends StatefulWidget {
 class _OtpAfterLoginRegisterScreenState
     extends State<OtpAfterLoginRegisterScreen> {
   final GlobalKey formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -29,10 +30,10 @@ class _OtpAfterLoginRegisterScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Kode OTP telah kami kirimkan ke',
+            const Text('Kode OTP telah kami kirimkan ke',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: Constant.fontSemiRegular)),
-            Text('F*********@gmail.com',
+            const Text('F*********@gmail.com',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: Constant.fontSemiRegular,
@@ -42,7 +43,7 @@ class _OtpAfterLoginRegisterScreenState
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: const [
                 OtpInputAfterLoginRegister(),
                 OtpInputAfterLoginRegister(),
                 OtpInputAfterLoginRegister(),
@@ -57,10 +58,10 @@ class _OtpAfterLoginRegisterScreenState
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Tidak mendapat kode?'),
+                const Text('Tidak mendapat kode?'),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Kirim Ulang',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),
@@ -68,7 +69,10 @@ class _OtpAfterLoginRegisterScreenState
             ),
             OtpVerificationAfterLoginRegisterButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, StatusSuccessChangePasswordAfterLoginRegisterScreen.routeName);
+                Navigator.pushReplacementNamed(
+                    context,
+                    StatusSuccessChangePasswordAfterLoginRegisterScreen
+                        .routeName);
               },
             ),
           ],

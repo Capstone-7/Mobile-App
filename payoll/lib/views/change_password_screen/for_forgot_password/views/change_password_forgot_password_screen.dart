@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
-import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
-import 'package:payoll/views/login_screen/widgets/login_button.dart';
-import 'package:payoll/views/register_screen/views/register_screen.dart';
 import 'package:payoll/views/status_success_screen/status_success_forgot_password_screen/views/status_success_forgot_password_screen.dart';
-
 import '../../../../utils/constant.dart';
 import '../../../login_screen/views/login_screen.dart';
 import '../widgets/change_password_forgot_password_button.dart';
 
 class ChangePasswordForgotPasswordScreen extends StatefulWidget {
   static const String routeName = 'change-password-screen';
+
   const ChangePasswordForgotPasswordScreen({super.key});
 
   @override
-  State<ChangePasswordForgotPasswordScreen> createState() => _ChangePasswordForgotPasswordScreenState();
+  State<ChangePasswordForgotPasswordScreen> createState() =>
+      _ChangePasswordForgotPasswordScreenState();
 }
 
-class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgotPasswordScreen> {
+class _ChangePasswordForgotPasswordScreenState
+    extends State<ChangePasswordForgotPasswordScreen> {
   final GlobalKey formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool checkBox = false;
   bool _showHidePass = true;
   bool _showHidePassConfrim = true;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -37,17 +36,17 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
             SizedBox(
               height: size.height * 0.050,
             ),
-            Center(
+            const Center(
                 child: Text(
               'Ubah Kata Sandi',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 23.0),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
             )),
-             SizedBox(
+            SizedBox(
               height: size.height * 0.018,
             ),
-            Center(
-                child: Text('Silahkan masukan email anda untuk melakukan ubah kata sandi',
+            const Center(
+                child: Text(
+                    'Silahkan masukan email anda untuk melakukan ubah kata sandi',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: Constant.fontRegular))),
             SizedBox(
@@ -59,10 +58,11 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                  Text(
+                      const Text(
                         'Kata Sandi',
                         style: TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -72,8 +72,8 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
                               icon: _showHidePass
-                                  ? Icon(Icons.visibility_off)
-                                  : Icon(Icons.visibility),
+                                  ? const Icon(Icons.visibility_off)
+                                  : const Icon(Icons.visibility),
                               onPressed: () => {
                                 setState(
                                   () {
@@ -83,17 +83,18 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                               },
                             ),
                             filled: true,
-                            fillColor: Color(Constant.greyTextFieldLoginRegister),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
+                            fillColor: const Color(
+                                Constant.greyTextFieldLoginRegister),
+                            focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
                             hintText: '1234********',
-                            hintStyle: TextStyle(),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
-                            contentPadding: EdgeInsets.all(12.0),
-                            border: OutlineInputBorder(
+                            hintStyle: const TextStyle(),
+                            enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
+                            contentPadding: const EdgeInsets.all(12.0),
+                            border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
                         // validator: (String? value) {
@@ -107,10 +108,11 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                       SizedBox(
                         height: size.height * 0.018,
                       ),
-                      Text(
+                      const Text(
                         'Konfirmasi Kata Sandi',
                         style: TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -120,8 +122,8 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
                               icon: _showHidePassConfrim
-                                  ? Icon(Icons.visibility_off)
-                                  : Icon(Icons.visibility),
+                                  ? const Icon(Icons.visibility_off)
+                                  : const Icon(Icons.visibility),
                               onPressed: () => {
                                 setState(
                                   () {
@@ -132,17 +134,18 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                               },
                             ),
                             filled: true,
-                            fillColor: Color(Constant.greyTextFieldLoginRegister),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
+                            fillColor: const Color(
+                                Constant.greyTextFieldLoginRegister),
+                            focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
                             hintText: '1234********',
-                            hintStyle: TextStyle(),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(Constant.greyTextField))),
-                            contentPadding: EdgeInsets.all(12.0),
-                            border: OutlineInputBorder(
+                            hintStyle: const TextStyle(),
+                            enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color(Constant.greyTextField))),
+                            contentPadding: const EdgeInsets.all(12.0),
+                            border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
                         // validator: (String? value) {
@@ -158,7 +161,8 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                       ),
                       ChangePasswordForgotPasswordButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, StatusSuccessForgotPasswordScreen.routeName);
+                          Navigator.pushReplacementNamed(context,
+                              StatusSuccessForgotPasswordScreen.routeName);
                         },
                       ),
                       SizedBox(
@@ -167,19 +171,19 @@ class _ChangePasswordForgotPasswordScreenState extends State<ChangePasswordForgo
                     ],
                   )),
             ),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Sudah punya akun?',
                   style: TextStyle(),
                 ),
                 TextButton(
                     onPressed: () {
-                       Navigator.pushReplacementNamed(
+                      Navigator.pushReplacementNamed(
                           context, LoginScreen.routeName);
                     },
-                    child: Text('Masuk',
+                    child: const Text('Masuk',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF396EB0))))

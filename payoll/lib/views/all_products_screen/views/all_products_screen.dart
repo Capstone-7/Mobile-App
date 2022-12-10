@@ -16,6 +16,7 @@ class AllProductsScreen extends StatelessWidget {
     List<String> categories = ['Semua', 'Daily', 'Bills', 'Entertainment'];
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,
@@ -27,15 +28,6 @@ class AllProductsScreen extends StatelessWidget {
           'Semua Produk',
           style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: SizedBox(
-                height: size.width * 0.07,
-                width: size.width * 0.07,
-                child: Image.asset('assets/icons/notification.png')),
-          )
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,6 +82,3 @@ class AllProductsScreen extends StatelessWidget {
     );
   }
 }
-
-
-
