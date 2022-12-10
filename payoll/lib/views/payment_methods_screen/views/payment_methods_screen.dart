@@ -10,6 +10,8 @@ class PaymentMethodsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
+
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,

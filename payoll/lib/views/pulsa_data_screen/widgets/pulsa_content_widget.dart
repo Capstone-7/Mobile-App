@@ -29,8 +29,8 @@ class PulsaContentWidget extends StatelessWidget {
                           color: Color(0x29292914),
                           blurRadius: 10.0,
                           blurStyle: BlurStyle.normal,
-                          offset:
-                              Offset(0.0, 0.75) // shadow direction: bottom right
+                          offset: Offset(
+                              0.0, 0.75) // shadow direction: bottom right
                           )
                     ]),
                 child: Padding(
@@ -42,7 +42,8 @@ class PulsaContentWidget extends StatelessWidget {
                       Text(
                         '${pulsaOfferings[index].offering} Rp${pulsaOfferings[index].price}',
                         style: const TextStyle(
-                            fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                            fontSize: Constant.fontRegular,
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         child: Column(
@@ -50,7 +51,8 @@ class PulsaContentWidget extends StatelessWidget {
                           children: [
                             const Text(
                               'Harga',
-                              style: TextStyle(fontSize: Constant.fontSemiSmall),
+                              style:
+                                  TextStyle(fontSize: Constant.fontSemiSmall),
                             ),
                             Text(
                               'Rp${pulsaOfferings[index].finalPrice}',

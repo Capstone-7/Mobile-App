@@ -1,22 +1,21 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:payoll/views/login_screen/views/login_screen.dart';
-
 import '../../../../../utils/constant.dart';
-import '../../../../../widgets/bottom_nav_bar.dart';
 import '../widgets/status_success_forgot_password_button.dart';
 
 class StatusSuccessForgotPasswordScreen extends StatefulWidget {
   static String routeName = 'status-success-forgot-password';
+
   const StatusSuccessForgotPasswordScreen({super.key});
 
   @override
-  State<StatusSuccessForgotPasswordScreen> createState() => _StatusSuccessForgotPasswordScreenState();
+  State<StatusSuccessForgotPasswordScreen> createState() =>
+      _StatusSuccessForgotPasswordScreenState();
 }
 
-class _StatusSuccessForgotPasswordScreenState extends State<StatusSuccessForgotPasswordScreen>
+class _StatusSuccessForgotPasswordScreenState
+    extends State<StatusSuccessForgotPasswordScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController checkLottieController;
 
@@ -25,7 +24,7 @@ class _StatusSuccessForgotPasswordScreenState extends State<StatusSuccessForgotP
     // openStatusBerhasilRegister();
 
     checkLottieController = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
       vsync: this,
     );
 
@@ -70,7 +69,7 @@ class _StatusSuccessForgotPasswordScreenState extends State<StatusSuccessForgotP
                   checkLottieController.forward();
                 },
               ),
-              Text('Berhasil',
+              const Text('Berhasil',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: Constant.fontExtraBig,
@@ -78,19 +77,20 @@ class _StatusSuccessForgotPasswordScreenState extends State<StatusSuccessForgotP
               SizedBox(
                 height: size.height * 0.012,
               ),
-              Text(
-                  'Selamat Kata sandi berhasil di perbaharui',
+              const Text('Selamat Kata sandi berhasil di perbaharui',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Constant.fontSemiBig,
                   )),
-                  SizedBox(
+              SizedBox(
                 height: size.height * 0.040,
               ),
-                 StatusSuccessForgotPasswordButton(onPressed: () {
-                   Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-                 },)
-                  
+              StatusSuccessForgotPasswordButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                      context, LoginScreen.routeName);
+                },
+              )
             ],
           ),
         ),

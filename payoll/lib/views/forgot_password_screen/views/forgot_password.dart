@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/views/forgot_password_screen/widgets/forgot_password_app_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_password_screen.dart';
-
 import '../../../utils/constant.dart';
 import '../../login_screen/views/login_screen.dart';
 import '../widgets/forgot_password_send_button.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   static const String routeName = 'forgot-password-screen';
+
   const ForgotPasswordScreen({super.key});
 
   @override
@@ -19,19 +19,39 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool checkBox = false;
-  bool _showHidePass = true;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: forgotPasswordAppBar(context),
+      appBar: AppBar(
+        centerTitle: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(FontAwesomeIcons.chevronLeft, color: Colors.black),
+        ),
+        title: Row(
+          children: const [
+            Text(
+              'Lupa Kata Sandi',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: Constant.fontBig,
+                  fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Silahkan masukan email anda untuk melakukan ubah kata sandi',
+            const Text(
+                'Silahkan masukan email anda untuk melakukan ubah kata sandi',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: Constant.fontSemiRegular)),
             SizedBox(
@@ -45,7 +65,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     children: [
                       TextFormField(
                         controller: emailController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             filled: true,
                             fillColor: Color(0xFFF7F7F7),
                             focusedBorder: OutlineInputBorder(
@@ -79,7 +99,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                       ForgotPasswordSendButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, OtpForgotPasswordScreen.routeName);
+                          Navigator.pushReplacementNamed(
+                              context, OtpForgotPasswordScreen.routeName);
                         },
                       ),
                     ],
@@ -88,16 +109,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Sudah punya akun?',
                   style: TextStyle(),
                 ),
                 TextButton(
                     onPressed: () {
-                       Navigator.pushReplacementNamed(
+                      Navigator.pushReplacementNamed(
                           context, LoginScreen.routeName);
                     },
-                    child: Text('Masuk',
+                    child: const Text('Masuk',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF396EB0))))
@@ -109,5 +130,3 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
   }
 }
-
-

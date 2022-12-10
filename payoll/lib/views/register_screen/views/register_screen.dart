@@ -286,8 +286,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                             );
-                          }
-                          else if (formKey.currentState!.validate()) {
+                          } else if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             await provider.signUp(
                               email: _emailController.text,

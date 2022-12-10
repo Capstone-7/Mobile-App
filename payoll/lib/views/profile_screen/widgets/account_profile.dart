@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/constant.dart';
 
 class AccountProfile extends StatelessWidget {
@@ -7,8 +6,10 @@ class AccountProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(backgroundImage: AssetImage('assets/images/profil.jpg'),),
+    return const ListTile(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage('assets/images/profil.jpg'),
+      ),
       title: Text(
         'George Lee',
         style: TextStyle(

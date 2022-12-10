@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key, required this.onPressed});
+
   final VoidCallback onPressed;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

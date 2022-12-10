@@ -35,7 +35,6 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.2.1
   getwidget: ^3.0.1
-  lottie: ^2.0.0
   table_calendar: ^3.0.8
   intl:
   lottie: ^2.0.0

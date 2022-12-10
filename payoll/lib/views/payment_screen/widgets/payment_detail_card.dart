@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:payoll/models/data_offering_model.dart';
 
 import '../../../utils/constant.dart';
@@ -33,7 +32,8 @@ class PaymentDetailCard extends StatelessWidget {
             children: [
               const Text(
                 'Detail Pembayaran',
-                style: TextStyle(fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 height: size.height * 0.03,
@@ -58,7 +58,8 @@ class PaymentDetailCard extends StatelessWidget {
                           dataOfferings[index].offering,
                           textAlign: TextAlign.end,
                           style: const TextStyle(
-                              fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontRegular,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -83,7 +84,8 @@ class PaymentDetailCard extends StatelessWidget {
                           '087123456789',
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                              fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontRegular,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -108,7 +110,8 @@ class PaymentDetailCard extends StatelessWidget {
                           dataOfferings[index].finalPrice.toString(),
                           textAlign: TextAlign.end,
                           style: const TextStyle(
-                              fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontRegular,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -133,7 +136,8 @@ class PaymentDetailCard extends StatelessWidget {
                           'Gratis!',
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                              fontSize: Constant.fontRegular, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontRegular,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -150,7 +154,8 @@ class PaymentDetailCard extends StatelessWidget {
                         child: const Text(
                           'Total Pembayaran',
                           style: TextStyle(
-                              fontSize: Constant.fontBig, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontBig,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(
@@ -159,7 +164,8 @@ class PaymentDetailCard extends StatelessWidget {
                           'Rp${dataOfferings[index].finalPrice.toString()}',
                           textAlign: TextAlign.end,
                           style: const TextStyle(
-                              fontSize: Constant.fontBig, fontWeight: FontWeight.w500),
+                              fontSize: Constant.fontBig,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -225,6 +231,5 @@ class PaymentDetailCard extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

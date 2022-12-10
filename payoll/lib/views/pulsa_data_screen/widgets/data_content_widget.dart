@@ -18,9 +18,7 @@ class DataContentWidget extends StatelessWidget {
           shrinkWrap: true,
           itemCount: dataOfferings.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisExtent: size.height * 0.2
-          ),
+              crossAxisCount: 2, mainAxisExtent: size.height * 0.2),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),

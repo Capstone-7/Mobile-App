@@ -22,6 +22,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       backgroundColor: const Color(0xffFAFAFA),
       // backgroundColor: const Color(0xff396EB0),
       appBar: AppBar(
+        centerTitle: false,
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
-import 'package:payoll/views/login_screen/widgets/login_button.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
@@ -230,23 +229,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: size.height * 0.018,
                       ),
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.all(12.0),
-                            backgroundColor: const Color(0xFF396EB0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            formKey.currentState!.save();
+                          style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(12.0),
+                              backgroundColor: const Color(0xFF396EB0),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8))),
+                          onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState!.save();
 
-                            await provider.signIn(
-                              email: _emailController.text,
-                              password: _passwordController.text,
-                            );
-                          }
-                        },
-                        child: const Text('MASUK')
-                      ),
+                              await provider.signIn(
+                                email: _emailController.text,
+                                password: _passwordController.text,
+                              );
+                            }
+                          },
+                          child: const Text('MASUK')),
                       SizedBox(
                         height: size.height * 0.020,
                       ),

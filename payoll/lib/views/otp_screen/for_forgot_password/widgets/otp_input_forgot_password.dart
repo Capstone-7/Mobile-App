@@ -4,6 +4,7 @@ import 'package:payoll/utils/constant.dart';
 class OtpInputForgotPassword extends StatelessWidget {
   final TextEditingController? controller;
   final bool? autofocus;
+
   const OtpInputForgotPassword({super.key, this.controller, this.autofocus});
 
   @override
@@ -18,18 +19,18 @@ class OtpInputForgotPassword extends StatelessWidget {
         controller: controller,
         maxLength: 1,
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color(Constant.greyOutlineBorderTextField))),
             filled: true,
-            fillColor: Color(Constant.greyTextField),
-            focusedBorder: OutlineInputBorder(
+            fillColor: const Color(Constant.greyTextField),
+            focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color(Constant.greyOutlineBorderTextField))),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
             counterText: '',
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               color: Colors.black,
             )),
         onChanged: (value) {
