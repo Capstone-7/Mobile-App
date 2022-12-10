@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../models/data_offering_model.dart';
 import '../../../utils/constant.dart';
 
-class TransactionOnProcessCard extends StatelessWidget {
-  const TransactionOnProcessCard({
+class TransactionInProgressCard extends StatelessWidget {
+  const TransactionInProgressCard({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -38,7 +38,7 @@ class TransactionOnProcessCard extends StatelessWidget {
                   child: SizedBox(
                     height: size.width * 0.17,
                     width: size.width * 0.17,
-                    child: Image.asset('assets/icons/onProcess-icon.png'),
+                    child: Image.asset('assets/icons/in-progress-icon.png'),
                   ),
                 ),
                 SizedBox(height: size.height * 0.018),
@@ -96,7 +96,7 @@ class TransactionOnProcessCard extends StatelessWidget {
                     SizedBox(
                       height: size.width * 0.04,
                       width: size.width * 0.04,
-                      child: Image.asset('assets/icons/onProcess-icon.png'),
+                      child: Image.asset('assets/icons/in-progress-icon.png'),
                     ),
                     SizedBox(width: size.width * 0.02),
                     const Text(
