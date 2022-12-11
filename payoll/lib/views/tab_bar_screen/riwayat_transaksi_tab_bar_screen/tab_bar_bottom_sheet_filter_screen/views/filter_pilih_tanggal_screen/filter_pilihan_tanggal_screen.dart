@@ -12,7 +12,6 @@ class ChangeDateFilterScreen extends StatefulWidget {
 
 class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
   DateTime today = DateTime.now();
-
   @override
   void initState() {
     DateTime.now();
@@ -93,6 +92,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                   children: [
                     Text(
                       (today.toString().split('')[0]),
+                      // '5',
                       style: const TextStyle(
                           fontSize: Constant.fontSemiBig,
                           fontWeight: FontWeight.w500),
@@ -118,7 +118,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                     titleCentered: true,
                   ),
                   availableGestures: AvailableGestures.all,
-                  selectedDayPredicate: (day) => isSameDay(day, today),
+                  selectedDayPredicate: (day) => isSameDay(today, day),
                   onDaySelected: _onDaySelected,
                   focusedDay: today,
                   firstDay: DateTime.utc(2000, 01, 01),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/edit_account_screen/widget/app_bar_edit_account.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/profile_provider.dart';
+import '../../../providers/update_profile_provider.dart';
 import '../../../utils/constant.dart';
-import '../widget/save_edit_account_button.dart';
+import '../../../utils/state/finite_state.dart';
+import '../../profile_screen/views/profile_screen.dart';
 
 class EditAccountScreen extends StatefulWidget {
   static String routeName = 'edit-account-screen';
@@ -13,14 +17,55 @@ class EditAccountScreen extends StatefulWidget {
 }
 
 class _EditAccountScreenState extends State<EditAccountScreen> {
-  final GlobalKey formKey = GlobalKey<FormState>();
-  final TextEditingController namedController = TextEditingController();
+  final GlobalKey<FormState> _updateFormKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   bool checkBox = false;
 
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      Duration.zero,
+      () {
+        final profileProvider =
+            Provider.of<ProfileProvider>(context, listen: false);
+
+        /// Fetch users data
+        profileProvider.fetchProfile();
+      },
+    );
+    final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
+    provider.addListener(
+      () {
+        if (provider.myState == MyState.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Can\'t update profile',
+              ),
+            ),
+          );
+        } else if (provider.myState == MyState.loaded) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Logged In',
+              ),
+            ),
+          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ProfileScreen()));
+        }
+      },
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
     return Scaffold(
       appBar: appBarEditAccount(context),
       resizeToAvoidBottomInset: false,
@@ -54,8 +99,11 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Form(
-                      key: formKey,
+                  Consumer2<UpdateProfileProvider, ProfileProvider>(
+                      builder: (context, provider, provider2, _) {
+                    final user = provider2.profileModel;
+                    return Form(
+                      key: _updateFormKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -69,31 +117,28 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                             height: size.height * 0.018,
                           ),
                           TextFormField(
-                            decoration: const InputDecoration(
-                                filled: true,
-                                fillColor:
-                                    Color(Constant.greyTextFieldLoginRegister),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color(Constant
-                                            .greyOutlineBorderTextField))),
-                                hintText: 'George Lee',
-                                hintStyle: TextStyle(),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color(Constant
-                                            .greyOutlineBorderTextField))),
-                                contentPadding: EdgeInsets.all(12.0),
-                                border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8)))),
-                            // validator: (String? value) {
-                            //   if (value!.isEmpty) {
-                            //     return 'Please, fill password field!';
-                            //   } else {
-                            //     return null;
-                            //   }
-                            // }
+                            controller: nameController,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: const Color(
+                                  Constant.greyTextFieldLoginRegister),
+                              focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(Constant
+                                          .greyOutlineBorderTextField))),
+                              hintText: '${user?.name}',
+                              hintStyle: const TextStyle(),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(Constant
+                                          .greyOutlineBorderTextField))),
+                              contentPadding: const EdgeInsets.all(12.0),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: size.height * 0.018,
@@ -109,47 +154,68 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                           ),
                           TextFormField(
                             controller: emailController,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                                 filled: true,
-                                fillColor:
-                                    Color(Constant.greyTextFieldLoginRegister),
-                                focusedBorder: OutlineInputBorder(
+                                fillColor: const Color(
+                                    Constant.greyTextFieldLoginRegister),
+                                focusedBorder: const OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: Color(Constant
                                             .greyOutlineBorderTextField))),
-                                hintText: 'Lee.George@mail.com',
-                                hintStyle: TextStyle(),
-                                enabledBorder: OutlineInputBorder(
+                                hintText: '${user?.email}',
+                                hintStyle: const TextStyle(),
+                                enabledBorder: const OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: Color(Constant
                                             .greyOutlineBorderTextField))),
-                                contentPadding: EdgeInsets.all(12.0),
-                                border: OutlineInputBorder(
+                                contentPadding: const EdgeInsets.all(12.0),
+                                border: const OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(8)))),
-                            // validator: (String? value) {
-                            //   const String expression = "[a-zA-Z0-9+._%-+]{1,256}"
-                            //       "\\@"
-                            //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
-                            //       "("
-                            //       "\\."
-                            //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
-                            //       ")+";
-                            //   final RegExp regExp = RegExp(expression);
-                            //   return !regExp.hasMatch(value!)
-                            //       ? "Please, input valid email!"
-                            //       : null;
-                            // },
+                            validator: (String? value) {
+                              const String expression =
+                                  "[a-zA-Z0-9+._%-+]{1,256}"
+                                  "\\@"
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
+                                  "("
+                                  "\\."
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
+                                  ")+";
+                              final RegExp regExp = RegExp(expression);
+                              return !regExp.hasMatch(value!)
+                                  ? "Please, input valid email!"
+                                  : null;
+                            },
                           ),
                         ],
-                      )),
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),
           ),
-          SaveEditAccountButton(
-            onPressed: () {},
-          ),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(12.0),
+                    backgroundColor: const Color(0xFF396EB0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                onPressed: () async {
+                  if (_updateFormKey.currentState!.validate()) {
+                    _updateFormKey.currentState!.save();
+                    await provider.updateProfile(
+                      name: nameController.text,
+                      email: emailController.text,
+                    );
+                  }
+                },
+                child: const Text(
+                  'SIMPAN',
+                )),
+          )
         ],
       ),
     );

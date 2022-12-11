@@ -1,42 +1,37 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/sign_in_model.dart';
+import '../models/profile_model.dart';
 import '../services/services.dart';
 import '../utils/state/finite_state.dart';
 
-class SignInProvider extends ChangeNotifier {
+class UpdateProfileProvider extends ChangeNotifier {
   final ApiService service = ApiService();
-  late SharedPreferences loginData;
 
-  SignInModel? users;
+  ProfileModel? users;
 
   MyState myState = MyState.initial;
-  Future signIn({
+
+  Future updateProfile({
     required String email,
-    required String password,
+    required String name,
   }) async {
     try {
-      myState = MyState.loading;
-      notifyListeners();
-      loginData = await SharedPreferences.getInstance();
-
-      final users = await service.signIn(
+      // myState = MyState.loading;
+      // notifyListeners();
+      users = await service.updateProfile(
+        name: name,
         email: email,
-        password: password,
       );
-      await loginData.setString('login', users.token!);
       myState = MyState.loaded;
       notifyListeners();
     } catch (e) {
       if (e is DioError) {
+        /// If want to check status code from service error
         e.response!.statusCode;
       }
-
       myState = MyState.failed;
       notifyListeners();
-      // return null;
     }
   }
 }
