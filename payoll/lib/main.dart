@@ -20,7 +20,7 @@ import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_pas
 import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen.dart';
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/views/transaction_history_screen.dart';
+import 'package:payoll/views/transaction_history_screen/views/transaction_history_screen.dart';
 import 'package:payoll/views/splash_screen/views/splash_screen.dart';
 import 'package:payoll/views/status_success_screen/status_success_change_password_after_login_register_screen/views/status_success_change_password_after_login_register_screen.dart';
 import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';

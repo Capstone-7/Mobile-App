@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../models/history_model.dart';
-import '../../../../utils/constant.dart';
+import '../../../models/history_model.dart';
+import '../../../utils/constant.dart';
 
 class TransactionHistorySectionWidget extends StatelessWidget {
   TransactionHistorySectionWidget({Key? key, required this.size}) : super(key: key);

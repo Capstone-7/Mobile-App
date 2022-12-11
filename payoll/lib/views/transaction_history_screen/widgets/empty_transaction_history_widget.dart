@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constant.dart';
+import '../../../utils/constant.dart';
 
 class EmptyTransactionHistory extends StatelessWidget {
   const EmptyTransactionHistory({super.key});

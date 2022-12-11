@@ -3,7 +3,7 @@ import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/home_screen/views/home_screen.dart';
 import 'package:payoll/views/profile_screen/views/profile_screen.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/views/transaction_history_screen.dart';
+import 'package:payoll/views/transaction_history_screen/views/transaction_history_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {

@@ -10,8 +10,9 @@ class RadioButtonFilterWidget extends StatefulWidget {
       _RadioButtonFilterWidgetState();
 }
 
+enum SequenceRadio { succeed, pending, canceled }
 class _RadioButtonFilterWidgetState extends State<RadioButtonFilterWidget> {
-  int? _value = 0;
+  SequenceRadio? _radio = SequenceRadio.succeed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,11 @@ class _RadioButtonFilterWidgetState extends State<RadioButtonFilterWidget> {
               size: 28.0,
               activeBorderColor: const Color(Constant.mainColor),
               radioColor: const Color(Constant.mainColor),
-              value: 1,
-              groupValue: _value,
+              value: SequenceRadio.succeed,
+              groupValue: _radio,
               onChanged: (value) {
                 setState(() {
-                  _value = value;
+                  _radio = value;
                 });
               },
             ),
@@ -48,11 +49,11 @@ class _RadioButtonFilterWidgetState extends State<RadioButtonFilterWidget> {
               size: 28.0,
               activeBorderColor: const Color(Constant.mainColor),
               radioColor: const Color(Constant.mainColor),
-              value: 2,
-              groupValue: _value,
+              value: SequenceRadio.pending,
+              groupValue: _radio,
               onChanged: (value) {
                 setState(() {
-                  _value = value;
+                  _radio = value;
                 });
               },
             ),
@@ -74,11 +75,11 @@ class _RadioButtonFilterWidgetState extends State<RadioButtonFilterWidget> {
               size: 28.0,
               activeBorderColor: const Color(Constant.mainColor),
               radioColor: const Color(Constant.mainColor),
-              value: 3,
-              groupValue: _value,
+              value: SequenceRadio.canceled,
+              groupValue: _radio,
               onChanged: (value) {
                 setState(() {
-                  _value = value;
+                  _radio = value;
                 });
               },
             ),

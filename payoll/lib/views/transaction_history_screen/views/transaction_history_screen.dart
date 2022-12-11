@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/home_screen/widgets/transaction_history_section.dart';
 import 'package:payoll/views/profile_screen/views/profile_screen.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/widgets/app_bar_transaction_history_widget.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/widgets/empty_transaction_history_widget.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/widgets/transaction_history_section_widget.dart';
+import 'package:payoll/views/transaction_history_screen/widgets/app_bar_transaction_history_widget.dart';
+import 'package:payoll/views/transaction_history_screen/widgets/empty_transaction_history_widget.dart';
+import 'package:payoll/views/transaction_history_screen/widgets/transaction_history_section_widget.dart';
 
 class TransactionHistoryScreen extends StatefulWidget {
   static String routeName = 'riwayat-transaksi-screen';
