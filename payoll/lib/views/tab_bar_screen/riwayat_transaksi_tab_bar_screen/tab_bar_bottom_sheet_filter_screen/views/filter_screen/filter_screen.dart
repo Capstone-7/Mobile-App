@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/radio/gf_radio.dart';
 import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/views/filter_date_selection_screen/filter_date_selection_screen.dart';
 import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/widgets/radio_button_filter_widget.dart';
-
 import '../../../../../../utils/constant.dart';
-import '../../../../../all_products_screen/widgets/product_category_slider_widget.dart';
 import '../../widgets/product_category_slider_widget.dart';
 
 class BottomSheetFilterScreen extends StatefulWidget {
@@ -18,9 +16,10 @@ class BottomSheetFilterScreen extends StatefulWidget {
 
 class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
   List<String> categories = ['Semua', 'Daily', 'Bills', 'Entertainment'];
+
   @override
   void initState() {
-    ChangeDateFilterScreen();
+    const ChangeDateFilterScreen();
     super.initState();
   }
 
@@ -39,7 +38,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(Constant.lineBottomSheet),
+                    color: const Color(Constant.lineBottomSheet),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   height: size.height * 0.004,
@@ -50,7 +49,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            Text(
+            const Text(
               'Filter',
               style: TextStyle(
                   fontSize: Constant.fontSemiBig, fontWeight: FontWeight.w600),
@@ -58,7 +57,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            Text('Pilih Tanggal yang mau ditampilkan',
+            const Text('Pilih Tanggal yang mau ditampilkan',
                 style: TextStyle(
                   color: Color(Constant.textFilterPilihTanggal),
                   fontSize: Constant.fontSemiRegular,
@@ -70,11 +69,11 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
               height: size.height * 0.120,
               width: size.width * 0.120,
               decoration: BoxDecoration(
-                border: Border.all(color: Color(Constant.lineOr)),
+                border: Border.all(color: const Color(Constant.lineOr)),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: ExpandTapWidget(
-                tapPadding: EdgeInsets.all(25.0),
+                tapPadding: const EdgeInsets.all(25.0),
                 onTap: () {
                   Navigator.pop(context);
                   setState(() {
@@ -84,13 +83,13 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         context: context,
-                        builder: (context) => ChangeDateFilterScreen());
+                        builder: (context) => const ChangeDateFilterScreen());
                   });
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Tanggal',
                       style: TextStyle(
                           fontSize: Constant.fontSemiBig,
@@ -99,7 +98,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
                     SizedBox(
                       height: size.height * 0.012,
                     ),
-                    Text('Pilih Tanggal',
+                    const Text('Pilih Tanggal',
                         style: TextStyle(
                             fontSize: Constant.fontSemiRegular,
                             fontWeight: FontWeight.w500)),
@@ -110,7 +109,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            Text('Kategori',
+            const Text('Kategori',
                 style: TextStyle(
                   color: Color(Constant.textFilterPilihTanggal),
                   fontSize: Constant.fontSemiRegular,
@@ -123,7 +122,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            Text('Status',
+            const Text('Status',
                 style: TextStyle(
                   color: Color(Constant.textFilterPilihTanggal),
                   fontSize: Constant.fontSemiRegular,
@@ -131,7 +130,7 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            RadioButtonFilterWidget(),
+            const RadioButtonFilterWidget(),
             SizedBox(
               height: size.height * 0.040,
             ),
@@ -140,25 +139,26 @@ class _BottomSheetFilterScreenState extends State<BottomSheetFilterScreen> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.buttonResetBottomSheet),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor:
+                            const Color(Constant.buttonResetBottomSheet),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side:
-                                BorderSide(color: Color(Constant.mainColor)))),
+                            side: const BorderSide(
+                                color: Color(Constant.mainColor)))),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Reset',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.mainColor),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor: const Color(Constant.mainColor),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
                     onPressed: () {},
-                    child: Text('Terapkan')),
+                    child: const Text('Terapkan')),
               ],
             ),
           ],

@@ -4,12 +4,12 @@ class SignInModel {
   SignInModel({this.token});
 
   SignInModel.fromJson(Map<String, dynamic> json) {
-    token = json['token'];
+    token = json['data']['token'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['token'] = token;
+    data['data']['token'] = token;
     return data;
   }
 }

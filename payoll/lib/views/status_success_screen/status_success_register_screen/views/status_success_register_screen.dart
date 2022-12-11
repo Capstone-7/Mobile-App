@@ -1,20 +1,21 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:payoll/views/login_screen/views/login_screen.dart';
 import '../../../../../utils/constant.dart';
-import '../../../../../widgets/bottom_nav_bar.dart';
 
 class StatusSuccessRegisterScreen extends StatefulWidget {
   static String routeName = 'status-success-register-';
+
   const StatusSuccessRegisterScreen({super.key});
 
   @override
-  State<StatusSuccessRegisterScreen> createState() => _StatusSuccessRegisterScreenState();
+  State<StatusSuccessRegisterScreen> createState() =>
+      _StatusSuccessRegisterScreenState();
 }
 
-class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScreen>
+class _StatusSuccessRegisterScreenState
+    extends State<StatusSuccessRegisterScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController checkLottieController;
 
@@ -23,7 +24,7 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
     openStatusBerhasilRegister();
 
     checkLottieController = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
       vsync: this,
     );
 
@@ -39,13 +40,10 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
   openStatusBerhasilRegister() async {
     var durasiStatusBerhasil = const Duration(seconds: 6);
     return Timer(durasiStatusBerhasil, () {
-     Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const BottomNavBar(
-                            pageIndex: 0,
-                          )),
-                          (route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          (route) => false);
     });
   }
 
@@ -67,14 +65,14 @@ class _StatusSuccessRegisterScreenState extends State<StatusSuccessRegisterScree
                   checkLottieController.forward();
                 },
               ),
-              Text('Berhasil',
+              const Text('Berhasil',
                   style: TextStyle(
                       fontSize: Constant.fontExtraBig,
                       fontWeight: FontWeight.w600)),
               SizedBox(
                 height: size.height * 0.012,
               ),
-              Text(
+              const Text(
                   'Selamat anda telah menjadi pengguna PayOll, Happy transaksi',
                   textAlign: TextAlign.center,
                   style: TextStyle(

@@ -3,16 +3,16 @@ import 'package:payoll/views/transaction_status_screen/widgets/transaction_succe
 import '../../../utils/constant.dart';
 import '../../../widgets/bottom_nav_bar.dart';
 import '../widgets/transaction_failed_card.dart';
-import '../widgets/transaction_onprocess_card.dart';
+import '../widgets/transaction_in_progress_card.dart';
 
-enum Status { onProcess, success, failed }
+enum Status { inProgress, success, failed }
 
 class TransactionStatusScreen extends StatelessWidget {
   static const String routeName = 'transaction_status_screen';
 
   TransactionStatusScreen({Key? key}) : super(key: key);
 
-  var transactionStatus = Status.onProcess;
+  var transactionStatus = Status.inProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class TransactionStatusScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              (transactionStatus == Status.onProcess ||
+                              (transactionStatus == Status.inProgress ||
                                       transactionStatus == Status.failed)
                                   ? Container(
                                       decoration: BoxDecoration(
@@ -153,8 +153,8 @@ class TransactionStatusScreen extends StatelessWidget {
             top: 40.0,
             left: 0.0,
             right: 0.0,
-            child: (transactionStatus == Status.onProcess)
-                ? TransactionOnProcessCard(size: size)
+            child: (transactionStatus == Status.inProgress)
+                ? TransactionInProgressCard(size: size)
                 : (transactionStatus == Status.success)
                     ? TransactionSuccessCard(size: size)
                     : TransactionFailedCard(size: size),

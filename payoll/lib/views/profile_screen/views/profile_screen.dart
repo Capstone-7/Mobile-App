@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/change_password_screen/for_after_login_register/views/change_password_after_login_register_screen.dart';
 import 'package:payoll/views/edit_account_screen/views/edit_account_screen.dart';
@@ -23,11 +22,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
         appBar: appBarProfile(context),
         body: ListView(padding: const EdgeInsets.all(24.0), children: [
-          AccountProfile(),
+          const AccountProfile(),
           SizedBox(
             height: size.height * 0.025,
           ),
-          Text(
+          const Text(
             'Menu',
             style: TextStyle(
                 fontSize: Constant.fontBig, fontWeight: FontWeight.w600),
@@ -40,14 +39,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.pushNamed(context, EditAccountScreen.routeName);
             },
             onTapMenu2: () {
-              Navigator.pushNamed(context, ChangePasswordAfterLoginRegisterScreen.routeName);
+              Navigator.pushNamed(
+                  context, ChangePasswordAfterLoginRegisterScreen.routeName);
             },
             onTapMenu3: () {},
           ),
           SizedBox(
             height: size.height * 0.025,
           ),
-          Text(
+          const Text(
             'Info',
             style: TextStyle(
                 fontSize: Constant.fontBig, fontWeight: FontWeight.w600),

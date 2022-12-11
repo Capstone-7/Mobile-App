@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:payoll/views/all_products_screen/views/all_products_screen.dart';
 import '../../pulsa_data_screen/views/pulsa_data_screen.dart';
+import 'feature_alert_dialog.dart';
 import 'feature_icon_widget.dart';
 
 class ServiceCardWidget extends StatelessWidget {
@@ -35,25 +37,50 @@ class ServiceCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Pulsa & Data',
-                      icon: 'assets/icons/pulsa-and-data.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Pulsa & Data',
+                    icon: 'assets/icons/pulsa-and-data.png',
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PulsaDataScreen())),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Uang Elektronik',
-                      icon: 'assets/icons/uang-elektronik.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Uang Elektronik',
+                    icon: 'assets/icons/uang-elektronik.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Games',
-                      icon: 'assets/icons/games.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Games',
+                    icon: 'assets/icons/games.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Air',
-                      icon: 'assets/icons/air.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Air',
+                    icon: 'assets/icons/air.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                 ],
               ),
             ),
@@ -63,25 +90,50 @@ class ServiceCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Listrik PLN',
-                      icon: 'assets/icons/listrik.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Listrik PLN',
+                    icon: 'assets/icons/listrik.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Internet & TV Kabel',
-                      icon: 'assets/icons/wifi.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Internet & TV Kabel',
+                    icon: 'assets/icons/wifi.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Pendidikan',
-                      icon: 'assets/icons/pendidikan.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Pendidikan',
+                    icon: 'assets/icons/pendidikan.png',
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FeatureAlertDialog(
+                            size: size,
+                          );
+                        }),
+                  ),
                   FeatureIconWidget(
-                      size: size,
-                      text: 'Lainnya',
-                      icon: 'assets/icons/lainnya.png',
-                      onPressed: () => const PulsaDataScreen()),
+                    size: size,
+                    text: 'Lainnya',
+                    icon: 'assets/icons/lainnya.png',
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AllProductsScreen())),
+                  ),
                 ],
               ),
             ),

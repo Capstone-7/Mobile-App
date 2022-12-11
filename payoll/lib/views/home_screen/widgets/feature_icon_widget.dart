@@ -12,18 +12,14 @@ class FeatureIconWidget extends StatelessWidget {
   final Size size;
   final String text;
   final String icon;
-  final Widget Function() onPressed;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         GestureDetector(
-          onTap:
-        () => Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => onPressed())),
+          onTap: onPressed,
           child: Container(
             height: 60.0,
             width: 60.0,

@@ -14,23 +14,30 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff396EB0),
       appBar: AppBar(
-        toolbarHeight: 90.0,
+        centerTitle: false,
+        toolbarHeight: 100.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.fromLTRB(15.0, 15.0, 0.0, 10.0),
-          child: Image.asset(
-            'assets/icons/logo.png',
-            fit: BoxFit.fitWidth,
-          ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Selamat Datang',
+              style: TextStyle(fontSize: Constant.fontSemiSmall),
+            ),
+            Text(
+              'George Lee',
+              style: TextStyle(
+                  fontSize: Constant.fontExtraBig, fontWeight: FontWeight.w700),
+            ),
+          ],
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 15.0, 15.0, 10.0),
-            child: SizedBox(
-                height: size.width * 0.07,
-                width: size.width * 0.07,
-                child: Image.asset('assets/icons/notification.png')),
+            padding: const EdgeInsets.fromLTRB(0.0, 30.0, 15.0, 10.0),
+            child: Image.asset(
+              'assets/icons/logo.png',
+            ),
           )
         ],
       ),
@@ -40,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: size.height * 0.25,
+                  height: size.height * 0.21,
                 ),
                 Container(
                   width: size.width,
@@ -56,8 +63,8 @@ class HomeScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
-                              height: size.height * 0.1,
+                            const SizedBox(
+                              height: 90.0,
                             ),
                             const Text(
                               'Belanja Makin Hemat!!!',
@@ -75,7 +82,9 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const HomeScreenCarousel(),
+                      HomeScreenCarousel(
+                        size: size,
+                      ),
                       TransactionHistorySection(size: size),
                     ],
                   ),

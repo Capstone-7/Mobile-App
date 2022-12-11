@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../../../../../../utils/constant.dart';
 
 class ChangeDateFilterScreen extends StatefulWidget {
@@ -18,7 +17,6 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
     setState(() {
       today = day;
     });
-
   }
 
   @override
@@ -36,7 +34,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(Constant.lineBottomSheet),
+                    color: const Color(Constant.lineBottomSheet),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   height: size.height * 0.004,
@@ -47,7 +45,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            Text(
+            const Text(
               'Filter',
               style: TextStyle(
                   fontSize: Constant.fontSemiBig, fontWeight: FontWeight.w600),
@@ -55,7 +53,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             SizedBox(
               height: size.height * 0.020,
             ),
-            Text('Pilih Tanggal yang mau ditampilkan',
+            const Text('Pilih Tanggal yang mau ditampilkan',
                 style: TextStyle(
                   color: Color(Constant.textFilterPilihTanggal),
                   fontSize: Constant.fontSemiRegular,
@@ -67,7 +65,7 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               height: size.height * 0.120,
               width: size.width * 0.120,
               decoration: BoxDecoration(
-                border: Border.all(color: Color(Constant.lineOr)),
+                border: Border.all(color: const Color(Constant.lineOr)),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Column(
@@ -94,12 +92,12 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
             ),
             Expanded(
               child: TableCalendar(
-                  headerStyle: HeaderStyle(
+                  headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
                   ),
                   availableGestures: AvailableGestures.all,
-                  selectedDayPredicate: (day) => isSameDay(day, today),
+                  selectedDayPredicate: (day) => isSameDay(today, day),
                   onDaySelected: _onDaySelected,
                   focusedDay: today,
                   firstDay: DateTime.utc(2000, 01, 01),
@@ -113,25 +111,26 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.buttonResetBottomSheet),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor:
+                            const Color(Constant.buttonResetBottomSheet),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side:
-                                BorderSide(color: Color(Constant.mainColor)))),
+                            side: const BorderSide(
+                                color: Color(Constant.mainColor)))),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Reset',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.mainColor),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor: const Color(Constant.mainColor),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
                     onPressed: () {},
-                    child: Text('Terapkan')),
+                    child: const Text('Terapkan')),
               ],
             ),
           ],

@@ -36,7 +36,7 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(Constant.lineBottomSheet),
+                    color: const Color(Constant.lineBottomSheet),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   height: size.height * 0.004,
@@ -47,7 +47,7 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            Text(
+            const Text(
               'Urutan',
               style: TextStyle(
                   fontSize: Constant.fontSemiBig, fontWeight: FontWeight.w600),
@@ -116,25 +116,26 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.buttonResetBottomSheet),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor:
+                            const Color(Constant.buttonResetBottomSheet),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side:
-                                BorderSide(color: Color(Constant.mainColor)))),
+                            side: const BorderSide(
+                                color: Color(Constant.mainColor)))),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Reset',
                       style: TextStyle(color: Color(Constant.mainColor)),
                     )),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(12.0),
-                        backgroundColor: Color(Constant.mainColor),
+                        padding: const EdgeInsets.all(12.0),
+                        backgroundColor: const Color(Constant.mainColor),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
                     onPressed: () {},
-                    child: Text('Terapkan')),
+                    child: const Text('Terapkan')),
               ],
             ),
           ],

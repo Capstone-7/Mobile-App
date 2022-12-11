@@ -4,7 +4,9 @@ import 'package:payoll/utils/constant.dart';
 class OtpInputAfterLoginRegister extends StatelessWidget {
   final TextEditingController? controller;
   final bool? autofocus;
-  const OtpInputAfterLoginRegister({super.key, this.controller, this.autofocus});
+
+  const OtpInputAfterLoginRegister(
+      {super.key, this.controller, this.autofocus});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +20,18 @@ class OtpInputAfterLoginRegister extends StatelessWidget {
         controller: controller,
         maxLength: 1,
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color(Constant.greyOutlineBorderTextField))),
             filled: true,
-            fillColor: Color(Constant.greyTextField),
-            focusedBorder: OutlineInputBorder(
+            fillColor: const Color(Constant.greyTextField),
+            focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color(Constant.greyOutlineBorderTextField))),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
             counterText: '',
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               color: Colors.black,
             )),
         onChanged: (value) {

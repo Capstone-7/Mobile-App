@@ -1,21 +1,23 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:payoll/views/profile_screen/views/profile_screen.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
-
 import '../../../../../utils/constant.dart';
 
-class StatusSuccessChangePasswordAfterLoginRegisterScreen extends StatefulWidget {
-  static String routeName = 'status-success-change-password-after-login-register';
+class StatusSuccessChangePasswordAfterLoginRegisterScreen
+    extends StatefulWidget {
+  static String routeName =
+      'status-success-change-password-after-login-register';
+
   const StatusSuccessChangePasswordAfterLoginRegisterScreen({super.key});
 
   @override
-  State<StatusSuccessChangePasswordAfterLoginRegisterScreen> createState() => _StatusSuccessChangePasswordAfterLoginRegisterScreenState();
+  State<StatusSuccessChangePasswordAfterLoginRegisterScreen> createState() =>
+      _StatusSuccessChangePasswordAfterLoginRegisterScreenState();
 }
 
-class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<StatusSuccessChangePasswordAfterLoginRegisterScreen>
+class _StatusSuccessChangePasswordAfterLoginRegisterScreenState
+    extends State<StatusSuccessChangePasswordAfterLoginRegisterScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController checkLottieController;
 
@@ -24,7 +26,7 @@ class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<St
     openStatusSuccessAfterLoginRegister();
 
     checkLottieController = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
       vsync: this,
     );
 
@@ -40,12 +42,14 @@ class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<St
   openStatusSuccessAfterLoginRegister() async {
     var durasiStatusBerhasil = const Duration(seconds: 6);
     return Timer(durasiStatusBerhasil, () {
-     Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const BottomNavBar(pageIndex: 2,),
-                          ),
-                          (route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BottomNavBar(
+              pageIndex: 2,
+            ),
+          ),
+          (route) => false);
     });
   }
 
@@ -68,7 +72,7 @@ class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<St
                   checkLottieController.forward();
                 },
               ),
-              Text('Berhasil',
+              const Text('Berhasil',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: Constant.fontExtraBig,
@@ -76,17 +80,14 @@ class _StatusSuccessChangePasswordAfterLoginRegisterScreenState extends State<St
               SizedBox(
                 height: size.height * 0.012,
               ),
-              Text(
-                  'Selamat Kata sandi berhasil di perbaharui',
+              const Text('Selamat Kata sandi berhasil di perbaharui',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Constant.fontSemiBig,
                   )),
-                  SizedBox(
+              SizedBox(
                 height: size.height * 0.040,
               ),
-                 
-                  
             ],
           ),
         ),

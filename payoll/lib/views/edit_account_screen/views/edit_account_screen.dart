@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/edit_account_screen/widget/app_bar_edit_account.dart';
-
+import 'package:provider/provider.dart';
+import '../../../providers/profile_provider.dart';
+import '../../../providers/update_profile_provider.dart';
 import '../../../utils/constant.dart';
-import '../../forgot_password_screen/views/forgot_password.dart';
-import '../../login_screen/widgets/login_button.dart';
-import '../../login_screen/widgets/login_button_google.dart';
-import '../../register_screen/views/register_screen.dart';
-import '../widget/save_edit_account_button.dart';
+import '../../../utils/state/finite_state.dart';
+import '../../profile_screen/views/profile_screen.dart';
 
 class EditAccountScreen extends StatefulWidget {
   static String routeName = 'edit-account-screen';
+
   const EditAccountScreen({super.key});
 
   @override
@@ -17,14 +17,55 @@ class EditAccountScreen extends StatefulWidget {
 }
 
 class _EditAccountScreenState extends State<EditAccountScreen> {
-  final GlobalKey formKey = GlobalKey<FormState>();
-  final TextEditingController namedController = TextEditingController();
+  final GlobalKey<FormState> _updateFormKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   bool checkBox = false;
-  bool _showHidePass = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      Duration.zero,
+      () {
+        final profileProvider =
+            Provider.of<ProfileProvider>(context, listen: false);
+
+        /// Fetch users data
+        profileProvider.fetchProfile();
+      },
+    );
+    final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
+    provider.addListener(
+      () {
+        if (provider.myState == MyState.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Can\'t update profile',
+              ),
+            ),
+          );
+        } else if (provider.myState == MyState.loaded) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Logged In',
+              ),
+            ),
+          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ProfileScreen()));
+        }
+      },
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
     return Scaffold(
       appBar: appBarEditAccount(context),
       resizeToAvoidBottomInset: false,
@@ -32,19 +73,19 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: Color(Constant.mainColor),
+            color: const Color(Constant.mainColor),
             height: size.height * 0.200,
             width: size.width * 200,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/profil.jpg'),
                   radius: 50.0,
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Ubah Foto',
                       style: TextStyle(
                           fontSize: Constant.fontSemiBig, color: Colors.white),
@@ -58,12 +99,15 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Form(
-                      key: formKey,
+                  Consumer2<UpdateProfileProvider, ProfileProvider>(
+                      builder: (context, provider, provider2, _) {
+                    final user = provider2.profileModel;
+                    return Form(
+                      key: _updateFormKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
+                          const Text(
                             'Nama Lengkap',
                             style: TextStyle(
                                 fontSize: Constant.fontSemiRegular,
@@ -73,34 +117,33 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                             height: size.height * 0.018,
                           ),
                           TextFormField(
+                            controller: nameController,
                             decoration: InputDecoration(
-                                filled: true,
-                                fillColor:
-                                    Color(Constant.greyTextFieldLoginRegister),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
-                                hintText: 'George Lee',
-                                hintStyle: TextStyle(),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(Constant.greyOutlineBorderTextField))),
-                                contentPadding: EdgeInsets.all(12.0),
-                                border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8)))),
-                            // validator: (String? value) {
-                            //   if (value!.isEmpty) {
-                            //     return 'Please, fill password field!';
-                            //   } else {
-                            //     return null;
-                            //   }
-                            // }
+                              filled: true,
+                              fillColor: const Color(
+                                  Constant.greyTextFieldLoginRegister),
+                              focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(Constant
+                                          .greyOutlineBorderTextField))),
+                              hintText: '${user?.name}',
+                              hintStyle: const TextStyle(),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(Constant
+                                          .greyOutlineBorderTextField))),
+                              contentPadding: const EdgeInsets.all(12.0),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: size.height * 0.018,
                           ),
-                          Text(
+                          const Text(
                             'Email',
                             style: TextStyle(
                                 fontSize: Constant.fontSemiRegular,
@@ -113,57 +156,78 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                             controller: emailController,
                             decoration: InputDecoration(
                                 filled: true,
-                                fillColor:
-                                    Color(Constant.greyTextFieldLoginRegister),
-                                focusedBorder: OutlineInputBorder(
+                                fillColor: const Color(
+                                    Constant.greyTextFieldLoginRegister),
+                                focusedBorder: const OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
-                                hintText: 'Lee.George@mail.com',
-                                hintStyle: TextStyle(),
-                                enabledBorder: OutlineInputBorder(
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
+                                hintText: '${user?.email}',
+                                hintStyle: const TextStyle(),
+                                enabledBorder: const OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Color(Constant.greyOutlineBorderTextField))),
-                                contentPadding: EdgeInsets.all(12.0),
-                                border: OutlineInputBorder(
+                                        color: Color(Constant
+                                            .greyOutlineBorderTextField))),
+                                contentPadding: const EdgeInsets.all(12.0),
+                                border: const OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(8)))),
-                            // validator: (String? value) {
-                            //   const String expression = "[a-zA-Z0-9+._%-+]{1,256}"
-                            //       "\\@"
-                            //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
-                            //       "("
-                            //       "\\."
-                            //       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
-                            //       ")+";
-                            //   final RegExp regExp = RegExp(expression);
-                            //   return !regExp.hasMatch(value!)
-                            //       ? "Please, input valid email!"
-                            //       : null;
-                            // },
+                            validator: (String? value) {
+                              const String expression =
+                                  "[a-zA-Z0-9+._%-+]{1,256}"
+                                  "\\@"
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}"
+                                  "("
+                                  "\\."
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}"
+                                  ")+";
+                              final RegExp regExp = RegExp(expression);
+                              return !regExp.hasMatch(value!)
+                                  ? "Please, input valid email!"
+                                  : null;
+                            },
                           ),
                         ],
-                      )),
-                 
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),
           ),
-           SaveEditAccountButton(
-                    onPressed: () {},
-                  ),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(12.0),
+                    backgroundColor: const Color(0xFF396EB0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                onPressed: () async {
+                  if (_updateFormKey.currentState!.validate()) {
+                    _updateFormKey.currentState!.save();
+                    await provider.updateProfile(
+                      name: nameController.text,
+                      email: emailController.text,
+                    );
+                  }
+                },
+                child: const Text(
+                  'SIMPAN',
+                )),
+          )
         ],
       ),
     );
   }
 }
 
-
 // Padding(
 //         padding: const EdgeInsets.all(24.0),
 //         child: Column(
 //           crossAxisAlignment: CrossAxisAlignment.stretch,
 //           children: [
-            
+
 //             Expanded(
 //               child: Form(
 //                   key: formKey,
@@ -244,7 +308,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
 //                         //       : null;
 //                         // },
 //                       ),
-                     
+
 //                     ],
 //                   )),
 //             ),

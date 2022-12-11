@@ -12,7 +12,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
   final size = MediaQuery.of(context).size;
   return TabBar(indicatorColor: Colors.transparent, tabs: [
     ExpandTapWidget(
-      tapPadding: EdgeInsets.all(25.0),
+      tapPadding: const EdgeInsets.all(25.0),
       onTap: () {
         showModalBottomSheet(
           isScrollControlled: true,
@@ -26,7 +26,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Tab(
+          const Tab(
               icon: Icon(
             FontAwesomeIcons.arrowDownWideShort,
             size: 20,
@@ -35,7 +35,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
           SizedBox(
             width: size.width * 0.020,
           ),
-          Text(
+          const Text(
             'Urutan',
             style: TextStyle(
               fontSize: Constant.fontSemiRegular,
@@ -46,7 +46,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
       ),
     ),
     ExpandTapWidget(
-      tapPadding: EdgeInsets.all(25.0),
+      tapPadding: const EdgeInsets.all(25.0),
       onTap: () {
         showModalBottomSheet(
           isScrollControlled: true,
@@ -54,13 +54,13 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
             borderRadius: BorderRadius.circular(10.0),
           ),
           context: context,
-          builder: (context) => BottomSheetFilterScreen(),
+          builder: (context) => const BottomSheetFilterScreen(),
         );
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Tab(
+          const Tab(
               icon: Icon(
             FontAwesomeIcons.filter,
             size: 20,
@@ -69,7 +69,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
           SizedBox(
             width: size.width * 0.020,
           ),
-          Text(
+          const Text(
             'Filter',
             style: TextStyle(
               fontSize: Constant.fontSemiRegular,
@@ -84,17 +84,18 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
 
 PreferredSizeWidget appBarRiwayatTransaksi(BuildContext context) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(100.0),
+    preferredSize: const Size.fromHeight(100.0),
     child: AppBar(
+        centerTitle: false,
         elevation: 2,
-        backgroundColor: Color(Constant.mainColor),
-        title: Text(
+        backgroundColor: const Color(Constant.mainColor),
+        title: const Text(
           'Riwayat Transaksi',
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: Constant.fontBig),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Material(
             color: Colors.white,
             child: tabBarRiwayatTransaksi(context),
