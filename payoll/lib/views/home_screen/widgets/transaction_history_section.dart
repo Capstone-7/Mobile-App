@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:payoll/views/transaction_history_screen/transaction_history_screen/views/transaction_history_screen.dart';
 import '../../../models/history_model.dart';
 import '../../../utils/constant.dart';
-import '../../riwayat_transaksi_screen/views/riwayat_transaksi_screen.dart';
 
 class TransactionHistorySection extends StatelessWidget {
   TransactionHistorySection({Key? key, required this.size}) : super(key: key);
@@ -29,7 +29,7 @@ class TransactionHistorySection extends StatelessWidget {
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    RiwayatTransaksiScreen.routeName,
+                    TransactionHistoryScreen.routeName,
                   );
                 },
                 child: const Text(

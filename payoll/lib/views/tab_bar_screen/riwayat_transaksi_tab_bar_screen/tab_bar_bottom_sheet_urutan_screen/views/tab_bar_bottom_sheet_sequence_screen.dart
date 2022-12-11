@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/radio/gf_radio.dart';
 import 'package:payoll/utils/constant.dart';
 
-class BottomSheetUrutanScreen extends StatefulWidget {
-  const BottomSheetUrutanScreen({super.key});
+class BottomSheetSequenceScreen extends StatefulWidget {
+  const BottomSheetSequenceScreen({super.key});
 
   @override
-  State<BottomSheetUrutanScreen> createState() =>
-      _BottomSheetUrutanScreenState();
+  State<BottomSheetSequenceScreen> createState() =>
+      _BottomSheetSequenceScreenState();
 }
 
-class _BottomSheetUrutanScreenState extends State<BottomSheetUrutanScreen> {
-  int? _value = 0;
+enum SequenceRadio { latest, longest }
+
+class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
+  SequenceRadio? _radio = SequenceRadio.latest;
+
+  @override
+  void initState() {
+    _radio;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,20 +62,20 @@ class _BottomSheetUrutanScreenState extends State<BottomSheetUrutanScreen> {
                     children: [
                       GFRadio(
                         size: 28.0,
-                        activeBorderColor: const Color(Constant.mainColor),
-                        radioColor: const Color(Constant.mainColor),
-                        value: 1,
-                        groupValue: _value,
+                        activeBorderColor: Color(Constant.mainColor),
+                        radioColor: Color(Constant.mainColor),
+                        value: SequenceRadio.latest,
+                        groupValue: _radio,
                         onChanged: (value) {
                           setState(() {
-                            _value = value;
+                            _radio = value;
                           });
                         },
                       ),
                       SizedBox(
                         width: size.width * 0.015,
                       ),
-                      const Text('Terbaru',
+                      Text('Terbaru',
                           style: TextStyle(fontSize: Constant.fontSemiBig)),
                     ],
                   ),
@@ -78,20 +86,20 @@ class _BottomSheetUrutanScreenState extends State<BottomSheetUrutanScreen> {
                     children: [
                       GFRadio(
                         size: 28.0,
-                        activeBorderColor: const Color(Constant.mainColor),
-                        radioColor: const Color(Constant.mainColor),
-                        value: 2,
-                        groupValue: _value,
+                        activeBorderColor: Color(Constant.mainColor),
+                        radioColor: Color(Constant.mainColor),
+                        value: SequenceRadio.longest,
+                        groupValue: _radio,
                         onChanged: (value) {
                           setState(() {
-                            _value = value;
+                            _radio = value;
                           });
                         },
                       ),
                       SizedBox(
                         width: size.width * 0.015,
                       ),
-                      const Text(
+                      Text(
                         'Terlama',
                         style: TextStyle(fontSize: Constant.fontSemiBig),
                       ),

@@ -1,4 +1,3 @@
-import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../../../../../utils/constant.dart';
@@ -11,14 +10,10 @@ class ChangeDateFilterScreen extends StatefulWidget {
 }
 
 class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
+  
   DateTime today = DateTime.now();
-  @override
-  void initState() {
-    DateTime.now();
-    super.initState();
-  }
-
-  void _onDaySelected(DateTime day, DateTime focusedDay) {
+ 
+  void _onDaySelected(DateTime day, DateTime focusedDay ){
     setState(() {
       today = day;
     });
@@ -73,39 +68,23 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                 border: Border.all(color: const Color(Constant.lineOr)),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              child: ExpandTapWidget(
-                tapPadding: const EdgeInsets.all(25.0),
-                onTap: () {
-                  Navigator.pop(context);
-                  setState(() {
-                    showModalBottomSheet(
-                        isScrollControlled: true,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        context: context,
-                        builder: (context) => const ChangeDateFilterScreen());
-                  });
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      (today.toString().split('')[0]),
-                      // '5',
-                      style: const TextStyle(
-                          fontSize: Constant.fontSemiBig,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    const Text('Pilih Tanggal',
-                        style: TextStyle(
-                            fontSize: Constant.fontSemiRegular,
-                            fontWeight: FontWeight.w500)),
-                  ],
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${(today.toString().split('')[0])}',
+                    style: TextStyle(
+                        fontSize: Constant.fontSemiBig,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.012,
+                  ),
+                  Text('Pilih Tanggal',
+                      style: TextStyle(
+                          fontSize: Constant.fontSemiRegular,
+                          fontWeight: FontWeight.w500)),
+                ],
               ),
             ),
             SizedBox(
