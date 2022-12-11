@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/radio/gf_radio.dart';
 import 'package:payoll/utils/constant.dart';
 
-class BottomSheetUrutanScreen extends StatefulWidget {
-  const BottomSheetUrutanScreen({super.key});
+class BottomSheetSequenceScreen extends StatefulWidget {
+  const BottomSheetSequenceScreen({super.key});
 
   @override
-  State<BottomSheetUrutanScreen> createState() =>
-      _BottomSheetUrutanScreenState();
+  State<BottomSheetSequenceScreen> createState() =>
+      _BottomSheetSequenceScreenState();
 }
 
-class _BottomSheetUrutanScreenState extends State<BottomSheetUrutanScreen> {
-  int? _value = 0;
+enum SequenceRadio { latest, longest }
+
+class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
+  SequenceRadio? _radio = SequenceRadio.latest;
+
+  @override
+  void initState() {
+    _radio;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -50,56 +59,55 @@ class _BottomSheetUrutanScreenState extends State<BottomSheetUrutanScreen> {
               child: Column(
                 children: [
                   Row(
-                children: [
-                  GFRadio(
-                    size: 28.0,
-                    activeBorderColor: Color(Constant.mainColor),
-                    radioColor: Color(Constant.mainColor),
-                    value: 1,
-                    groupValue: _value,
-                    onChanged: (value) {
-                      setState(() {
-                        _value = value as int?;
-                      });
-                    },
+                    children: [
+                      GFRadio(
+                        size: 28.0,
+                        activeBorderColor: Color(Constant.mainColor),
+                        radioColor: Color(Constant.mainColor),
+                        value: SequenceRadio.latest,
+                        groupValue: _radio,
+                        onChanged: (value) {
+                          setState(() {
+                            _radio = value;
+                          });
+                        },
+                      ),
+                      SizedBox(
+                        width: size.width * 0.015,
+                      ),
+                      Text('Terbaru',
+                          style: TextStyle(fontSize: Constant.fontSemiBig)),
+                    ],
                   ),
                   SizedBox(
-                width: size.width * 0.015,
-              ),
-                  Text('Terbaru',
-                      style: TextStyle(fontSize: Constant.fontSemiBig)),
-                ],
-              ),
-              SizedBox(
-                height: size.height * 0.020,
-              ),
-              Row(
-                children: [
-                  GFRadio(
-                    size: 28.0,
-                    activeBorderColor: Color(Constant.mainColor),
-                    radioColor: Color(Constant.mainColor),
-                    value: 2,
-                    groupValue: _value,
-                    onChanged: (value) {
-                      setState(() {
-                        _value = value as int?;
-                      });
-                    },
+                    height: size.height * 0.020,
                   ),
-                   SizedBox(
-                width: size.width * 0.015,
-              ),
-                  Text(
-                    'Terlama',
-                    style: TextStyle(fontSize: Constant.fontSemiBig),
+                  Row(
+                    children: [
+                      GFRadio(
+                        size: 28.0,
+                        activeBorderColor: Color(Constant.mainColor),
+                        radioColor: Color(Constant.mainColor),
+                        value: SequenceRadio.longest,
+                        groupValue: _radio,
+                        onChanged: (value) {
+                          setState(() {
+                            _radio = value;
+                          });
+                        },
+                      ),
+                      SizedBox(
+                        width: size.width * 0.015,
+                      ),
+                      Text(
+                        'Terlama',
+                        style: TextStyle(fontSize: Constant.fontSemiBig),
+                      ),
+                    ],
                   ),
-                ],
-              ),
                 ],
               ),
             ),
-            
             SizedBox(
               height: size.height * 0.040,
             ),

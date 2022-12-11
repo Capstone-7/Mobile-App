@@ -1,13 +1,7 @@
-import 'package:expand_tap_area/expand_tap_area.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/components/radio/gf_radio.dart';
-import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/views/filter_pilih_tanggal_screen/filter_pilihan_tanggal_screen.dart';
-import 'package:payoll/views/tab_bar_screen/riwayat_transaksi_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/widgets/radio_button_filter_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../../../../utils/constant.dart';
-import '../../../../../all_products_screen/widgets/product_category_slider_widget.dart';
-import '../../widgets/product_category_slider_widget.dart';
 
 class ChangeDateFilterScreen extends StatefulWidget {
   const ChangeDateFilterScreen({super.key});
@@ -17,12 +11,9 @@ class ChangeDateFilterScreen extends StatefulWidget {
 }
 
 class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
+  
   DateTime today = DateTime.now();
-  @override
-  void initState() {
-    DateTime.now();
-    super.initState();
-  }
+ 
   void _onDaySelected(DateTime day, DateTime focusedDay ){
     setState(() {
       today = day;
@@ -79,38 +70,23 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                 border: Border.all(color: Color(Constant.lineOr)),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              child: ExpandTapWidget(
-                tapPadding: EdgeInsets.all(25.0),
-                onTap: () {
-                  Navigator.pop(context);
-                  setState(() {
-                    showModalBottomSheet(
-                        isScrollControlled: true,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        context: context,
-                        builder: (context) => ChangeDateFilterScreen());
-                  });
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${(today.toString().split('')[0])}',
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${(today.toString().split('')[0])}',
+                    style: TextStyle(
+                        fontSize: Constant.fontSemiBig,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.012,
+                  ),
+                  Text('Pilih Tanggal',
                       style: TextStyle(
-                          fontSize: Constant.fontSemiBig,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    Text('Pilih Tanggal',
-                        style: TextStyle(
-                            fontSize: Constant.fontSemiRegular,
-                            fontWeight: FontWeight.w500)),
-                  ],
-                ),
+                          fontSize: Constant.fontSemiRegular,
+                          fontWeight: FontWeight.w500)),
+                ],
               ),
             ),
             SizedBox(
