@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:payoll/views/transaction_history_screen/transaction_history_screen/views/transaction_history_screen.dart';
+import 'package:payoll/views/transaction_history_screen/views/transaction_history_screen.dart';
 import '../../../models/history_model.dart';
 import '../../../utils/constant.dart';
 
