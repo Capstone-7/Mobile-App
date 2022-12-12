@@ -16,7 +16,7 @@ class ChangePasswordForgotPasswordButton extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
-        child: Text('Ubah'.toUpperCase(),
+        child: Text('UBAH',
             style: const TextStyle(
                 fontSize: Constant.fontSemiRegular,
                 fontWeight: FontWeight.w500)));

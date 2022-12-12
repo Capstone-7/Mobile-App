@@ -79,10 +79,7 @@ class Onboarding3 extends StatelessWidget {
                   ),
                   LanjutkanButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        Onboarding4.routeName,
-                      );
+                      Navigator.pushNamedAndRemoveUntil(context, Onboarding4.routeName, (route) => false);
                     },
                   ),
                   SizedBox(

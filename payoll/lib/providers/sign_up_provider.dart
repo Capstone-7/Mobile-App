@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../models/sign_up_model.dart';
@@ -31,8 +32,11 @@ class SignUpProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       if (e is DioError) {
-        /// If want to check status code from service error
-        e.response!.statusCode;
+        if (kDebugMode) {
+          print(e.response!.statusCode);
+          print(e.response!.statusMessage);
+          print(e.response!.data);
+        }
       }
 
       myState = MyState.failed;

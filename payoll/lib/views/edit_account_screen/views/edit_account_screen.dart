@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/edit_account_screen/widget/app_bar_edit_account.dart';
+import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/profile_provider.dart';
 import '../../../providers/update_profile_provider.dart';
@@ -8,7 +9,7 @@ import '../../../utils/state/finite_state.dart';
 import '../../profile_screen/views/profile_screen.dart';
 
 class EditAccountScreen extends StatefulWidget {
-  static String routeName = 'edit-account-screen';
+  static const String routeName = 'edit-account-screen';
 
   const EditAccountScreen({super.key});
 
@@ -50,12 +51,17 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text(
-                'Logged In',
+                'Profile updated successfully',
               ),
             ),
           );
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const BottomNavBar(
+                        pageIndex: 2,
+                      )),
+              (route) => false);
         }
       },
     );

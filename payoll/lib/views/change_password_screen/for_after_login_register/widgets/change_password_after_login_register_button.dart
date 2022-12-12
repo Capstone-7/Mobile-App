@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 
-class ChangePasswordAfterLOginRegisterButton extends StatelessWidget {
-  const ChangePasswordAfterLOginRegisterButton(
+class ChangePasswordAfterLoginRegisterButton extends StatelessWidget {
+  const ChangePasswordAfterLoginRegisterButton(
       {super.key, required this.onPressed});
 
   final VoidCallback onPressed;
@@ -17,7 +17,7 @@ class ChangePasswordAfterLOginRegisterButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
         child: Text(
-          'Ubah'.toUpperCase(),
+          'UBAH',
           style: const TextStyle(
               fontSize: Constant.fontSemiRegular, fontWeight: FontWeight.w500),
         ));

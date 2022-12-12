@@ -1,28 +1,28 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:payoll/models/password_model.dart';
 
-import '../models/profile_model.dart';
 import '../services/services.dart';
 import '../utils/state/finite_state.dart';
 
-class UpdateProfileProvider extends ChangeNotifier {
+class ChangePasswordProvider extends ChangeNotifier {
   final ApiService service = ApiService();
 
-  ProfileModel? users;
+  PasswordModel? users;
 
   MyState myState = MyState.initial;
 
-  Future updateProfile({
-    required String email,
-    required String name,
+  Future changePassword({
+    required String oldPassword,
+    required String newPassword,
   }) async {
     try {
       // myState = MyState.loading;
       // notifyListeners();
-      users = await service.updateProfile(
-        name: name,
-        email: email,
+      users = await service.changePassword(
+        oldPassword: oldPassword,
+        newPassword: newPassword,
       );
       myState = MyState.loaded;
       notifyListeners();

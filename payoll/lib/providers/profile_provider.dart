@@ -23,7 +23,9 @@ class ProfileProvider extends ChangeNotifier {
     catch (e) {
       if (e is DioError) {
         if (kDebugMode) {
+          print(e.response!.statusCode);
           print(e.response!.statusMessage);
+          print(e.response!.data);
         }
       }
 

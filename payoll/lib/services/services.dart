@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:payoll/models/password_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/profile_model.dart';
 import '../models/sign_in_model.dart';
@@ -18,6 +20,9 @@ class ApiService {
         },
         onError: (DioError e, handler) {
           if (e.response!.statusCode == 401) {
+            if (kDebugMode) {
+              print(e.message);
+            }
           } else {}
           return handler.next(e);
         },
@@ -27,11 +32,6 @@ class ApiService {
 
   Dio dio = Dio();
   final String _baseUrl = 'https://payoll-api.nyakit.in/api/v1/';
-
-  // SignInModel signInModel = SignInModel();
-
-  // email: alam@gmail.com
-  // password: @Password123
 
   Future<SignUpModel> signUp({
     required String email,
@@ -49,28 +49,6 @@ class ApiService {
       );
 
       return SignUpModel.fromJson(response.data);
-    } on DioError catch (_) {
-      rethrow;
-    }
-  }
-
-  Future<ProfileModel> updateProfile({
-    required String name,
-    required String email,
-  }) async {
-    try {
-      loginData = await SharedPreferences.getInstance();
-      final response = await dio.put('${_baseUrl}user/profile',
-          data: {
-            'name': name,
-            'email': email,
-          },
-          options: Options(
-            headers: {
-              "Authorization": "Bearer ${loginData.getString('login')}"
-            },
-          ));
-      return ProfileModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
@@ -95,7 +73,6 @@ class ApiService {
   }
 
   Future<ProfileModel> fetchUsers() async {
-    Dio dio = Dio();
     loginData = await SharedPreferences.getInstance();
     try {
       final response = await dio.get('${_baseUrl}user/profile',
@@ -105,6 +82,50 @@ class ApiService {
             },
           ));
       return ProfileModel.fromJson(response.data);
+    } on DioError catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<ProfileModel> updateProfile({
+    required String name,
+    required String email,
+  }) async {
+    loginData = await SharedPreferences.getInstance();
+    try {
+      final response = await dio.put('${_baseUrl}user/profile',
+          data: {
+            'name': name,
+            'email': email,
+          },
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${loginData.getString('login')}"
+            },
+          ));
+      return ProfileModel.fromJson(response.data);
+    } on DioError catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<PasswordModel> changePassword({
+    required String oldPassword,
+    required String newPassword,
+  }) async {
+    loginData = await SharedPreferences.getInstance();
+    try {
+      final response = await dio.put('${_baseUrl}user/update-password',
+          data: {
+            'old_password': oldPassword,
+            'new_password': newPassword,
+          },
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${loginData.getString('login')}"
+            },
+          ));
+      return PasswordModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }

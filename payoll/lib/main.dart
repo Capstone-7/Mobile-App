@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
+import 'package:payoll/providers/change_password_provider.dart';
 import 'package:payoll/providers/profile_provider.dart';
 import 'package:payoll/providers/sign_in_provider.dart';
 import 'package:payoll/providers/sign_up_provider.dart';
@@ -55,6 +56,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => UpdateProfileProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChangePasswordProvider(),
         ),
       ],
       child: MaterialApp(

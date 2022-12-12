@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/change_password_screen/for_after_login_register/widgets/app_bar_after_login_register.dart';
-import 'package:payoll/views/otp_screen/for_after_login_register/views/otp_after_login_register_screen.dart';
+import 'package:provider/provider.dart';
+import '../../../../providers/change_password_provider.dart';
 import '../../../../utils/constant.dart';
-import '../widgets/change_password_after_login_register_button.dart';
+import '../../../../utils/state/finite_state.dart';
+import '../../../../widgets/bottom_nav_bar.dart';
 
 class ChangePasswordAfterLoginRegisterScreen extends StatefulWidget {
   static const String routeName = 'change-password-after-login-after-screen';
@@ -16,18 +18,56 @@ class ChangePasswordAfterLoginRegisterScreen extends StatefulWidget {
 
 class _ChangePasswordAfterLoginRegisterScreenState
     extends State<ChangePasswordAfterLoginRegisterScreen> {
-  final GlobalKey formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _updatePasswordFormKey = GlobalKey<FormState>();
   final TextEditingController oldPasswordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController newPasswordConfrimController =
+  final TextEditingController newPasswordConfirmController =
       TextEditingController();
   bool _showHideOldPass = true;
   bool _showHideNewPass = true;
-  bool _showHideNewPassConfrim = true;
+  bool _showHideNewPassConfirm = true;
+
+  @override
+  void initState() {
+    final provider =
+        Provider.of<ChangePasswordProvider>(context, listen: false);
+    provider.addListener(
+      () {
+        if (provider.myState == MyState.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Can\'t update password',
+              ),
+            ),
+          );
+        } else if (provider.myState == MyState.loaded) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Password updated successfully',
+              ),
+            ),
+          );
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const BottomNavBar(
+                        pageIndex: 2,
+                      )),
+              (route) => false);
+        }
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final provider =
+        Provider.of<ChangePasswordProvider>(context, listen: false);
+
     return Scaffold(
       appBar: appBarAfterLoginRegister(context),
       resizeToAvoidBottomInset: false,
@@ -38,7 +78,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
           children: [
             Expanded(
               child: Form(
-                  key: formKey,
+                  key: _updatePasswordFormKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -52,6 +92,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                         height: size.height * 0.018,
                       ),
                       TextFormField(
+                        controller: oldPasswordController,
                         obscureText: _showHideOldPass,
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
@@ -104,6 +145,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                         height: size.height * 0.018,
                       ),
                       TextFormField(
+                        controller: newPasswordController,
                         obscureText: _showHideNewPass,
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
@@ -156,17 +198,18 @@ class _ChangePasswordAfterLoginRegisterScreenState
                         height: size.height * 0.018,
                       ),
                       TextFormField(
-                        obscureText: _showHideNewPassConfrim,
+                        controller: newPasswordConfirmController,
+                        obscureText: _showHideNewPassConfirm,
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
-                              icon: _showHideNewPassConfrim
+                              icon: _showHideNewPassConfirm
                                   ? const Icon(Icons.visibility_off)
                                   : const Icon(Icons.visibility),
                               onPressed: () => {
                                 setState(
                                   () {
-                                    _showHideNewPassConfrim =
-                                        !_showHideNewPassConfrim;
+                                    _showHideNewPassConfirm =
+                                        !_showHideNewPassConfirm;
                                   },
                                 )
                               },
@@ -202,12 +245,56 @@ class _ChangePasswordAfterLoginRegisterScreenState
                     ],
                   )),
             ),
-            ChangePasswordAfterLOginRegisterButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                    context, OtpAfterLoginRegisterScreen.routeName);
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(12.0),
+                  backgroundColor: const Color(0xFF396EB0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8))),
+              onPressed: () async {
+                if (newPasswordController.text !=
+                    newPasswordConfirmController.text) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'New Password and Confirm Password does not match',
+                      ),
+                    ),
+                  );
+                } else if (_updatePasswordFormKey.currentState!.validate()) {
+                  _updatePasswordFormKey.currentState!.save();
+                  await provider.changePassword(
+                      oldPassword: oldPasswordController.text,
+                      newPassword: newPasswordController.text);
+                }
               },
-            )
+              child: const Text(
+                'UBAH',
+                style: TextStyle(
+                    fontSize: Constant.fontSemiRegular,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            // ChangePasswordAfterLoginRegisterButton(
+            //   onPressed: () async {
+            //     if (newPasswordController.text !=
+            //         newPasswordConfirmController.text) {
+            //       ScaffoldMessenger.of(context).showSnackBar(
+            //         const SnackBar(
+            //           content: Text(
+            //             'New Password and Confirm Password does not match',
+            //           ),
+            //         ),
+            //       );
+            //     }
+            //     else if (_updatePasswordFormKey.currentState!.validate()) {
+            //       _updatePasswordFormKey.currentState!.save();
+            //       await provider.changePassword(
+            //           oldPassword: oldPasswordController.text,
+            //           newPassword: newPasswordController.text);
+            //     }
+            //   },
+            // )
           ],
         ),
       ),
