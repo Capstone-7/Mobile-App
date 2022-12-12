@@ -15,9 +15,9 @@ class StatusSuccessForgotPasswordButton extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
-        child: Text(
-          'Kembali Ke Masuk'.toUpperCase(),
-          style: const TextStyle(fontWeight: FontWeight.w500),
+        child: const Text(
+          'KEMBALI KE MASUK',
+          style: TextStyle(fontWeight: FontWeight.w500),
         ));
   }
 }

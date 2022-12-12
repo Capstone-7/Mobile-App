@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/home_screen/widgets/service_card_widget.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/profile_provider.dart';
 import '../../../utils/constant.dart';
 import '../widgets/home_screen_carousel.dart';
 import '../widgets/transaction_history_section.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      Duration.zero,
+      () {
+        final provider = Provider.of<ProfileProvider>(context, listen: false);
+
+        /// Fetch users data
+        provider.fetchProfile();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +41,20 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
+          children: [
+            const Text(
               'Selamat Datang',
               style: TextStyle(fontSize: Constant.fontSemiSmall),
             ),
-            Text(
-              'George Lee',
-              style: TextStyle(
-                  fontSize: Constant.fontExtraBig, fontWeight: FontWeight.w700),
-            ),
+            Consumer<ProfileProvider>(builder: (context, provider, _) {
+              final user = provider.profileModel;
+              return Text(
+                '${user?.name}',
+                style: const TextStyle(
+                    fontSize: Constant.fontExtraBig,
+                    fontWeight: FontWeight.w700),
+              );
+            }),
           ],
         ),
         actions: [

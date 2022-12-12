@@ -25,7 +25,7 @@ class LoginGoogle extends StatelessWidget {
                   'assets/images/google.png',
                 )),
             Text(
-              ' Google'.toUpperCase(),
+              ' GOOGLE',
               style: const TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
             )
