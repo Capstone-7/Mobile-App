@@ -64,7 +64,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: size.height * 0.035,
           ),
           ProfileLogoutButton(
-            onPressed: () {},
+            onPressed: () {
+
+            },
           )
         ]));
   }
