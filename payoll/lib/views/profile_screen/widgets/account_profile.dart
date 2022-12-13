@@ -31,19 +31,45 @@ class _AccountProfileState extends State<AccountProfile> {
     return Consumer<ProfileProvider>(
       builder: (context, provider, _) {
         final user = provider.profileModel;
-        return ListTile(
-          leading: const CircleAvatar(
+        return Row(
+          children: [
+            CircleAvatar(
+            radius: 35.0,
             backgroundImage: AssetImage('assets/images/profil.jpg'),
           ),
-          title: Text(
-            '${user?.name}',
-            style: const TextStyle(
-                fontSize: Constant.fontTitleProfile, fontWeight: FontWeight.w500),
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+              '${user?.name}',
+              style: const TextStyle(
+                  fontSize: Constant.fontBig, fontWeight: FontWeight.w600),
+            ),
+            Text('${user?.email}',
+                style: const TextStyle(fontSize: Constant.fontSemiRegular)),
+              ],
+            ),
           ),
-          subtitle: Text('${user?.email}',
-              style: const TextStyle(fontSize: Constant.fontSemiBig)),
+          ],
         );
       }
     );
   }
 }
+
+
+
+// ListTile(
+//           leading: const CircleAvatar(
+//             backgroundImage: AssetImage('assets/images/profil.jpg'),
+//           ),
+//           title: Text(
+//             '${user?.name}',
+//             style: const TextStyle(
+//                 fontSize: Constant.fontTitleProfile, fontWeight: FontWeight.w500),
+//           ),
+//           subtitle: Text('${user?.email}',
+//               style: const TextStyle(fontSize: Constant.fontSemiBig)),
+//         );

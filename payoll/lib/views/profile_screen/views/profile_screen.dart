@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/views/change_password_screen/for_after_login_register/views/change_password_after_login_register_screen.dart';
 import 'package:payoll/views/edit_account_screen/views/edit_account_screen.dart';
+import 'package:payoll/views/login_screen/views/login_screen.dart';
 import 'package:payoll/views/profile_screen/widgets/account_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/app_bar_profile.dart';
 import 'package:payoll/views/profile_screen/widgets/list_info.dart';
 import 'package:payoll/views/profile_screen/widgets/list_menu.dart';
 import 'package:payoll/views/profile_screen/widgets/profile_logout_button.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../providers/sign_in_provider.dart';
+import '../../../utils/state/finite_state.dart';
+import '../../../widgets/bottom_nav_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -16,8 +23,23 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late SharedPreferences loginData;
+  String username = '';
+
+  void initial () async {
+     loginData = await SharedPreferences.getInstance();
+  }
+
+  @override
+  void initState() {
+    initial();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    
+    final provider = Provider.of<SignInProvider>(context, listen: false);
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: appBarProfile(context),
@@ -64,8 +86,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: size.height * 0.035,
           ),
           ProfileLogoutButton(
-            onPressed: () {},
-          )
+            onPressed: () {
+              loginData.setBool('login', true);
+                loginData.remove('username');
+            
+       if (provider.myState == MyState.loaded) {
+         username = loginData.getString('username').toString();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Logout',
+              ),
+            ),
+          );
+          Navigator.pushNamedAndRemoveUntil(context, LoginScreen.routeName, (route) => false);
+        
+                
+  }})
         ]));
   }
 }
