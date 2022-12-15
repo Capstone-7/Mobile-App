@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
+import 'package:payoll/views/splash_screen/views/splash_screen.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -49,9 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => const BottomNavBar(
-                  pageIndex: 0,
-                ),
+                builder: (context) => const SplashScreen(),
               ),
               (route) => false);
         }

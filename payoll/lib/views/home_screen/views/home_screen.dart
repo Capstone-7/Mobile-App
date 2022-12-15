@@ -6,27 +6,8 @@ import '../../../utils/constant.dart';
 import '../widgets/home_screen_carousel.dart';
 import '../widgets/transaction_history_section.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(
-      Duration.zero,
-      () {
-        final provider = Provider.of<ProfileProvider>(context, listen: false);
-
-        /// Fetch users data
-        provider.fetchProfile();
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

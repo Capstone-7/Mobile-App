@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:payoll/models/password_model.dart';
+import 'package:payoll/models/product_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/profile_model.dart';
 import '../models/sign_in_model.dart';
@@ -126,6 +127,22 @@ class ApiService {
             },
           ));
       return PasswordModel.fromJson(response.data);
+    } on DioError catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<ProductModel> getProductByCategory(String? category) async {
+    loginData = await SharedPreferences.getInstance();
+    try {
+      final response = await dio.get('${_baseUrl}product/by_category/$category',
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${loginData.getString('login')}"
+            },
+          ));
+      print(response.data);
+      return ProductModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
