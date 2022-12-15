@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/views/payment_screen/widgets/payment_detail_card.dart';
+import 'package:provider/provider.dart';
 import '../../../models/data_offering_model.dart';
 import '../../../utils/constant.dart';
 import '../../payment_methods_screen/views/payment_methods_screen.dart';
@@ -20,7 +22,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xffFAFAFA),
-      // backgroundColor: const Color(0xff396EB0),
       appBar: AppBar(
         centerTitle: false,
         toolbarHeight: 70.0,
@@ -65,13 +66,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w500),
                           ),
-                          Text(
-                            'Rp${dataOfferings[widget.index!].finalPrice.toString()}',
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xFF396EB0)),
-                          ),
+                          Consumer<ProductProvider>(
+                              builder: (context, provider, _) {
+                            final product =
+                                provider.productModel!.data![widget.index!];
+                            return Text(
+                              Constant.oCcy.format(product.price),
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF396EB0)),
+                            );
+                          }),
                         ],
                       ),
                       SizedBox(
