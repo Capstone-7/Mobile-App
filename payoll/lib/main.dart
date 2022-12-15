@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/providers/bottom_nav_bar_provider.dart';
 import 'package:payoll/providers/change_password_provider.dart';
+import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/providers/profile_provider.dart';
 import 'package:payoll/providers/sign_in_provider.dart';
 import 'package:payoll/providers/sign_up_provider.dart';
@@ -60,6 +61,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ChangePasswordProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => ProductProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -67,7 +71,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primaryColor: const Color(Constant.mainColor),
         ),
-        home: const Onboarding1(),
+        home: const LoginScreen(),
         routes: {
           SplashScreen.routeName: (context) => const SplashScreen(),
           Onboarding1.routeName: (context) => const Onboarding1(),

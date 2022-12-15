@@ -26,16 +26,16 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-      Duration.zero,
-      () {
-        final profileProvider =
-            Provider.of<ProfileProvider>(context, listen: false);
-
-        /// Fetch users data
-        profileProvider.fetchProfile();
-      },
-    );
+    // Future.delayed(
+    //   Duration.zero,
+    //   () {
+    //     final profileProvider =
+    //         Provider.of<ProfileProvider>(context, listen: false);
+    //
+    //     /// Fetch users data
+    //     profileProvider.fetchProfile();
+    //   },
+    // );
     final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
     provider.addListener(
       () {

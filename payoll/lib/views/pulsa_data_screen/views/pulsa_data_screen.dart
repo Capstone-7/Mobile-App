@@ -11,7 +11,6 @@ class PulsaDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: const Color(0xffFAFAFA),
       appBar: AppBar(
@@ -118,7 +117,7 @@ class PulsaDataScreen extends StatelessWidget {
                       PulsaContentWidget(),
                       DataContentWidget(),
                     ]),
-                  ),
+                  )
                 ],
               ),
             )

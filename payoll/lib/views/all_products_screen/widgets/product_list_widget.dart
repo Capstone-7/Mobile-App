@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../models/product_model.dart';
+import '../../../models/category_model.dart';
 
 class ProductListWidget extends StatelessWidget {
   const ProductListWidget({
@@ -10,7 +9,7 @@ class ProductListWidget extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-  final List<ProductModel> productCategory;
+  final List<CategoryModel> productCategory;
 
   @override
   Widget build(BuildContext context) {

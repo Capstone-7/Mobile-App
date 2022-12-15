@@ -11,6 +11,7 @@ import 'package:payoll/views/profile_screen/widgets/profile_logout_button.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../providers/profile_provider.dart';
 import '../../../providers/sign_in_provider.dart';
 import '../../../utils/state/finite_state.dart';
 import '../../../widgets/bottom_nav_bar.dart';
@@ -33,6 +34,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     initial();
+    Future.delayed(
+      Duration.zero,
+          () {
+        final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
+        profileProvider.fetchProfile();
+      },
+    );
     super.initState();
   }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/models/product_model.dart';
-
+import '../../../models/category_model.dart';
 import '../../../utils/constant.dart';
 import '../widgets/product_category_slider_widget.dart';
 import '../widgets/product_list_widget.dart';
