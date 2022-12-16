@@ -7,7 +7,8 @@ import '../utils/state/finite_state.dart';
 class ProductProvider extends ChangeNotifier {
   final ApiService service = ApiService();
 
-  ProductModel? productModel;
+  ProductModel? dataProductModel;
+  ProductModel? pulsaProductModel;
 
   MyState myState = MyState.initial;
 
@@ -15,7 +16,8 @@ class ProductProvider extends ChangeNotifier {
     try {
       myState = MyState.loading;
       notifyListeners();
-      productModel = await service.getProductByCategory(category);
+      dataProductModel = await service.getProductByCategory('data');
+      pulsaProductModel = await service.getProductByCategory('pulsa');
       myState = MyState.loaded;
       notifyListeners();
     } catch (e) {

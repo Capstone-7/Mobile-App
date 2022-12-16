@@ -24,18 +24,18 @@ class PulsaContentWidget extends StatelessWidget {
               child: SingleChildScrollView(),
             );
           case MyState.loaded:
-            if (provider.productModel == null) {
+            if (provider.pulsaProductModel == null) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             } else {
               return GridView.builder(
                   shrinkWrap: true,
-                  itemCount: provider.productModel!.data!.length,
+                  itemCount: provider.pulsaProductModel!.data!.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, mainAxisExtent: size.height * 0.16),
                   itemBuilder: (BuildContext context, int index) {
-                    final product = provider.productModel!.data![index];
+                    final product = provider.pulsaProductModel!.data![index];
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
@@ -119,6 +119,7 @@ class PulsaContentWidget extends StatelessWidget {
                                                       builder: (context) =>
                                                           PaymentScreen(
                                                             index: index,
+                                                            product: product,
                                                           )));
                                             },
                                             child: Container(
