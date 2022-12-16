@@ -28,16 +28,16 @@ class _DataContentWidgetState extends State<DataContentWidget> {
               child: CircularProgressIndicator(),
             );
           case MyState.loaded:
-            if (provider.productModel == null) {
+            if (provider.dataProductModel == null) {
               return const Text('Sorry, your data still empty');
             } else {
               return GridView.builder(
                   shrinkWrap: true,
-                  itemCount: provider.productModel!.data!.length,
+                  itemCount: provider.dataProductModel!.data!.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, mainAxisExtent: size.height * 0.16),
                   itemBuilder: (BuildContext context, int index) {
-                    final product = provider.productModel!.data![index];
+                    final product = provider.dataProductModel!.data![index];
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
@@ -121,6 +121,7 @@ class _DataContentWidgetState extends State<DataContentWidget> {
                                                       builder: (context) =>
                                                           PaymentScreen(
                                                             index: index,
+                                                            product: product,
                                                           )));
                                             },
                                             child: Container(

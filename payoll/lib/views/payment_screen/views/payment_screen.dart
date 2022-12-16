@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/views/payment_screen/widgets/payment_detail_card.dart';
 import 'package:provider/provider.dart';
-import '../../../models/data_offering_model.dart';
+import '../../../models/product_model.dart';
 import '../../../utils/constant.dart';
 import '../../payment_methods_screen/views/payment_methods_screen.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String routeName = 'payment_screen';
   late int? index;
+  late Data? product;
 
-  PaymentScreen({Key? key, this.index}) : super(key: key);
+  PaymentScreen({Key? key, this.index, this.product}) : super(key: key);
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -69,7 +70,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           Consumer<ProductProvider>(
                               builder: (context, provider, _) {
                             final product =
-                                provider.productModel!.data![widget.index!];
+                                provider.pulsaProductModel!.data![widget.index!];
                             return Text(
                               Constant.oCcy.format(product.price),
                               style: const TextStyle(
