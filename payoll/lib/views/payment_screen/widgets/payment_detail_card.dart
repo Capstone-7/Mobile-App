@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:payoll/models/data_offering_model.dart';
 import 'package:payoll/providers/product_provider.dart';
 import 'package:provider/provider.dart';
-
+import '../../../models/product_model.dart';
 import '../../../utils/constant.dart';
 
 class PaymentDetailCard extends StatelessWidget {
   final int index;
+  final Data? product;
 
-  const PaymentDetailCard({Key? key, required this.index}) : super(key: key);
+  const PaymentDetailCard(
+      {Key? key, required this.index, required this.product})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class PaymentDetailCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 20.0),
           child: Consumer<ProductProvider>(builder: (context, provider, _) {
-            final product = provider.pulsaProductModel!.data![index];
+            // final product = provider.pulsaProductModel!.data![index];
             return Column(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -59,7 +61,7 @@ class PaymentDetailCard extends StatelessWidget {
                         SizedBox(
                           width: size.width * 0.45,
                           child: Text(
-                            '${product.description}',
+                            '${product?.description}',
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                                 fontSize: Constant.fontRegular,
@@ -111,7 +113,7 @@ class PaymentDetailCard extends StatelessWidget {
                         SizedBox(
                           width: size.width * 0.45,
                           child: Text(
-                            '${product.price}',
+                            '${product?.price}',
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                                 fontSize: Constant.fontRegular,
@@ -164,7 +166,7 @@ class PaymentDetailCard extends StatelessWidget {
                         SizedBox(
                           width: size.width * 0.42,
                           child: Text(
-                            Constant.oCcy.format(product.price),
+                            Constant.oCcy.format(product?.price),
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                                 fontSize: Constant.fontSemiBig,
