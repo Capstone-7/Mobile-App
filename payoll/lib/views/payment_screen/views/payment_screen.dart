@@ -69,10 +69,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                           Consumer<ProductProvider>(
                               builder: (context, provider, _) {
-                            final product =
-                                provider.pulsaProductModel!.data![widget.index!];
+                            // final product =
+                            //     provider.pulsaProductModel!.data![widget.index!];
                             return Text(
-                              Constant.oCcy.format(product.price),
+                              Constant.oCcy.format(widget.product?.price),
                               style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -120,6 +120,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             left: 0.0,
             child: PaymentDetailCard(
               index: widget.index!,
+              product: widget.product,
             ),
           ),
         ],
