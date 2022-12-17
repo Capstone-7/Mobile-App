@@ -2,9 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../../../providers/product_provider.dart';
-import '../../../providers/profile_provider.dart';
+import '../../../providers/user_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = 'splash-screen';
@@ -22,7 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       Duration.zero,
       () {
-        final profileProvider = Provider.of<ProfileProvider>(context, listen: false);
+        final profileProvider =
+            Provider.of<UserProvider>(context, listen: false);
         profileProvider.fetchProfile();
         final productProvider =
             Provider.of<ProductProvider>(context, listen: false);

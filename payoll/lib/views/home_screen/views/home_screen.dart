@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/views/home_screen/widgets/service_card_widget.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/profile_provider.dart';
+import '../../../providers/user_provider.dart';
 import '../../../utils/constant.dart';
 import '../widgets/home_screen_carousel.dart';
 import '../widgets/transaction_history_section.dart';
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               'Selamat Datang',
               style: TextStyle(fontSize: Constant.fontSemiSmall),
             ),
-            Consumer<ProfileProvider>(builder: (context, provider, _) {
+            Consumer<UserProvider>(builder: (context, provider, _) {
               final user = provider.profileModel;
               return Text(
                 '${user?.name}',

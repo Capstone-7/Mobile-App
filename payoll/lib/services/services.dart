@@ -2,10 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:payoll/models/password_model.dart';
 import 'package:payoll/models/product_model.dart';
+import 'package:payoll/models/transaction_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/profile_model.dart';
 import '../models/sign_in_model.dart';
 import '../models/sign_up_model.dart';
+import '../models/user_model.dart';
 
 class ApiService {
   late SharedPreferences loginData;
@@ -73,7 +74,7 @@ class ApiService {
     }
   }
 
-  Future<ProfileModel> fetchUsers() async {
+  Future<UserModel> fetchUsers() async {
     loginData = await SharedPreferences.getInstance();
     try {
       final response = await dio.get('${_baseUrl}user/profile',
@@ -82,13 +83,13 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      return ProfileModel.fromJson(response.data);
+      return UserModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
   }
 
-  Future<ProfileModel> updateProfile({
+  Future<UserModel> updateProfile({
     required String name,
     required String email,
   }) async {
@@ -104,7 +105,7 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      return ProfileModel.fromJson(response.data);
+      return UserModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
@@ -146,5 +147,41 @@ class ApiService {
     } on DioError catch (_) {
       rethrow;
     }
+  }
+
+  // Future<TransactionModel> submitTransaction({
+  Future submitTransaction({
+    required String? customerId,
+    required String? productCode,
+    required String successRedirectUrl,
+    required String failureRedirectUrl,
+  })
+  async {
+    loginData = await SharedPreferences.getInstance();
+    try {
+      print('try get response');
+      final response = await dio.post('${_baseUrl}transaction/submit',
+          data: {
+            'customer_id': customerId,
+            'product_code': productCode,
+            'success_redirect_url': successRedirectUrl,
+            'failure_redirect_url': failureRedirectUrl,
+          },
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${loginData.getString('login')}"
+            },
+          ));
+      print('get response');
+      print(response.statusCode);
+      print(response.data);
+      return TransactionModel.fromJson(response.data);
+    } catch (e) {
+      print('error: $e');
+      return e;
+    }
+    // on DioError catch (_) {
+    //   rethrow;
+    // }
   }
 }

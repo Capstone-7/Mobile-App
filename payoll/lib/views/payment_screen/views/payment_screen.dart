@@ -69,8 +69,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                           Consumer<ProductProvider>(
                               builder: (context, provider, _) {
-                            // final product =
-                            //     provider.pulsaProductModel!.data![widget.index!];
                             return Text(
                               Constant.oCcy.format(widget.product?.price),
                               style: const TextStyle(
@@ -86,8 +84,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(
-                              context, PaymentMethodsScreen.routeName);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PaymentMethodsScreen(
+                                        product: widget.product,
+                                      )));
                         },
                         child: Container(
                           decoration: const BoxDecoration(

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:payoll/providers/user_provider.dart';
 import 'package:payoll/views/edit_account_screen/widget/app_bar_edit_account.dart';
 import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/profile_provider.dart';
 import '../../../providers/update_profile_provider.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/state/finite_state.dart';
-import '../../profile_screen/views/profile_screen.dart';
 
 class EditAccountScreen extends StatefulWidget {
   static const String routeName = 'edit-account-screen';
@@ -105,7 +104,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Consumer2<UpdateProfileProvider, ProfileProvider>(
+                  Consumer2<UpdateProfileProvider, UserProvider>(
                       builder: (context, provider, provider2, _) {
                     final user = provider2.profileModel;
                     return Form(
