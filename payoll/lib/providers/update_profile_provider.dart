@@ -1,15 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
-import '../models/profile_model.dart';
+import '../models/user_model.dart';
 import '../services/services.dart';
 import '../utils/state/finite_state.dart';
 
 class UpdateProfileProvider extends ChangeNotifier {
   final ApiService service = ApiService();
 
-  ProfileModel? users;
+  UserModel? users;
 
   MyState myState = MyState.initial;
 

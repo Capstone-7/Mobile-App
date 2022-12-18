@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import '../models/profile_model.dart';
+import '../models/user_model.dart';
 import '../services/services.dart';
 import '../utils/state/finite_state.dart';
 
-class ProfileProvider extends ChangeNotifier {
+class UserProvider extends ChangeNotifier {
   final ApiService service = ApiService();
 
-  ProfileModel? profileModel;
+  UserModel? profileModel;
 
   MyState myState = MyState.initial;
   Future fetchProfile() async {

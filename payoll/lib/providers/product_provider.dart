@@ -30,7 +30,6 @@ class ProductProvider extends ChangeNotifier {
       }
 
       myState = MyState.failed;
-      print(e.toString());
       notifyListeners();
     }
   }

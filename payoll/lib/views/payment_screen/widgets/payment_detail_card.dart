@@ -32,7 +32,6 @@ class PaymentDetailCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 20.0),
           child: Consumer<ProductProvider>(builder: (context, provider, _) {
-            // final product = provider.pulsaProductModel!.data![index];
             return Column(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

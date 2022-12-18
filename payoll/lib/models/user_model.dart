@@ -1,22 +1,22 @@
-class ProfileModel {
+class UserModel {
+  String? id;
   String? name;
   String? email;
-  String? message;
 
-  ProfileModel(
-      {required this.name, required this.email, required this.message});
+  UserModel(
+      {this.id, required this.name, required this.email});
 
-  ProfileModel.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
+    id = json['data']['_id'];
     name = json['data']['name'];
     email = json['data']['email'];
-    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['data']['_id'] = id;
     data['data']['name'] = name;
     data['data']['email'] = email;
-    data['message'] = message;
     return data;
   }
 }

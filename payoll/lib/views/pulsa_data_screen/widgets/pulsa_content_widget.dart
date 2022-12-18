@@ -119,7 +119,7 @@ class PulsaContentWidget extends StatelessWidget {
                                                       builder: (context) =>
                                                           PaymentScreen(
                                                             index: index,
-                                                            product: product,
+                                                            data: product,
                                                           )));
                                             },
                                             child: Container(

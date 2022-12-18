@@ -30,9 +30,9 @@ class Data {
   int? price;
   String? type;
   String? category;
-  int? active_period;
+  int? activePeriod;
   String? status;
-  String? icon_url;
+  String? iconUrl;
   String? created;
   String? updated;
   String? deleted;
@@ -46,9 +46,9 @@ class Data {
     this.price,
     this.type,
     this.category,
-    this.active_period,
+    this.activePeriod,
     this.status,
-    this.icon_url,
+    this.iconUrl,
     this.created,
     this.updated,
     this.deleted,
@@ -63,9 +63,9 @@ class Data {
     price = json['price'];
     type = json['type'];
     category = json['category'];
-    active_period = json['active_period'];
+    activePeriod = json['active_period'];
     status = json['status'];
-    icon_url = json['icon_url'];
+    iconUrl = json['icon_url'];
     created = json['created'];
     updated = json['updated'];
     deleted = json['deleted'];
@@ -81,9 +81,9 @@ class Data {
     data['price'] = price;
     data['type'] = type;
     data['category'] = category;
-    data['active_period'] = active_period;
+    data['active_period'] = activePeriod;
     data['status'] = status;
-    data['icon_url'] = icon_url;
+    data['icon_url'] = iconUrl;
     data['created'] = created;
     data['updated'] = updated;
     data['deleted'] = deleted;

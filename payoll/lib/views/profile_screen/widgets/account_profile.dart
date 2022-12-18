@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/profile_provider.dart';
+import '../../../providers/user_provider.dart';
 import '../../../utils/constant.dart';
 
 class AccountProfile extends StatelessWidget {
@@ -8,7 +8,7 @@ class AccountProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProfileProvider>(builder: (context, provider, _) {
+    return Consumer<UserProvider>(builder: (context, provider, _) {
       final user = provider.profileModel;
       return Row(
         children: [

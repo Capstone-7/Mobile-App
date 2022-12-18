@@ -1,31 +1,33 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/sign_in_model.dart';
+import '../models/transaction_model.dart';
 import '../services/services.dart';
 import '../utils/state/finite_state.dart';
 
-class SignInProvider extends ChangeNotifier {
+class TransactionProvider extends ChangeNotifier {
   final ApiService service = ApiService();
   late SharedPreferences loginData;
 
-  SignInModel? users;
+  TransactionModel? transactionModel;
 
   MyState myState = MyState.initial;
-  Future signIn({
-    required String email,
-    required String password,
+
+  Future transaction({
+    required String? customerId,
+    required String? productCode,
+    required String successRedirectUrl,
+    required String failureRedirectUrl,
   }) async {
     try {
       myState = MyState.loading;
       notifyListeners();
       loginData = await SharedPreferences.getInstance();
-
-      final users = await service.signIn(
-        email: email,
-        password: password,
-      );
-      await loginData.setString('login', users.token!);
+      transactionModel = await service.submitTransaction(
+          customerId: customerId,
+          productCode: productCode,
+          successRedirectUrl: successRedirectUrl,
+          failureRedirectUrl: failureRedirectUrl);
       myState = MyState.loaded;
       notifyListeners();
     } catch (e) {
