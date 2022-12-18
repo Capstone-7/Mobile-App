@@ -56,6 +56,28 @@ class TransactionModel {
     updated = json['data']['updated'];
     deleted = json['data']['deleted'];
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['data']['id'] = id;
+    data['data']['user_id'] = userId;
+    data['data']['product_id'] = productId;
+    data['data']['customer_id'] = customerId;
+    data['data']['product_price'] = productPrice;
+    data['data']['admin_fee'] = adminFee;
+    data['data']['total_price'] = totalPrice;
+    data['data']['xendit_invoice_id'] = xenditInvoiceId;
+    data['data']['xendit_payment_url'] = xenditPaymentUrl;
+    data['data']['xendit_status'] = xenditStatus;
+    data['data']['xendit_external_id'] = xenditExternalId;
+    data['data']['xendit_payment_method'] = xenditPaymentMethod;
+    data['data']['xendit_payment_channel'] = xenditPaymentChannel;
+    data['data']['status'] = status;
+    data['data']['created'] = created;
+    data['data']['updated'] = updated;
+    data['data']['deleted'] = deleted;
+    return data;
+  }
 }
 
 

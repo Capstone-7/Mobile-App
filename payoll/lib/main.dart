@@ -4,6 +4,7 @@ import 'package:payoll/providers/change_password_provider.dart';
 import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/providers/sign_in_provider.dart';
 import 'package:payoll/providers/sign_up_provider.dart';
+import 'package:payoll/providers/transaction_history_provider.dart';
 import 'package:payoll/providers/transaction_provider.dart';
 import 'package:payoll/providers/update_profile_provider.dart';
 import 'package:payoll/providers/user_provider.dart';
@@ -66,6 +67,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => TransactionProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TransactionHistoryProvider(),
         ),
       ],
       child: MaterialApp(

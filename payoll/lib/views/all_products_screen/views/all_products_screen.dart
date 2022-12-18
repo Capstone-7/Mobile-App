@@ -25,7 +25,7 @@ class AllProductsScreen extends StatelessWidget {
         ),
         title: const Text(
           'Semua Produk',
-          style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: Constant.fontTitle, fontWeight: FontWeight.w700),
         ),
       ),
       body: Column(

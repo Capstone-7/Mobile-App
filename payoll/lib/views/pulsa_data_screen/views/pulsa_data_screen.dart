@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:payoll/utils/constant.dart';
 import '../widgets/data_content_widget.dart';
 import '../widgets/pulsa_content_widget.dart';
 
@@ -27,7 +28,7 @@ class PulsaDataScreen extends StatelessWidget {
         ),
         title: const Text(
           'Pulsa & Data',
-          style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: Constant.fontTitle, fontWeight: FontWeight.w700),
         ),
       ),
       body: SingleChildScrollView(

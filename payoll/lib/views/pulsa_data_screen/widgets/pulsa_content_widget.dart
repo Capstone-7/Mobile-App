@@ -21,12 +21,12 @@ class PulsaContentWidget extends StatelessWidget {
         switch (provider.myState) {
           case MyState.loading:
             return const Center(
-              child: SingleChildScrollView(),
+              child: CircularProgressIndicator(),
             );
           case MyState.loaded:
             if (provider.pulsaProductModel == null) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: Text('Sorry, your data still empty'),
               );
             } else {
               return GridView.builder(

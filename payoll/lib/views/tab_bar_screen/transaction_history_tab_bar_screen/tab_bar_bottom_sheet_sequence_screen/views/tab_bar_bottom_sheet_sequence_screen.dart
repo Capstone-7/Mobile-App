@@ -62,8 +62,8 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
                     children: [
                       GFRadio(
                         size: 28.0,
-                        activeBorderColor: Color(Constant.mainColor),
-                        radioColor: Color(Constant.mainColor),
+                        activeBorderColor: const Color(Constant.mainColor),
+                        radioColor: const Color(Constant.mainColor),
                         value: SequenceRadio.latest,
                         groupValue: _radio,
                         onChanged: (value) {
@@ -75,7 +75,7 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
                       SizedBox(
                         width: size.width * 0.015,
                       ),
-                      Text('Terbaru',
+                      const Text('Terbaru',
                           style: TextStyle(fontSize: Constant.fontSemiBig)),
                     ],
                   ),
@@ -86,8 +86,8 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
                     children: [
                       GFRadio(
                         size: 28.0,
-                        activeBorderColor: Color(Constant.mainColor),
-                        radioColor: Color(Constant.mainColor),
+                        activeBorderColor: const Color(Constant.mainColor),
+                        radioColor: const Color(Constant.mainColor),
                         value: SequenceRadio.longest,
                         groupValue: _radio,
                         onChanged: (value) {
@@ -99,7 +99,7 @@ class _BottomSheetSequenceScreenState extends State<BottomSheetSequenceScreen> {
                       SizedBox(
                         width: size.width * 0.015,
                       ),
-                      Text(
+                      const Text(
                         'Terlama',
                         style: TextStyle(fontSize: Constant.fontSemiBig),
                       ),
