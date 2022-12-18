@@ -20,7 +20,6 @@ import 'package:payoll/views/onboarding_screen/views/onboarding4_screen.dart';
 import 'package:payoll/views/onboarding_screen/views/onboarding5_screen.dart';
 import 'package:payoll/views/otp_screen/for_after_login_register/views/otp_after_login_register_screen.dart';
 import 'package:payoll/views/otp_screen/for_forgot_password/views/otp_forgot_password_screen.dart';
-import 'package:payoll/views/payment_methods_screen/views/payment_methods_screen.dart';
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:payoll/views/pulsa_data_screen/views/pulsa_data_screen.dart';
 import 'package:payoll/views/transaction_history_screen/views/transaction_history_screen.dart';
@@ -105,10 +104,8 @@ class MyApp extends StatelessWidget {
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
           PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
           PaymentScreen.routeName: (context) => PaymentScreen(),
-          PaymentMethodsScreen.routeName: (context) =>
-              const PaymentMethodsScreen(),
           TransactionStatusScreen.routeName: (context) =>
-              TransactionStatusScreen(),
+              const TransactionStatusScreen(),
           EditAccountScreen.routeName: (context) => const EditAccountScreen(),
           TransactionHistoryScreen.routeName: (context) =>
               const TransactionHistoryScreen(),

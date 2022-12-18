@@ -23,13 +23,11 @@ class TransactionProvider extends ChangeNotifier {
       myState = MyState.loading;
       notifyListeners();
       loginData = await SharedPreferences.getInstance();
-      print('try transactionModel');
       transactionModel = await service.submitTransaction(
           customerId: customerId,
           productCode: productCode,
           successRedirectUrl: successRedirectUrl,
           failureRedirectUrl: failureRedirectUrl);
-      print('transaction loaded');
       myState = MyState.loaded;
       notifyListeners();
     } catch (e) {

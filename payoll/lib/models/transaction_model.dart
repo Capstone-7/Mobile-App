@@ -38,7 +38,7 @@ class TransactionModel {
   });
 
   TransactionModel.fromJson(Map<String, dynamic> json) {
-    id = json['data']['_id'];
+    id = json['data']['id'];
     userId = json['data']['user_id'];
     productId = json['data']['product_id'];
     customerId = json['data']['customer_id'];
@@ -57,3 +57,5 @@ class TransactionModel {
     deleted = json['data']['deleted'];
   }
 }
+
+

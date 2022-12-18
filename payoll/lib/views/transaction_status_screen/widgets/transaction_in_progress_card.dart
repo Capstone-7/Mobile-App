@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-
-import '../../../models/data_offering_model.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import '../../../models/product_model.dart';
+import '../../../providers/transaction_provider.dart';
 import '../../../utils/constant.dart';
 
 class TransactionInProgressCard extends StatelessWidget {
-  const TransactionInProgressCard({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
+  const TransactionInProgressCard(
+      {Key? key, required this.size, required this.data})
+      : super(key: key);
 
   final Size size;
+  final Data? data;
 
   @override
   Widget build(BuildContext context) {
+    final transactionProvider =
+        Provider.of<TransactionProvider>(context, listen: false);
+    final transaction = transactionProvider.transactionModel;
     return Center(
       child: Container(
         width: size.width * 0.92,
-        height: size.height * 0.8,
         decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -36,22 +40,14 @@ class TransactionInProgressCard extends StatelessWidget {
               children: [
                 Center(
                   child: SizedBox(
-                    height: size.width * 0.17,
-                    width: size.width * 0.17,
-                    child: Image.asset('assets/icons/in-progress-icon.png'),
+                    height: size.width * 0.23,
+                    child: Image.network(
+                      data!.iconUrl!,
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                 ),
-                SizedBox(height: size.height * 0.018),
-                const Center(
-                  child: Text(
-                    'Dalam Proses',
-                    style: TextStyle(
-                        fontSize: Constant.fontBig,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFFF9A703)),
-                  ),
-                ),
-                SizedBox(height: size.height * 0.025),
+                SizedBox(height: size.height * 0.035),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -59,27 +55,39 @@ class TransactionInProgressCard extends StatelessWidget {
                       width: size.width * 0.3,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
-                            '14 Nov 2022',
-                            style: TextStyle(fontSize: Constant.fontSmall),
+                            DateFormat.yMMMMd().format(
+                              DateTime(
+                                int.parse(
+                                    transaction!.updated!.substring(0, 4)),
+                                int.parse(transaction.updated!.substring(5, 7)),
+                                int.parse(
+                                  transaction.updated!.substring(8, 10),
+                                ),
+                              ),
+                            ),
+                            style: const TextStyle(
+                                fontSize: Constant.fontExtraSmall),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.fiber_manual_record,
                             size: 5,
                           ),
                           Text(
-                            '06:30',
-                            style: TextStyle(fontSize: Constant.fontSmall),
+                            transaction.updated!.substring(11, 16),
+                            style: const TextStyle(
+                                fontSize: Constant.fontExtraSmall),
                           )
                         ],
                       ),
                     ),
                     SizedBox(
-                      width: size.width * 0.47,
-                      child: const Text(
-                        'Id transaksi : PLS02931739DGL',
-                        style: TextStyle(fontSize: Constant.fontSmall),
+                      width: size.width * 0.48,
+                      child: Text(
+                        'Id transaksi : ${transaction.id?.toUpperCase()}',
+                        style:
+                            const TextStyle(fontSize: Constant.fontExtraSmall),
                         textAlign: TextAlign.end,
                       ),
                     ),
@@ -89,7 +97,7 @@ class TransactionInProgressCard extends StatelessWidget {
                   thickness: 1.5,
                 ),
                 SizedBox(
-                  height: size.height * 0.0045,
+                  height: size.height * 0.01,
                 ),
                 Row(
                   children: [
@@ -108,15 +116,15 @@ class TransactionInProgressCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: size.height * 0.006,
+                  height: size.height * 0.01,
                 ),
-                const Text(
-                  'Xtra Hotrod special 6.5GB, 7hr',
-                  style: TextStyle(
+                Text(
+                  data!.description!,
+                  style: const TextStyle(
                       fontSize: Constant.fontBig, fontWeight: FontWeight.w700),
                 ),
                 SizedBox(
-                  height: size.height * 0.02,
+                  height: size.height * 0.015,
                 ),
                 Row(
                   children: [
@@ -178,26 +186,26 @@ class TransactionInProgressCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: size.width * 0.45,
+                          width: size.width * 0.32,
                           child: const Text(
                             'Id Transaksi',
                             style: TextStyle(fontSize: Constant.fontRegular),
                           ),
                         ),
                         SizedBox(
-                          width: size.width * 0.35,
-                          child: const Text(
-                            'PLS02931739DGL',
+                          width: size.width * 0.47,
+                          child: Text(
+                            transaction.id!.toUpperCase(),
                             textAlign: TextAlign.end,
-                            style: TextStyle(
-                                fontSize: Constant.fontRegular,
+                            style: const TextStyle(
+                                fontSize: Constant.fontSemiSmall,
                                 fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +221,7 @@ class TransactionInProgressCard extends StatelessWidget {
                         SizedBox(
                           width: size.width * 0.35,
                           child: Text(
-                            dataOfferings[1].offering,
+                            data!.description!,
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                                 fontSize: Constant.fontRegular,
@@ -223,7 +231,7 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -249,7 +257,7 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -264,10 +272,12 @@ class TransactionInProgressCard extends StatelessWidget {
                         ),
                         SizedBox(
                           width: size.width * 0.35,
-                          child: const Text(
-                            'Gopay',
+                          child: Text(
+                            (transaction.xenditPaymentMethod! == '')
+                                ? '-'
+                                : transaction.xenditPaymentMethod!,
                             textAlign: TextAlign.end,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: Constant.fontRegular,
                                 fontWeight: FontWeight.w500),
                           ),
@@ -275,7 +285,7 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -301,7 +311,7 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -317,7 +327,9 @@ class TransactionInProgressCard extends StatelessWidget {
                         SizedBox(
                           width: size.width * 0.35,
                           child: Text(
-                            dataOfferings[1].finalPrice.toString(),
+                            Constant.oCcy
+                                .format(transaction.productPrice!)
+                                .toString(),
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                                 fontSize: Constant.fontRegular,
@@ -327,7 +339,7 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.013,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,10 +354,12 @@ class TransactionInProgressCard extends StatelessWidget {
                         ),
                         SizedBox(
                           width: size.width * 0.35,
-                          child: const Text(
-                            'Gratis!',
+                          child: Text(
+                            (transaction.adminFee! == 0)
+                                ? 'Gratis!'
+                                : transaction.adminFee!.toString(),
                             textAlign: TextAlign.end,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: Constant.fontRegular,
                                 fontWeight: FontWeight.w500),
                           ),
@@ -353,30 +367,34 @@ class TransactionInProgressCard extends StatelessWidget {
                       ],
                     ),
                     const Divider(
+                      height: 30.0,
                       thickness: 1.0,
                     ),
                     Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            width: size.width * 0.38,
-                            child: const Text(
-                              'Total',
-                              style: TextStyle(
-                                  fontSize: 17.0, fontWeight: FontWeight.w500),
-                            ),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.38,
+                          child: const Text(
+                            'Total',
+                            style: TextStyle(
+                                fontSize: 17.0, fontWeight: FontWeight.w500),
                           ),
-                          SizedBox(
-                            width: size.width * 0.42,
-                            child: Text(
-                              'Rp${dataOfferings[1].finalPrice.toString()}',
-                              textAlign: TextAlign.end,
-                              style: const TextStyle(
-                                  fontSize: 17.0, fontWeight: FontWeight.w500),
-                            ),
+                        ),
+                        SizedBox(
+                          width: size.width * 0.42,
+                          child: Text(
+                            Constant.oCcy
+                                .format(transaction.totalPrice)
+                                .toString(),
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(
+                                fontSize: 17.0, fontWeight: FontWeight.w500),
                           ),
-                        ])
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ],

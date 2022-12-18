@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/views/payment_screen/widgets/payment_detail_card.dart';
+import 'package:payoll/views/transaction_status_screen/views/transaction_status_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../models/product_model.dart';
+import '../../../providers/transaction_provider.dart';
+import '../../../providers/user_provider.dart';
 import '../../../utils/constant.dart';
-import '../../payment_methods_screen/views/payment_methods_screen.dart';
+import '../../../utils/state/finite_state.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String routeName = 'payment_screen';
   late int? index;
-  late Data? product;
+  late Data? data;
 
-  PaymentScreen({Key? key, this.index, this.product}) : super(key: key);
+  PaymentScreen({Key? key, this.index, this.data}) : super(key: key);
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -19,7 +22,46 @@ class PaymentScreen extends StatefulWidget {
 
 class _PaymentScreenState extends State<PaymentScreen> {
   @override
+  void initState() {
+    final provider = Provider.of<TransactionProvider>(context, listen: false);
+    provider.addListener(
+      () {
+        if (provider.myState == MyState.failed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Transaction Failed',
+              ),
+            ),
+          );
+        } else if (provider.myState == MyState.loaded) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Logged In',
+              ),
+            ),
+          );
+          // Navigator.pushReplacementNamed(
+          //     context, PaymentMethodsScreen.routeName);
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => TransactionStatusScreen(
+                    index: widget.index,
+                      product: widget.data,
+                      paymentUrl: provider.transactionModel?.xenditPaymentUrl, )),
+              (route) => false);
+        }
+      },
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TransactionProvider>(context, listen: false);
+    final user = Provider.of<UserProvider>(context, listen: false);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xffFAFAFA),
@@ -70,7 +112,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           Consumer<ProductProvider>(
                               builder: (context, provider, _) {
                             return Text(
-                              Constant.oCcy.format(widget.product?.price),
+                              Constant.oCcy.format(widget.data?.price),
                               style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -84,31 +126,38 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PaymentMethodsScreen(
-                                        product: widget.product,
-                                      )));
+                          provider.transaction(
+                              customerId: user.profileModel?.id,
+                              productCode: widget.data?.code,
+                              successRedirectUrl:
+                                  'https://ariesta.club/success',
+                              failureRedirectUrl: 'https://ariesta.club/fail');
                         },
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              color: Color(0xFF396EB0),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
-                          child: const Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Text(
-                                'PILIH METODE PEMBAYARAN',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: Constant.fontSemiBig,
-                                    fontWeight: FontWeight.w500),
+                        child: Consumer<TransactionProvider>(
+                            builder: (context, provider, _) {
+                          if (provider.myState == MyState.loading) {
+                            return const CircularProgressIndicator();
+                          } else {
+                            return Container(
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFF396EB0),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0))),
+                              child: const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Text(
+                                    'PILIH METODE PEMBAYARAN',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: Constant.fontSemiBig,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            );
+                          }
+                        }),
                       )
                     ],
                   ),
@@ -122,7 +171,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             left: 0.0,
             child: PaymentDetailCard(
               index: widget.index!,
-              product: widget.product,
+              product: widget.data,
             ),
           ),
         ],

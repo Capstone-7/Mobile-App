@@ -142,24 +142,20 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      print(response.data);
       return ProductModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
   }
 
-  // Future<TransactionModel> submitTransaction({
-  Future submitTransaction({
+  Future<TransactionModel> submitTransaction({
     required String? customerId,
     required String? productCode,
     required String successRedirectUrl,
     required String failureRedirectUrl,
-  })
-  async {
+  }) async {
     loginData = await SharedPreferences.getInstance();
     try {
-      print('try get response');
       final response = await dio.post('${_baseUrl}transaction/submit',
           data: {
             'customer_id': customerId,
@@ -172,16 +168,10 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      print('get response');
-      print(response.statusCode);
       print(response.data);
       return TransactionModel.fromJson(response.data);
-    } catch (e) {
-      print('error: $e');
-      return e;
+    } on DioError catch (_) {
+      rethrow;
     }
-    // on DioError catch (_) {
-    //   rethrow;
-    // }
   }
 }
