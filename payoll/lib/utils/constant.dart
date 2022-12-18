@@ -10,7 +10,7 @@ class Constant {
   static const double fontSemiBig = 18.0;
   static const double fontBig = 20.0;
   static const double fontExtraBig = 28.0;
-  static const double fontTitleProfile = 23.0;
+  static const double fontTitle = 24.0;
 
   static const int mainColor = 0xFF396EB0;
   static const int whiteBackground = 0xFFFAFAFA;

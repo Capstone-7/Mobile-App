@@ -79,7 +79,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         ),
         title: const Text(
           'Pembayaran',
-          style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: Constant.fontTitle, fontWeight: FontWeight.w700),
         ),
       ),
       body: Stack(

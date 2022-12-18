@@ -8,7 +8,7 @@ import 'package:payoll/views/tab_bar_screen/transaction_history_tab_bar_screen/t
 
 import '../../tab_bar_screen/transaction_history_tab_bar_screen/tab_bar_bottom_sheet_filter_screen/views/filter_screen/filter_screen.dart';
 
-PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
+PreferredSizeWidget tabBarTransactionHistory(BuildContext context) {
   final size = MediaQuery.of(context).size;
   return TabBar(indicatorColor: Colors.transparent, tabs: [
     ExpandTapWidget(
@@ -20,7 +20,7 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
             borderRadius: BorderRadius.circular(10.0),
           ),
           context: context,
-          builder: (context) => BottomSheetSequenceScreen(),
+          builder: (context) => const BottomSheetSequenceScreen(),
         );
       },
       child: Row(
@@ -80,26 +80,4 @@ PreferredSizeWidget tabBarRiwayatTransaksi(BuildContext context) {
       ),
     ),
   ]);
-}
-
-PreferredSizeWidget appBarRiwayatTransaksi(BuildContext context) {
-  return PreferredSize(
-    preferredSize: const Size.fromHeight(100.0),
-    child: AppBar(
-        centerTitle: false,
-        elevation: 2,
-        backgroundColor: const Color(Constant.mainColor),
-        title: const Text(
-          'Riwayat Transaksi',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: Constant.fontBig),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Material(
-            color: Colors.white,
-            child: tabBarRiwayatTransaksi(context),
-          ),
-        )),
-  );
 }

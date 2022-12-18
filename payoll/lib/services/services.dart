@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:payoll/models/password_model.dart';
 import 'package:payoll/models/product_model.dart';
+import 'package:payoll/models/transaction_history_model.dart';
 import 'package:payoll/models/transaction_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/sign_in_model.dart';
@@ -168,8 +169,28 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      print(response.data);
+      if (kDebugMode) {
+        print(response.data);
+      }
       return TransactionModel.fromJson(response.data);
+    } on DioError catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<TransactionHistoryModel> getTransactionHistory() async {
+    loginData = await SharedPreferences.getInstance();
+    try {
+      final response = await dio.get('${_baseUrl}transaction/history',
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${loginData.getString('login')}"
+            },
+          ));
+      if (kDebugMode) {
+        print('transaction history: $response');
+      }
+      return TransactionHistoryModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
     }
