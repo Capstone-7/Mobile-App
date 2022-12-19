@@ -66,15 +66,16 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                   child: CircularProgressIndicator(),
                 );
               case MyState.loaded:
-                if (provider.transactionHistoryModel == null) {
-                  return const Text('No transaction data yet');
+                if (provider.transactionHistoryModel?.data == null) {
+                  return const Center(child: Text('No transaction data yet'));
                 } else {
                   return ListView.builder(
                     shrinkWrap: true,
                     itemCount: provider.transactionHistoryModel!.data!.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final transactionData =
-                          provider.transactionHistoryModel!.data![index];
+                      var transactionData = provider
+                          .transactionHistoryModel!.data!.reversed
+                          .toList()[index];
                       return Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Container(
@@ -138,7 +139,8 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                                               // '17 Dec 2022'
                                               DateFormat.yMMMMd().format(
                                                 DateTime(
-                                                  int.parse(transactionData.updated!
+                                                  int.parse(transactionData
+                                                      .updated!
                                                       .substring(0, 4)),
                                                   int.parse(transactionData
                                                       .updated!

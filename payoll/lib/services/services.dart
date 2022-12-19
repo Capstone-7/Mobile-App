@@ -169,9 +169,6 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      if (kDebugMode) {
-        print(response.data);
-      }
       return TransactionModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
@@ -187,9 +184,7 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      if (kDebugMode) {
-        print('transaction history: $response');
-      }
+      print(response);
       return TransactionHistoryModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;
