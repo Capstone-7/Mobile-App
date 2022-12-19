@@ -1,17 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:payoll/views/transaction_history_screen/views/transaction_history_screen.dart';
-import '../../../models/history_model.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/transaction_history_provider.dart';
 import '../../../utils/constant.dart';
+import '../../../utils/state/finite_state.dart';
 
-class TransactionHistorySection extends StatelessWidget {
+class TransactionHistorySection extends StatefulWidget {
   TransactionHistorySection({Key? key, required this.size}) : super(key: key);
   final Size size;
+
+  @override
+  State<TransactionHistorySection> createState() =>
+      _TransactionHistorySectionState();
+}
+
+class _TransactionHistorySectionState extends State<TransactionHistorySection> {
   final oCcy = NumberFormat.currency(
       locale: 'id', customPattern: '\u00a4 #,### ', decimalDigits: 0);
 
+  void initState() {
+    Future.delayed(
+      Duration.zero,
+      () {
+        final provider =
+            Provider.of<TransactionHistoryProvider>(context, listen: false);
+        provider.getAllTransactionHistory();
+      },
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: Column(
@@ -39,106 +61,180 @@ class TransactionHistorySection extends StatelessWidget {
               )
             ],
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: histories.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.only(top: 5.0),
-                child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(16.0),
-                            width: 60.0,
-                            decoration: const BoxDecoration(
-                              color: Color(0xffFAFAFA),
-                              // color: Colors.blue,
-                            ),
-                            child: Image.asset(
-                              histories[index].icon,
-                              height: 40.0,
-                            ),
-                          ),
-                          SizedBox(
-                            width: size.width * 0.02,
-                          ),
-                          SizedBox(
-                            width: size.width * 0.35,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  histories[index].category,
-                                  style: const TextStyle(
-                                      fontSize: 17.0,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                                Text('Order Id: ${histories[index].orderId}'),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(histories[index].date),
-                                    const Icon(
-                                      Icons.fiber_manual_record,
-                                      size: 10,
+          Consumer<TransactionHistoryProvider>(builder: (context, provider, _) {
+            switch (provider.myState) {
+              case MyState.loading:
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              case MyState.loaded:
+                if (provider.transactionHistoryModel?.data == null) {
+                  return const SizedBox(
+                      height: 60.0,
+                      child: Center(child: Text('No transaction data yet')));
+                } else {
+                  return ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: (provider
+                                .transactionHistoryModel?.data?.length ==
+                            1)
+                        ? 1
+                        : (provider.transactionHistoryModel?.data?.length == 2)
+                            ? 2
+                            : 3,
+                    itemBuilder: (BuildContext context, int index) {
+                      var transactionData = provider
+                          .transactionHistoryModel!.data!.reversed
+                          .toList()[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 5.0),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          height: size.height * 0.12,
+                          decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: 60.0,
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xffFAFAFA),
+                                      // color: Colors.blue,
                                     ),
-                                    Text(histories[index].time)
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Image.asset(
+                                        'assets/icons/pulsa-and-data.png',
+                                        height: 40.0,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: size.width * 0.02,
+                                  ),
+                                  SizedBox(
+                                    height: size.height * 0.08,
+                                    width: size.width * 0.4,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          transactionData.productDescription
+                                              .toString(),
+                                          style: const TextStyle(
+                                              fontSize: Constant.fontSemiSmall,
+                                              fontWeight: FontWeight.w700),
+                                        ),
+                                        Text(
+                                          'Order Id: ${transactionData.id}',
+                                          overflow: TextOverflow.clip,
+                                          maxLines: 1,
+                                          // style:TextStyle(fontSize: Constant.fontSmall),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              // '17 Dec 2022'
+                                              DateFormat.yMMMMd().format(
+                                                DateTime(
+                                                  int.parse(transactionData
+                                                      .updated!
+                                                      .substring(0, 4)),
+                                                  int.parse(transactionData
+                                                      .updated!
+                                                      .substring(5, 7)),
+                                                  int.parse(
+                                                    transactionData.updated!
+                                                        .substring(8, 10),
+                                                  ),
+                                                ),
+                                              ),
+                                              style: const TextStyle(
+                                                  fontSize: Constant.fontSmall),
+                                            ),
+                                            const Icon(
+                                              Icons.fiber_manual_record,
+                                              size: 7,
+                                            ),
+                                            Text(
+                                              transactionData.updated!
+                                                  .substring(11, 16),
+                                              style: const TextStyle(
+                                                  fontSize: Constant.fontSmall),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      Constant.oCcy
+                                          .format(transactionData.totalPrice)
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Container(
+                                      height: 40.0,
+                                      width: 100.0,
+                                      decoration: BoxDecoration(
+                                          color:
+                                              (transactionData.xenditStatus ==
+                                                      'SUCCESS')
+                                                  ? const Color(0xffF0F9F2)
+                                                  : const Color(0xffF9F2F2),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(18.0)),
+                                          border: Border.all(
+                                              color: (transactionData
+                                                          .xenditStatus ==
+                                                      'SUCCESS')
+                                                  ? const Color(0xff6EC581)
+                                                  : const Color(0xffE3A1A1),
+                                              width: 2.5)),
+                                      child: Center(
+                                          child: Text(
+                                        transactionData.xenditStatus!,
+                                        style: const TextStyle(fontSize: 17.0),
+                                      )),
+                                    )
                                   ],
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              oCcy.format(histories[index].price).toString(),
-                              style: const TextStyle(
-                                  fontSize: 17.0, fontWeight: FontWeight.w700),
-                            ),
-                            Container(
-                              height: 40.0,
-                              width: 100.0,
-                              decoration: BoxDecoration(
-                                  color: (histories[index].status == 'Berhasil')
-                                      ? const Color(0xffF0F9F2)
-                                      : const Color(0xffF9F2F2),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(18.0)),
-                                  border: Border.all(
-                                      color: (histories[index].status ==
-                                              'Berhasil')
-                                          ? const Color(0xff6EC581)
-                                          : const Color(0xffE3A1A1),
-                                      width: 2.5)),
-                              child: Center(
-                                  child: Text(
-                                histories[index].status,
-                                style: const TextStyle(fontSize: 17.0),
-                              )),
-                            )
-                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          )
+                      );
+                    },
+                  );
+                }
+              case MyState.failed:
+                return const Text('Oops, something went wrong!');
+              default:
+                return const SizedBox();
+            }
+          }),
         ],
       ),
     );
