@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:payoll/providers/product_provider.dart';
 import 'package:payoll/utils/constant.dart';
 import 'package:payoll/utils/state/finite_state.dart';
 import 'package:provider/provider.dart';
-
 import '../../payment_screen/views/payment_screen.dart';
 
 class PulsaContentWidget extends StatelessWidget {

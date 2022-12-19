@@ -37,6 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         if (provider.myState == MyState.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'User doesn\'t exist!',
               ),
@@ -45,6 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         } else if (provider.myState == MyState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Logged In',
               ),
@@ -281,6 +283,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               _confirmPasswordController.text) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                duration: Duration(seconds: 1),
                                 content: Text(
                                   'Password and Confirm Password does not match',
                                 ),

@@ -41,6 +41,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
         if (provider.myState == MyState.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Can\'t update profile',
               ),
@@ -49,6 +50,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
         } else if (provider.myState == MyState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Profile updated successfully',
               ),

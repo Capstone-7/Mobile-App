@@ -184,7 +184,6 @@ class ApiService {
               "Authorization": "Bearer ${loginData.getString('login')}"
             },
           ));
-      print(response);
       return TransactionHistoryModel.fromJson(response.data);
     } on DioError catch (_) {
       rethrow;

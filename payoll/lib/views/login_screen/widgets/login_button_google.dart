@@ -24,10 +24,10 @@ class LoginGoogle extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/google.png',
                 )),
-            Text(
+            const Text(
               ' GOOGLE',
-              style: const TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.w500),
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
             )
           ],
         ));

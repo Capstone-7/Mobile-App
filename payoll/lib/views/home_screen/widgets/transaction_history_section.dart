@@ -7,7 +7,8 @@ import '../../../utils/constant.dart';
 import '../../../utils/state/finite_state.dart';
 
 class TransactionHistorySection extends StatefulWidget {
-  TransactionHistorySection({Key? key, required this.size}) : super(key: key);
+  const TransactionHistorySection({Key? key, required this.size})
+      : super(key: key);
   final Size size;
 
   @override
@@ -19,6 +20,7 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
   final oCcy = NumberFormat.currency(
       locale: 'id', customPattern: '\u00a4 #,### ', decimalDigits: 0);
 
+  @override
   void initState() {
     Future.delayed(
       Duration.zero,

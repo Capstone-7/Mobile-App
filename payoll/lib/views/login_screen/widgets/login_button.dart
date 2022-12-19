@@ -14,7 +14,7 @@ class LoginButton extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
-        child: Text(
+        child: const Text(
           'MASUK',
         ));
   }

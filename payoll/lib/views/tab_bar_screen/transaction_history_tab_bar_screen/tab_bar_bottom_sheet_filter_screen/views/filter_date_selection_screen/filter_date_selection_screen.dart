@@ -10,10 +10,9 @@ class ChangeDateFilterScreen extends StatefulWidget {
 }
 
 class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
-  
   DateTime today = DateTime.now();
- 
-  void _onDaySelected(DateTime day, DateTime focusedDay ){
+
+  void _onDaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
       today = day;
     });
@@ -72,15 +71,15 @@ class _ChangeDateFilterScreenState extends State<ChangeDateFilterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '${(today.toString().split('')[0])}',
-                    style: TextStyle(
+                    (today.toString().split('')[0]),
+                    style: const TextStyle(
                         fontSize: Constant.fontSemiBig,
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
                     height: size.height * 0.012,
                   ),
-                  Text('Pilih Tanggal',
+                  const Text('Pilih Tanggal',
                       style: TextStyle(
                           fontSize: Constant.fontSemiRegular,
                           fontWeight: FontWeight.w500)),

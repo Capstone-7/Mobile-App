@@ -36,6 +36,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
         if (provider.myState == MyState.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Can\'t update password',
               ),
@@ -44,6 +45,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
         } else if (provider.myState == MyState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Password updated successfully',
               ),
@@ -256,6 +258,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                     newPasswordConfirmController.text) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
+                      duration: Duration(seconds: 1),
                       content: Text(
                         'New Password and Confirm Password does not match',
                       ),
@@ -275,26 +278,6 @@ class _ChangePasswordAfterLoginRegisterScreenState
                     fontWeight: FontWeight.w500),
               ),
             ),
-            // ChangePasswordAfterLoginRegisterButton(
-            //   onPressed: () async {
-            //     if (newPasswordController.text !=
-            //         newPasswordConfirmController.text) {
-            //       ScaffoldMessenger.of(context).showSnackBar(
-            //         const SnackBar(
-            //           content: Text(
-            //             'New Password and Confirm Password does not match',
-            //           ),
-            //         ),
-            //       );
-            //     }
-            //     else if (_updatePasswordFormKey.currentState!.validate()) {
-            //       _updatePasswordFormKey.currentState!.save();
-            //       await provider.changePassword(
-            //           oldPassword: oldPasswordController.text,
-            //           newPassword: newPasswordController.text);
-            //     }
-            //   },
-            // )
           ],
         ),
       ),

@@ -24,9 +24,9 @@ class RegisterGoogle extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/google.png',
                 )),
-            Text(
+            const Text(
               ' GOOGLE',
-              style: const TextStyle(
+              style: TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
             )
           ],

@@ -107,7 +107,7 @@ class MyApp extends StatelessWidget {
                   const StatusSuccessChangePasswordAfterLoginRegisterScreen(),
           AllProductsScreen.routeName: (context) => const AllProductsScreen(),
           PulsaDataScreen.routeName: (context) => const PulsaDataScreen(),
-          PaymentScreen.routeName: (context) => PaymentScreen(),
+          PaymentScreen.routeName: (context) => const PaymentScreen(),
           TransactionStatusScreen.routeName: (context) =>
               const TransactionStatusScreen(),
           EditAccountScreen.routeName: (context) => const EditAccountScreen(),
