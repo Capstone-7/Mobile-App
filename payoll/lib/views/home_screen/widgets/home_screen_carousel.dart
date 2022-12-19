@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeScreenCarousel extends StatelessWidget {
-  HomeScreenCarousel({Key? key, required this.size}) : super(key: key);
-  Size size;
+  const HomeScreenCarousel({Key? key, required this.size}) : super(key: key);
+  final Size size;
 
   @override
   Widget build(BuildContext context) {

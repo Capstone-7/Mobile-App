@@ -4,7 +4,6 @@ import 'package:payoll/providers/transaction_history_provider.dart';
 import 'package:payoll/utils/state/finite_state.dart';
 import 'package:provider/provider.dart';
 import '../../../utils/constant.dart';
-import '../widgets/tab_bar_transaction_history_widget.dart';
 
 class TransactionHistoryScreen extends StatefulWidget {
   static String routeName = 'transaction-history-screen';
@@ -18,6 +17,7 @@ class TransactionHistoryScreen extends StatefulWidget {
 
 class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
     with SingleTickerProviderStateMixin {
+  @override
   void initState() {
     Future.delayed(
       Duration.zero,

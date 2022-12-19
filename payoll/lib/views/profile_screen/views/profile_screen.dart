@@ -100,6 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
          username = loginData.getString('username').toString();
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Logout',
               ),

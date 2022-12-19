@@ -11,10 +11,10 @@ import '../../../utils/state/finite_state.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String routeName = 'payment_screen';
-  late int? index;
-  late Data? data;
+  final int? index;
+  final Data? data;
 
-  PaymentScreen({Key? key, this.index, this.data}) : super(key: key);
+  const PaymentScreen({Key? key, this.index, this.data}) : super(key: key);
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -29,6 +29,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         if (provider.myState == MyState.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Transaction Failed',
               ),
@@ -37,6 +38,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         } else if (provider.myState == MyState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Logged In',
               ),
@@ -48,9 +50,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
               context,
               MaterialPageRoute(
                   builder: (context) => TransactionStatusScreen(
-                    index: widget.index,
-                      product: widget.data,
-                      paymentUrl: provider.transactionModel?.xenditPaymentUrl, )),
+                        index: widget.index,
+                        product: widget.data,
+                        paymentUrl: provider.transactionModel?.xenditPaymentUrl,
+                      )),
               (route) => false);
         }
       },
@@ -79,7 +82,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
         ),
         title: const Text(
           'Pembayaran',
-          style: TextStyle(fontSize: Constant.fontTitle, fontWeight: FontWeight.w700),
+          style: TextStyle(
+              fontSize: Constant.fontTitle, fontWeight: FontWeight.w700),
         ),
       ),
       body: Stack(

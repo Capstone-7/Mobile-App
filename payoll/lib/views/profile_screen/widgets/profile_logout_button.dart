@@ -14,9 +14,9 @@ class ProfileLogoutButton extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         onPressed: onPressed,
-        child: Text(
+        child: const Text(
           'KELUAR',
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: TextStyle(fontWeight: FontWeight.w500),
         ));
   }
 }

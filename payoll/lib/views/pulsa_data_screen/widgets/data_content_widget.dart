@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:payoll/utils/state/finite_state.dart';
 import 'package:payoll/views/payment_screen/views/payment_screen.dart';
 import 'package:provider/provider.dart';

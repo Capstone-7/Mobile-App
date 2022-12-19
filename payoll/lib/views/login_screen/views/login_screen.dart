@@ -3,7 +3,6 @@ import 'package:payoll/views/forgot_password_screen/views/forgot_password.dart';
 import 'package:payoll/views/login_screen/widgets/login_button_google.dart';
 import 'package:payoll/views/register_screen/views/register_screen.dart';
 import 'package:payoll/views/splash_screen/views/splash_screen.dart';
-import 'package:payoll/widgets/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/sign_in_provider.dart';
@@ -34,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (provider.myState == MyState.failed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'User doesn\'t exist!',
               ),
@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         } else if (provider.myState == MyState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              duration: Duration(seconds: 1),
               content: Text(
                 'Logged In',
               ),
