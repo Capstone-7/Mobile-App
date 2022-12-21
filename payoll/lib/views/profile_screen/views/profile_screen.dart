@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Logout',
+                'Berhasil Keluar',
               ),
             ),
           );

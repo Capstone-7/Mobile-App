@@ -38,7 +38,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Can\'t update password',
+                'Tidak dapat memperbarui kata sandi',
               ),
             ),
           );
@@ -47,7 +47,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Password updated successfully',
+                'Kata sandi berhasil diperbarui',
               ),
             ),
           );
@@ -128,7 +128,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                                     BorderRadius.all(Radius.circular(8)))),
                         // validator: (String? value) {
                         //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
+                        //     return '';
                         //   } else {
                         //     return null;
                         //   }
@@ -179,13 +179,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // }
+                     
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -233,13 +227,6 @@ class _ChangePasswordAfterLoginRegisterScreenState
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // }
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -260,7 +247,7 @@ class _ChangePasswordAfterLoginRegisterScreenState
                     const SnackBar(
                       duration: Duration(seconds: 1),
                       content: Text(
-                        'New Password and Confirm Password does not match',
+                        'Kata Sandi Baru dan Konfirmasi Kata Sandi tidak cocok',
                       ),
                     ),
                   );

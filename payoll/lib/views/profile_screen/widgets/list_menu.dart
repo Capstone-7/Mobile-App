@@ -27,50 +27,52 @@ class ListMenu extends StatelessWidget {
           ),
         ],
       ),
-      height: size.height * 0.300,
-      width: 365,
-      child: Column(
-        children: [
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/user-edit.png')),
-            title: const Text('Pengaturan Akun'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapMenu1,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/lock.png')),
-            title: const Text('Ubah Kata sandi'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapMenu2,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/star.png')),
-            title: const Text('Reward Poin'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapMenu3,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-        ],
+      width: size.width * 0.365,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/user-edit.png')),
+              title: const Text('Pengaturan Akun'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapMenu1,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/lock.png')),
+              title: const Text('Ubah Kata sandi'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapMenu2,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/star.png')),
+              title: const Text('Reward Poin'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapMenu3,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+          ],
+        ),
       ),
     );
   }

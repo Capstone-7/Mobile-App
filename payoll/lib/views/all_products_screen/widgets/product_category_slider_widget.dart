@@ -13,7 +13,8 @@ class ProductCategorySliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.height * 0.085,
+      padding: EdgeInsets.only(top: 2.0, bottom: 2.0),
+      height: size.height * 0.090,
       decoration: const BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(
             color: Color(0x29292914),
@@ -34,7 +35,7 @@ class ProductCategorySliderWidget extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     border:
-                        Border.all(color: const Color(0xFFA9A9A9), width: 0.5)),
+                        Border.all(color: const Color(0xFFA9A9A9), width: size.width * 0.005)),
                 child: Center(
                     child: Padding(
                   padding: const EdgeInsets.symmetric(

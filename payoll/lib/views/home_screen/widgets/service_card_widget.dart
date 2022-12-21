@@ -29,7 +29,6 @@ class ServiceCardWidget extends StatelessWidget {
                   )
             ]),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 12.0),

@@ -47,13 +47,6 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: Constant.fontTitle),
             ),
-            // bottom: PreferredSize(
-            //   preferredSize: const Size.fromHeight(kToolbarHeight),
-            //   child: Material(
-            //     color: Colors.white,
-            //     child: tabBarTransactionHistory(context),
-            //   ),
-            // ),
           ),
         ),
         body: Padding(
@@ -79,8 +72,8 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                       return Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          height: size.height * 0.12,
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          height: size.height * 0.15,
                           decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius:
@@ -93,16 +86,15 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: 60.0,
+                                    width: size.width * 0.150,
                                     decoration: const BoxDecoration(
                                       color: Color(0xffFAFAFA),
-                                      // color: Colors.blue,
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(16.0),
                                       child: Image.asset(
                                         'assets/icons/pulsa-and-data.png',
-                                        height: 40.0,
+                                        height: size.height * 0.050,
                                       ),
                                     ),
                                   ),
@@ -129,7 +121,6 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                                           'Order Id: ${transactionData.id}',
                                           overflow: TextOverflow.clip,
                                           maxLines: 1,
-                                          // style:TextStyle(fontSize: Constant.fontSmall),
                                         ),
                                         Row(
                                           mainAxisAlignment:
@@ -185,8 +176,8 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
                                           fontWeight: FontWeight.w700),
                                     ),
                                     Container(
-                                      height: 40.0,
-                                      width: 100.0,
+                                      height: size.height * 0.048,
+                                      width: size.width * 0.222,
                                       decoration: BoxDecoration(
                                           color:
                                               (transactionData.xenditStatus ==

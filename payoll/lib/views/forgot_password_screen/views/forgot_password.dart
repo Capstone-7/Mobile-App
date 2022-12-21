@@ -90,7 +90,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         //       ")+";
                         //   final RegExp regExp = RegExp(expression);
                         //   return !regExp.hasMatch(value!)
-                        //       ? "Please, input valid email!"
+                        //       ? "Silakan, masukkan email yang valid!"
                         //       : null;
                         // },
                       ),

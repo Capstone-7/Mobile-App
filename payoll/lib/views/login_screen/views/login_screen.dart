@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'User doesn\'t exist!',
+                'Pengguna tidak ada!',
               ),
             ),
           );
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Logged In',
+                'Berhasil Masuk',
               ),
             ),
           );
@@ -66,28 +66,27 @@ class _LoginScreenState extends State<LoginScreen> {
     final provider = Provider.of<SignInProvider>(context, listen: false);
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: size.height * 0.050,
-            ),
-            const Center(
-                child: Text(
-              'Selamat Datang',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
-            )),
-            const Center(
-                child: Text('Silahkan masuk dengan akun anda',
-                    style: TextStyle(fontSize: Constant.fontRegular))),
-            SizedBox(
-              height: size.height * 0.018,
-            ),
-            Expanded(
-              child: Form(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: size.height * 0.050,
+              ),
+              const Center(
+                  child: Text(
+                'Selamat Datang',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+              )),
+              const Center(
+                  child: Text('Silahkan masuk dengan akun anda',
+                      style: TextStyle(fontSize: Constant.fontRegular))),
+              SizedBox(
+                height: size.height * 0.018,
+              ),
+              Form(
                   key: formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -129,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ")+";
                           final RegExp regExp = RegExp(expression);
                           return !regExp.hasMatch(value!)
-                              ? "Please, input valid email!"
+                              ? "Silakan, masukkan email yang valid!"
                               : null;
                         },
                       ),
@@ -178,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       BorderRadius.all(Radius.circular(8)))),
                           validator: (String? value) {
                             if (value!.isEmpty) {
-                              return 'Please, fill password field!';
+                              return 'Silakan isi kolom kata sandi!';
                             } else {
                               return null;
                             }
@@ -237,7 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () async {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
-
+        
                               await provider.signIn(
                                 email: _emailController.text,
                                 password: _passwordController.text,
@@ -253,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Container(
                             height: size.height * 0.001,
-                            width: 150.0,
+                            width: size.width * 0.350,
                             color: const Color(0xFFA9A9A9),
                           ),
                           const Text(
@@ -264,7 +263,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Container(
                             height: size.height * 0.001,
-                            width: 150.0,
+                            width: size.width * 0.350,
                             color: const Color(0xFFA9A9A9),
                           ),
                         ],
@@ -277,25 +276,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ],
                   )),
-            ),
-            Column(
-              children: [
-                const Text(
-                  'Belum punya akun?',
-                  style: TextStyle(),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, RegisterScreen.routeName);
-                    },
-                    child: const Text('Daftar',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Color(Constant.mainColor))))
-              ],
-            ),
-          ],
+                  SizedBox(
+                    height: size.height * 0.150,
+                  ),
+              Column(
+                children: [
+                  const Text(
+                    'Belum punya akun?',
+                    style: TextStyle(),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, RegisterScreen.routeName);
+                      },
+                      child: const Text('Daftar',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Color(Constant.mainColor))))
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

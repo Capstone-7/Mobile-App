@@ -27,50 +27,52 @@ class ListInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         color: Colors.white,
       ),
-      height: size.height * 0.300,
-      width: 365,
-      child: Column(
-        children: [
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/question.png')),
-            title: const Text('Bantuan'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapInfo1,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/scroll.png')),
-            title: const Text('Syarat & Ketentuan'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapInfo2,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-          ListTile(
-            leading: SizedBox(
-                height: size.height * 0.025,
-                width: 25,
-                child: Image.asset('assets/icons/shield-check.png')),
-            title: const Text('Kebijakan Privasi'),
-            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
-            onTap: onTapInfo3,
-          ),
-          SizedBox(
-            height: size.height * 0.025,
-          ),
-        ],
+      width: size.width * 0.365,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/question.png')),
+              title: const Text('Bantuan'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapInfo1,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/scroll.png')),
+              title: const Text('Syarat & Ketentuan'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapInfo2,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+            ListTile(
+              leading: SizedBox(
+                  height: size.height * 0.025,
+                  width: size.width * 0.100,
+                  child: Image.asset('assets/icons/shield-check.png')),
+              title: const Text('Kebijakan Privasi'),
+              trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+              onTap: onTapInfo3,
+            ),
+            SizedBox(
+              height: size.height * 0.025,
+            ),
+          ],
+        ),
       ),
     );
   }

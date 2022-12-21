@@ -40,12 +40,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Logged In',
+                'Berhasil Masuk',
               ),
             ),
           );
-          // Navigator.pushReplacementNamed(
-          //     context, PaymentMethodsScreen.routeName);
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
