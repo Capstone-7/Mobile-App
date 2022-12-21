@@ -25,16 +25,6 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   @override
   void initState() {
     super.initState();
-    // Future.delayed(
-    //   Duration.zero,
-    //   () {
-    //     final profileProvider =
-    //         Provider.of<ProfileProvider>(context, listen: false);
-    //
-    //     /// Fetch users data
-    //     profileProvider.fetchProfile();
-    //   },
-    // );
     final provider = Provider.of<UpdateProfileProvider>(context, listen: false);
     provider.addListener(
       () {
@@ -43,7 +33,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Can\'t update profile',
+                'Tidak dapat memperbarui profil',
               ),
             ),
           );
@@ -52,7 +42,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Profile updated successfully',
+                'Kata sandi berhasil diperbarui',
               ),
             ),
           );
@@ -81,8 +71,8 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
         children: [
           Container(
             color: const Color(Constant.mainColor),
-            height: size.height * 0.200,
-            width: size.width * 200,
+            height: size.height * 0.220,
+            width: size.width * 0.200,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -96,10 +86,14 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                       'Ubah Foto',
                       style: TextStyle(
                           fontSize: Constant.fontSemiBig, color: Colors.white),
-                    ))
+                    )),
+                     SizedBox(
+            height: size.height * 0.012,
+          ),
               ],
             ),
           ),
+         
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(24.0),
@@ -190,7 +184,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                                   ")+";
                               final RegExp regExp = RegExp(expression);
                               return !regExp.hasMatch(value!)
-                                  ? "Please, input valid email!"
+                                  ? "Silakan, masukkan email yang valid!"
                                   : null;
                             },
                           ),

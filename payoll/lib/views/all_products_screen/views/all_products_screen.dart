@@ -19,9 +19,10 @@ class AllProductsScreen extends StatelessWidget {
         toolbarHeight: 70.0,
         backgroundColor: const Color(0xff396EB0),
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 30.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          iconSize: 30.0,
+          onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           'Semua Produk',
@@ -47,6 +48,9 @@ class AllProductsScreen extends StatelessWidget {
                       size: size,
                       productCategory: myFavorite,
                     ),
+                    SizedBox(
+                      height: size.height * 0.012,
+                    ),
                     const Text(
                       'Daily',
                       style: TextStyle(fontSize: Constant.fontSemiBig),
@@ -55,6 +59,9 @@ class AllProductsScreen extends StatelessWidget {
                       size: size,
                       productCategory: daily,
                     ),
+                     SizedBox(
+                      height: size.height * 0.012,
+                    ),
                     const Text(
                       'Bills',
                       style: TextStyle(fontSize: Constant.fontSemiBig),
@@ -62,6 +69,9 @@ class AllProductsScreen extends StatelessWidget {
                     ProductListWidget(
                       size: size,
                       productCategory: bills,
+                    ),
+                     SizedBox(
+                      height: size.height * 0.012,
                     ),
                     const Text(
                       'Games',

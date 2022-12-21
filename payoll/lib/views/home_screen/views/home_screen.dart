@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: const Color(0xff396EB0),
@@ -27,13 +27,20 @@ class HomeScreen extends StatelessWidget {
               'Selamat Datang',
               style: TextStyle(fontSize: Constant.fontSemiSmall),
             ),
+            SizedBox(
+              height: size.height * 0.008,
+            ),
             Consumer<UserProvider>(builder: (context, provider, _) {
               final user = provider.profileModel;
-              return Text(
-                '${user?.name}',
-                style: const TextStyle(
-                    fontSize: Constant.fontExtraBig,
-                    fontWeight: FontWeight.w700),
+              return Container(
+                height: size.height * 0.050,
+                width: size.width * 0.55,
+                child: Text(
+                  '${user?.name}',
+                  style: const TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w700),
+                ),
               );
             }),
           ],
@@ -63,15 +70,13 @@ class HomeScreen extends StatelessWidget {
                           topLeft: Radius.circular(30.0),
                           topRight: Radius.circular(30.0))),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.only(top: 132.0,bottom: 0, right: 16.0, left: 16.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(
-                              height: 90.0,
-                            ),
                             const Text(
                               'Belanja Makin Hemat!!!',
                               style: TextStyle(
@@ -88,8 +93,14 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: size.height * 0.015,
+                      ),
                       HomeScreenCarousel(
                         size: size,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.012,
                       ),
                       TransactionHistorySection(size: size),
                     ],
@@ -101,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                 top: 5.0,
                 left: 0.0,
                 right: 0.0,
-                child: ServiceCardWidget(size: size))
+                child: ServiceCardWidget(size: size)),
           ],
         ),
       ),

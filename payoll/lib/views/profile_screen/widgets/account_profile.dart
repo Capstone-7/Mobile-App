@@ -8,6 +8,7 @@ class AccountProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Consumer<UserProvider>(builder: (context, provider, _) {
       final user = provider.profileModel;
       return Row(
@@ -21,10 +22,14 @@ class AccountProfile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '${user?.name}',
-                  style: const TextStyle(
-                      fontSize: Constant.fontBig, fontWeight: FontWeight.w600),
+                Container(
+                  width: size.width * 0.350,
+                  child: Text(
+                     overflow: TextOverflow.ellipsis,
+                    '${user?.name}',
+                    style: const TextStyle(
+                        fontSize: Constant.fontBig, fontWeight: FontWeight.w600),
+                  ),
                 ),
                 Text('${user?.email}',
                     style: const TextStyle(fontSize: Constant.fontSemiRegular)),

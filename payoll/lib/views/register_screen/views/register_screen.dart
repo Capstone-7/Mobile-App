@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'User doesn\'t exist!',
+                'Pengguna tidak ada!',
               ),
             ),
           );
@@ -48,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SnackBar(
               duration: Duration(seconds: 1),
               content: Text(
-                'Logged In',
+               'Berhasil Daftar',
               ),
             ),
           );
@@ -118,7 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   BorderRadius.all(Radius.circular(8)))),
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'Please, fill username field!';
+                          return 'Silakan, isi bidang nama pengguna!';
                         } else {
                           return null;
                         }
@@ -163,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ")+";
                         final RegExp regExp = RegExp(expression);
                         return !regExp.hasMatch(value!)
-                            ? "Please, input valid email!"
+                            ? "Silakan, masukkan email yang valid!"
                             : null;
                       },
                     ),
@@ -212,7 +212,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   BorderRadius.all(Radius.circular(8)))),
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'Please, fill password field!';
+                          return 'Silakan isi kolom kata sandi!';
                         } else {
                           return null;
                         }
@@ -263,7 +263,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   BorderRadius.all(Radius.circular(8)))),
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return 'Please, fill password field!';
+                          return 'Silakan isi kolom kata sandi!';
                         } else {
                           return null;
                         }
@@ -285,7 +285,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               const SnackBar(
                                 duration: Duration(seconds: 1),
                                 content: Text(
-                                  'Password and Confirm Password does not match',
+                                  'Kata Sandi dan Konfirmasi Kata Sandi tidak cocok',
                                 ),
                               ),
                             );
@@ -342,7 +342,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         Container(
                           height: size.height * 0.001,
-                          width: 150.0,
+                          width: size.width * 0.350,
                           color: const Color(0xFFA9A9A9),
                         ),
                         const Text(
@@ -353,7 +353,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(
                           height: size.height * 0.001,
-                          width: 150.0,
+                          width: size.width * 0.350,
                           color: const Color(0xFFA9A9A9),
                         ),
                       ],
@@ -367,6 +367,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ],
                 ),
               ),
+               SizedBox(
+                    height: size.height * 0.018,
+                  ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -380,7 +383,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           context, LoginScreen.routeName);
                     },
                     child: const Text(
-                      'Masuk',
+                     'Berhasil Daftar',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         color: Color(Constant.mainColor),

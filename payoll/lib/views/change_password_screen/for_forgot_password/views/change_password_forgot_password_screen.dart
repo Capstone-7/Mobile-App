@@ -97,13 +97,6 @@ class _ChangePasswordForgotPasswordScreenState
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // }
                       ),
                       SizedBox(
                         height: size.height * 0.018,
@@ -148,13 +141,6 @@ class _ChangePasswordForgotPasswordScreenState
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8)))),
-                        // validator: (String? value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please, fill password field!';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // }
                       ),
                       SizedBox(
                         height: size.height * 0.018,

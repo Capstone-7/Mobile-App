@@ -63,6 +63,9 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
               )
             ],
           ),
+          SizedBox(
+            height: size.height * 0.008,
+          ),
           Consumer<TransactionHistoryProvider>(builder: (context, provider, _) {
             switch (provider.myState) {
               case MyState.loading:
@@ -71,8 +74,8 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                 );
               case MyState.loaded:
                 if (provider.transactionHistoryModel?.data == null) {
-                  return const SizedBox(
-                      height: 60.0,
+                  return SizedBox(
+                      height: size.height * 60.0,
                       child: Center(child: Text('No transaction data yet')));
                 } else {
                   return ListView.builder(
@@ -92,8 +95,8 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                       return Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          height: size.height * 0.12,
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          height: size.height * 0.15,
                           decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius:
@@ -106,16 +109,15 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: 60.0,
+                                    width: size.width * 0.150,
                                     decoration: const BoxDecoration(
                                       color: Color(0xffFAFAFA),
-                                      // color: Colors.blue,
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(16.0),
                                       child: Image.asset(
                                         'assets/icons/pulsa-and-data.png',
-                                        height: 40.0,
+                                        height: size.height * 0.050,
                                       ),
                                     ),
                                   ),
@@ -142,14 +144,12 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                                           'Order Id: ${transactionData.id}',
                                           overflow: TextOverflow.clip,
                                           maxLines: 1,
-                                          // style:TextStyle(fontSize: Constant.fontSmall),
                                         ),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              // '17 Dec 2022'
                                               DateFormat.yMMMMd().format(
                                                 DateTime(
                                                   int.parse(transactionData
@@ -189,17 +189,9 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text(
-                                      Constant.oCcy
-                                          .format(transactionData.totalPrice)
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontSize: 17.0,
-                                          fontWeight: FontWeight.w700),
-                                    ),
                                     Container(
-                                      height: 40.0,
-                                      width: 100.0,
+                                      height: size.height * 0.048,
+                                      width: size.width * 0.222,
                                       decoration: BoxDecoration(
                                           color:
                                               (transactionData.xenditStatus ==
@@ -220,7 +212,15 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
                                         transactionData.xenditStatus!,
                                         style: const TextStyle(fontSize: 17.0),
                                       )),
-                                    )
+                                    ),
+                                      Text(
+                                      Constant.oCcy
+                                          .format(transactionData.totalPrice)
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w700),
+                                    ),
                                   ],
                                 ),
                               )
