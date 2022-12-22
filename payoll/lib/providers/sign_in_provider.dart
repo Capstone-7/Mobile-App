@@ -3,12 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/sign_in_model.dart';
 import '../services/services.dart';
+import '../services/sharedServices.dart';
 import '../utils/state/finite_state.dart';
 
 class SignInProvider extends ChangeNotifier {
   final ApiService service = ApiService();
   late SharedPreferences loginData;
-
+      final prf = SharedService();
   SignInModel? users;
 
   MyState myState = MyState.initial;
@@ -25,6 +26,7 @@ class SignInProvider extends ChangeNotifier {
         email: email,
         password: password,
       );
+      prf.saveToken(users.token!);
       await loginData.setString('login', users.token!);
       myState = MyState.loaded;
       notifyListeners();

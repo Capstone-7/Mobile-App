@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../providers/sign_in_provider.dart';
 import '../../../providers/user_provider.dart';
+import '../../../services/sharedServices.dart';
 import '../../../utils/state/finite_state.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -25,8 +26,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late SharedPreferences loginData;
   String username = '';
 
-  void initial () async {
-     loginData = await SharedPreferences.getInstance();
+  void initial() async {
+    loginData = await SharedPreferences.getInstance();
   }
 
   @override
@@ -34,8 +35,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     initial();
     Future.delayed(
       Duration.zero,
-          () {
-        final profileProvider = Provider.of<UserProvider>(context, listen: false);
+      () {
+        final profileProvider =
+            Provider.of<UserProvider>(context, listen: false);
         profileProvider.fetchProfile();
       },
     );
@@ -44,7 +46,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     final provider = Provider.of<SignInProvider>(context, listen: false);
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -91,25 +92,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
           SizedBox(
             height: size.height * 0.035,
           ),
-          ProfileLogoutButton(
-            onPressed: () {
-              loginData.setBool('login', true);
-                loginData.remove('username');
-            
-       if (provider.myState == MyState.loaded) {
-         username = loginData.getString('username').toString();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              duration: Duration(seconds: 1),
-              content: Text(
-                'Berhasil Keluar',
+          ProfileLogoutButton(onPressed: () {
+            final prf = SharedService();
+            prf.deleteToken();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                duration: Duration(seconds: 1),
+                content: Text(
+                  'Berhasil Keluar',
+                ),
               ),
-            ),
-          );
-          Navigator.pushNamedAndRemoveUntil(context, LoginScreen.routeName, (route) => false);
-        
-                
-  }})
+            );
+            Navigator.pushNamedAndRemoveUntil(
+                context, LoginScreen.routeName, (route) => false);
+            // loginData.setBool('login', true);
+            // loginData.remove('username');
+
+            // if (provider.myState == MyState.loaded) {
+            //   username = loginData.getString('username').toString();
+            //   ScaffoldMessenger.of(context).showSnackBar(
+            //     const SnackBar(
+            //       duration: Duration(seconds: 1),
+            //       content: Text(
+            //         'Berhasil Keluar',
+            //       ),
+            //     ),
+            //   );
+            //   Navigator.pushNamedAndRemoveUntil(
+            //       context, LoginScreen.routeName, (route) => false);
+            // }
+          })
         ]));
   }
 }
