@@ -6,6 +6,7 @@ import 'package:payoll/views/splash_screen/views/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/sign_in_provider.dart';
+import '../../../services/sharedServices.dart';
 import '../../../utils/constant.dart';
 import '../../../utils/state/finite_state.dart';
 
@@ -234,6 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8))),
                           onPressed: () async {
+                            final prf = SharedService();
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
         
@@ -241,6 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 email: _emailController.text,
                                 password: _passwordController.text,
                               );
+                              // prf.saveToken(token)
                             }
                           },
                           child: const Text('MASUK')),
